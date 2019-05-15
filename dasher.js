@@ -16,8 +16,8 @@ function end(){
 }
 function move(e){
    this.moving=true
-   console.log(e.x)
-   console.log(e.y)
+//   console.log(e.x)
+//   console.log(e.y)
 
    this.tx=e.x
    this.ty=e.y
@@ -56,6 +56,11 @@ function Dasher(el){
 //   this.touch()
 }
 
+// Projection coeffecient 
+Dasher.prototype.coeff=function(dx){
+	 return 1-Math.log(1-dx)
+}
+
 // Draw "Dasher" Box 
 Dasher.prototype.dBox=function(s,f){
 //   console.log("DBOX @ f="+f)
@@ -63,13 +68,24 @@ Dasher.prototype.dBox=function(s,f){
    var w=f*this.w
    var h=f*this.h
 // y - subject to change
-   var y=this.h*0.2+this.pos.y
+   var y=this.h*0.05+this.pos.y
+
+	 var dy=(y-this.cy)/this.h
+//	 console.log("dy="+dy)
+	 var k=this.coeff(dy)*2
+
+	 if(k*(this.xoffs+this.pos.x+w)<0){
+			this.xoffs+=w
+			return
+	 }
+
+//	 console.log("k="+k)
 
    //  draw  rectangle / stroke Rect
-   this.rect(this.xoffs+this.pos.x,y,w,h)
+   this.rect(k*(this.xoffs+this.pos.x),y,k*w,k*h)
 
    // draw text
-   this.string(s,this.xoffs+this.pos.x,y+h,h,w)
+   this.string(s,k*(this.xoffs+this.pos.x),y+h*k,k*h,k*w)
 
    this.xoffs+=w
 }
@@ -121,6 +137,7 @@ Dasher.prototype.render=function(){
 //      console.log(this.prof.sorted[k]+" => "  +  f)
 
       this.dBox(this.prof.sorted[k],f)
+			if(this.xofs>this.w) break;
    }
 
    // Draw cursor
@@ -128,7 +145,7 @@ Dasher.prototype.render=function(){
 //   console.log(this.tx)
 //   console.log(this.ty)
    if(this.moving){
-      console.log("moving")
+//      console.log("moving")
       this.vector(this.cx,this.cy,this.tx,this.ty)
    }
 }
