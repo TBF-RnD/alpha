@@ -1,0 +1,4 @@
+http://www.hnldesign.nl/work/code/mobileconsole-javascript-console-for-mobile-devices/
+http://victorjs.org/
+https://jquery.com/
+http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html

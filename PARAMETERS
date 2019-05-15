@@ -1,0 +1,6 @@
+- alpha
+	* model		- input method to use, case sensitive
+	* profile	- frequency profile data to load
+	* target		- element to receive text  output
+	* width		- width of canvas  in px
+	* height		- height of canvas in px

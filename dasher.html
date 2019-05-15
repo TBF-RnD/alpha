@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<!--  External  -->
+		<script type="text/javascript" src="hnl.mobileConsole.js"></script>
+		<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="victor.min.js"></script>
+	
+		<!-- Statistical data -->
+		<script type="text/javascript">
+			profiles=[]
+		</script>
+		<script src="english-1.js" type="text/javascript"></script>
+
+		<!--  Local scripts  -->
+		<script src="presentation.js" type="text/javascript"></script>
+		<script src="fprof.js" type="text/javascript"></script>
+		<script src="alpha.js" type="text/javascript"></script>
+		<script src="dasher.js" type="text/javascript"></script>
+
+		<!-- Styling  -->
+		<link rel="stylesheet" type="text/css" href="alpha.css"></link>
+		<link rel="stylesheet" type="text/css" href="dasher.css"></link>
+		<link rel="stylesheet" type="text/css" href="presentation.css"></link>
+	</head>
+	<body>
+		<div id="editor">
+			<p id="output"></p>
+			<alpha 
+				id="dasher"
+				model="Dasher"
+				profile="english-1" 
+				target="output"
+				width="800"
+				height="300">
+			</alpha>
+			<div>
+				<div class="ctrl" id="fs">FS</div>
+				<div class="ctrl" id="cfg">CFG</div>
+			</div>
+		</div>
+	</body>
+</html>
