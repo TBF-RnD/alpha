@@ -62,32 +62,55 @@ Dasher.prototype.coeff=function(dx){
 }
 
 // Draw "Dasher" Box 
-Dasher.prototype.dBox=function(s,f){
-//   console.log("DBOX @ f="+f)
+// Returns width of box, for use as x offset
+Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
+   var w=f*w0
+   var h=f*h0
+   var y=h0*0.05+this.pos.y
 
-   var w=f*this.w
-   var h=f*this.h
-// y - subject to change
-   var y=this.h*0.05+this.pos.y
-
-	 var dy=(y-this.cy)/this.h
-//	 console.log("dy="+dy)
+	 var dy=(y-this.cy)/h0-yoffs
 	 var k=this.coeff(dy)*2
 
-	 if(k*(this.xoffs+this.pos.x+w)<0){
-			this.xoffs+=w
-			return
+   //  draw  rectangle / stroke Rect
+   this.rect(xo+k*(xoffs+this.pos.x),0,k*w,k*h)
+   // draw text
+   this.string(s,xo+k*(xoffs+this.pos.x),h*k,k*h,k*w)
+	 
+	 var xoi=xo+k*(xoffs+this.pos.x)
+
+	 // next level
+   for(var kx in this.prof.sorted){
+			var f1=this.prof.f(this.prof.sorted[kx])
+			var dy1=dy-1
+			var k1=this.coeff(dy1)*2
+
+			var w1=k*w*f1
+			var h1=k*h*f1
+	 
+			this.rect(xoi,0,w1,h1)
+
+			xoi+=w1
 	 }
 
-//	 console.log("k="+k)
+   return w
+}
+Dasher.prototype.dBoxI=function(s,f,w0,h0,xoffs,yoffs,xo){
+   var w=f*w0
+   var h=f*h0
+   var y=h0*0.05+this.pos.y
+
+	 var dy=(y-this.cy)/h0-yoffs
+	 var k=this.coeff(dy)*2
+
+	 if(k*(xoffs+this.pos.x+w)<0)
+			return w
 
    //  draw  rectangle / stroke Rect
-   this.rect(k*(this.xoffs+this.pos.x),y,k*w,k*h)
-
+   this.rect(k*(xoffs),0,k*w,k*h)
    // draw text
-   this.string(s,k*(this.xoffs+this.pos.x),y+h*k,k*h,k*w)
+   this.string(s,k*(xoffs),h*k,k*h,k*w)
 
-   this.xoffs+=w
+   return w
 }
 
 Dasher.prototype.cursor=function(){
@@ -130,22 +153,21 @@ Dasher.prototype.render=function(){
    this.clear()
 
    // needs to be cleared for every render
-   this.xoffs=0
+	 var xoffs=0
 
    for(var k in this.prof.sorted){
       var f=this.prof.f(this.prof.sorted[k])
-//      console.log(this.prof.sorted[k]+" => "  +  f)
+			var x0=xoffs
 
-      this.dBox(this.prof.sorted[k],f)
-			if(this.xofs>this.w) break;
+      xoffs+=this.dBox(this.prof.sorted[k],f,
+				 this.w,this.h,xoffs,0,0)
    }
 
    // Draw cursor
-    this.cursor()
-//   console.log(this.tx)
-//   console.log(this.ty)
+   this.cursor()
+
+	 // Draw dir vector
    if(this.moving){
-//      console.log("moving")
       this.vector(this.cx,this.cy,this.tx,this.ty)
    }
 }
