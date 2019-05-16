@@ -19,10 +19,18 @@ function canvas(width,height){
 
 }
 
+// Draws a string
 function string(str,x,y,size,w){
-		  this.ctx.fillStyle=this.fg
-		  this.ctx.font=Math.floor(size)+"px sans"
-		  this.ctx.fillText(str,x,y,w)
+	 // Hardly visible 
+	 if(size < this.fontsize_th) return;
+	 // Don't bother if outside of screen
+	 var r=new Rect(new Victor(x,y),new Victor(w,size))
+	 if(!r.overlaps(this.screen)) return
+
+	 // Set foreground, fontsize and draw
+	 this.ctx.fillStyle=this.fg
+	 this.ctx.font=Math.floor(size)+"px sans"
+	 this.ctx.fillText(str,x,y,w)
 }
 
 function line(x0,y0,x1,y1){
@@ -96,21 +104,54 @@ function touch(){
    })
 }
 
+function key(){
+	var selfref=this;
+	console.log("binding keys...")
+	$(document).keydown(function(ev){
+		console.log("keydown")
+		var e={x:0,y:0}
+		switch(ev.keyCode){
+			case 38:
+				e.y=-1
+				selfref.key(e)
+				break;
+			case 39:
+				e.x=1
+				selfref.key(e)
+				break;
+			case 40:
+				e.y=1
+				selfref.key(e)
+				break;
+			case 37:
+				e.x=-1;
+				selfref.key(e)
+				break;
+		}
+	})
+}
+
 // Constructor for alpha object
 function Alpha(el){
-	// Save referenec to DOM element via jQuery object
-	this.el=el
-	this.moving=false
-	this.tx=-1
-	this.ty=-1
+	 // Save referenec to DOM element via jQuery object
+	 this.el=el
+	 this.moving=false
+	 this.tx=-1
+	 this.ty=-1
 
-				// cfg options
+
+
+	// cfg options
    this.bg='white'
    this.fg='black'
    this.hlen=48
+	 this.fontsize_th=8
 
 	 this.w=parseInt(el.attr('width'))
 	 this.h=parseInt(el.attr('height'))
+
+	 this.screen=new Rect(new Victor(0,0),new Victor(this.w,this.h))
+	 console.log(this.screen)
 
 	 // Functions 
 	 this.canvas=canvas
@@ -121,6 +162,8 @@ function Alpha(el){
    this.lineV=lineV
    this.touch=touch
    this.vector=vector
+	this.key=key
+
    this.touchstart=function(){
       console.log("A touchstart")
    }
@@ -135,6 +178,7 @@ function Alpha(el){
 
    // bind touch events
    this.touch()
+	this.key()
 
 	// For debugging
 	fprof=this.fprof

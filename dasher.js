@@ -69,31 +69,52 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
    var y=h0*0.05+this.pos.y
 
 	 var dy=(y-this.cy)/h0-yoffs
+	 var dx=xoffs+this.pos.x
 	 var k=this.coeff(dy)*2
 
-   //  draw  rectangle / stroke Rect
-   this.rect(xo+k*(xoffs+this.pos.x),0,k*w,k*h)
-   // draw text
-   this.string(s,xo+k*(xoffs+this.pos.x),h*k,k*h,k*w)
-	 
+	 var P=new Victor(xo+k*dx,0)
+	 var D=new Victor(k*w,k*h)
+
+   this.rect(P.x,P.y,D.x,D.y)
+	 this.string(s,P.x,D.y,D.y/2,D.x)
+			
 	 var xoi=xo+k*(xoffs+this.pos.x)
 
 	 // next level
    for(var kx in this.prof.sorted){
 			var f1=this.prof.f(this.prof.sorted[kx])
-			var dy1=dy-1
-			var k1=this.coeff(dy1)*2
+			var s=this.prof.sorted[kx]
 
-			var w1=k*w*f1
-			var h1=k*h*f1
-	 
-			this.rect(xoi,0,w1,h1)
-
-			xoi+=w1
+			xoi+=this.dBoxII(s,f1,xoi,k*w,k*h,dy-1)
 	 }
 
    return w
 }
+
+Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
+	 if(dy<-4) return;
+
+	 var dy1=dy
+	 var k1=this.coeff(dy1)*2
+
+	 var w1=w0*f
+	 var h1=h0*f
+
+	 this.rect(x0,0,w1,h1)
+	 this.string(s,x0,h1,h1/2,w1)
+
+	 var xoi=x0
+
+   for(var kx in this.prof.sorted){
+			var f1=this.prof.f(this.prof.sorted[kx])
+			var s=this.prof.sorted[kx]
+
+			xoi+=this.dBoxII(s,f1,xoi,w1,h1,dy-1)
+	 }
+
+	 return w1
+}
+
 Dasher.prototype.dBoxI=function(s,f,w0,h0,xoffs,yoffs,xo){
    var w=f*w0
    var h=f*h0

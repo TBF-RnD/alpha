@@ -8,8 +8,10 @@ function toggleFullscreen(el){
 
 $(document).ready(function(){
 				var editor=$("#editor")
-				toggleFullscreen(editor[0])
-				mobileConsole.toggle()
+				if(true){
+					toggleFullscreen(editor[0])
+					mobileConsole.toggle()
+				}
 				
 				$("#fs").click(function(){ toggleFullscreen(editor[0])  })
 
