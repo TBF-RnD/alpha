@@ -76,7 +76,7 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 	 var D=new Victor(k*w,k*h)
 
    this.rect(P.x,P.y,D.x,D.y)
-	 this.string(s,P.x,D.y,D.y/2,D.x)
+	 this.string(s,P.x,D.y,D.y/2,D.x,true)
 			
 	 var xoi=xo+k*(xoffs+this.pos.x)
 
@@ -101,7 +101,7 @@ Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
 	 var h1=h0*f
 
 	 this.rect(x0,0,w1,h1)
-	 this.string(s,x0,h1,h1/2,w1)
+	 this.string(s,x0,h1,h1/2,w1,true)
 
 	 var xoi=x0
 

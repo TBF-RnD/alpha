@@ -19,17 +19,25 @@ function canvas(width,height){
 
 }
 
-// Draws a string
-function string(str,x,y,size,w){
+// Draws a "centered" string
+function string(str,x,y,size,w,center){
 	 // Hardly visible 
 	 if(size < this.fontsize_th) return;
 	 // Don't bother if outside of screen
 	 var r=new Rect(new Victor(x,y),new Victor(w,size))
 	 if(!r.overlaps(this.screen)) return
 
+
 	 // Set foreground, fontsize and draw
 	 this.ctx.fillStyle=this.fg
 	 this.ctx.font=Math.floor(size)+"px sans"
+	 if(center){
+			var dim=this.ctx.measureText(str)
+			if(dim.width<w){
+				 var dx=(w-dim.width)/2
+				 x+=dx
+			}
+	 }
 	 this.ctx.fillText(str,x,y,w)
 }
 
