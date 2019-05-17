@@ -135,27 +135,32 @@ function touch(){
    })
 }
 
-function key(){
+function bindkey(){
 	var selfref=this;
 	$(document).keydown(function(ev){
 		console.log("keydown")
+		console.log(ev.keyCode)
 		var e={x:0,y:0}
 		switch(ev.keyCode){
 			case 38:
 				e.y=-1
 				selfref.key(e)
+				e.preventDefault()
 				break;
 			case 39:
 				e.x=1
 				selfref.key(e)
+				e.preventDefault()
 				break;
 			case 40:
 				e.y=1
 				selfref.key(e)
+				e.preventDefault()
 				break;
 			case 37:
 				e.x=-1;
 				selfref.key(e)
+				e.preventDefault()
 				break;
 		}
 	})
@@ -194,7 +199,7 @@ function Alpha(el){
    this.touch=touch
    this.vector=vector
 	 this.cursorP=cursorP
-	 this.key=key
+	 this.bindkey=bindkey
 
    this.touchstart=function(){
       console.log("A touchstart")
@@ -211,7 +216,7 @@ function Alpha(el){
    // bind touch events
    this.touch()
 // rename this!!
-//	this.key()
+	 this.bindkey()
 
 	// For debugging
 	fprof=this.fprof

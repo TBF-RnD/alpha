@@ -232,8 +232,12 @@ Dasher.prototype.inputArea=function(){
 	 this.cursorP(this.inputCursor,this.inputCursorLen)
 }
 
+Dasher.prototype.key=function(e){
+	 console.log("Got key movement")
+}
+
 Dasher.prototype.render=function(){
-	 //  Do movement loggic
+	 //  Do movement logic
 	 this.update()
 	 //  Fill canvas
    this.clear()
