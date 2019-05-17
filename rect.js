@@ -34,3 +34,12 @@ Rect.prototype.overlaps=function(r){
 			this.P.y + this.D.y < r.P.y) return false
 	 return true
 }
+
+// Get center of rectangle
+Rect.prototype.center=function(){
+	 var res=this.P.clone()
+	 var mid=this.D.clone()
+	 mid.multiply(new Victor(0.5,0.5))
+	 res.add(mid)
+	 return res
+}

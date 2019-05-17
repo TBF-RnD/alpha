@@ -89,6 +89,19 @@ function rect(x,y,w,h){
    this.ctx.strokeRect(x,y,w,h)
 }
 
+function rectR(r){
+	 this.rect(r.P.x,r.P.y,r.D.x,r.D.y)
+}
+
+// basically same as cursor in dasher
+function cursorP(p,l){
+	 var x=p.x
+	 var y=p.y
+
+	 this.line(x-l,y,x+l,y)
+   this.line(x,y-l,x,y+l)
+}
+
 function touch(){
    var el=this.el
    var selfref=this
@@ -99,9 +112,19 @@ function touch(){
 	 selfref.moving=true
    })
    el.on("touchmove",function(e){	
-      var touch=e.touches[0]
+			var touch=e.touches[0]
+			var pos=el.position()
+			var offs=el.offset()
+
+			/*
+			console.log("Pos / offs / scrollTop")
+			console.log(pos)
+			console.log(offs)
+			console.log(el.scrollTop())
+			*/
+
       selfref.tx=touch.clientX
-      selfref.ty=touch.clientY
+      selfref.ty=touch.clientY-44
 	
       selfref.touchmove({x:selfref.tx,y:selfref.ty})
    })
@@ -114,7 +137,6 @@ function touch(){
 
 function key(){
 	var selfref=this;
-	console.log("binding keys...")
 	$(document).keydown(function(ev){
 		console.log("keydown")
 		var e={x:0,y:0}
@@ -165,12 +187,14 @@ function Alpha(el){
 	 this.canvas=canvas
 	 this.clear=clear
 	 this.rect=rect
+	 this.rectR=rectR
 	 this.string=string
 	 this.line=line
    this.lineV=lineV
    this.touch=touch
    this.vector=vector
-	this.key=key
+	 this.cursorP=cursorP
+	 this.key=key
 
    this.touchstart=function(){
       console.log("A touchstart")
@@ -186,7 +210,8 @@ function Alpha(el){
 
    // bind touch events
    this.touch()
-	this.key()
+// rename this!!
+//	this.key()
 
 	// For debugging
 	fprof=this.fprof

@@ -16,15 +16,14 @@ function end(){
 }
 function move(e){
    this.moving=true
-//   console.log(e.x)
-//   console.log(e.y)
 
    this.tx=e.x
    this.ty=e.y
-//   console.log("D  got "  + this.tx + "x"+this.ty)
-//   this.render()
-//   console.log("now at " + this.tx +  " " + this.ty)
-//   this.vector(this.cx,this.cy,e.x,e.y)
+
+	 /*
+	 console.log("move")
+	 console.log(e)
+	 */
 }
 
 // Constructor for dasher model 
@@ -37,12 +36,20 @@ function Dasher(el){
    this.cx = this.w/2
    this.cy = this.h*.8
    this.FPS = 30
+	 this.inputCursorLen = 20
+	 
+	 this.inputAreaGravity="SW"
+	 this.inputAreaPadding=0.1
+
 	 // Velocity
 	 this.v = 250
 
    // State
    this.interval=-1
 	 this.pos=new Victor(0,0)
+
+	 // Calc. pos & dim for touch area
+	 this.calcInputArea()
 
    console.log("Set up dasher model...")
    this.render()
@@ -152,25 +159,83 @@ Dasher.prototype.update=function(){
 	 if(!this.moving) return
 
 	 // cursor
-	 var c=new Victor(this.cx,this.cy)
+//	 var c=new Victor(this.cx,this.cy)
+//	 console.log("Cursor position")
+//	 console.log(this.inputCursor)
+	 var c=this.inputCursor
+
 	 // touch input
 	 var i=new Victor(this.tx,this.ty)
 	 i.subtract(c)
-	 i.normalize()
+//	 i.normalize()
+	 i.divide(this.inputRect.D)
+
 	 i.invertY()
 	 i.invertX()
 
 	 var t=1.0/this.FPS
 	 var d=t*this.v
 	 i.multiply(new Victor(d,d))
+
+	 console.log("V0: "+i.magnitude())
 	 
 	 this.pos.add(i)
 	 console.log(i)
 }
 
-Dasher.prototype.render=function(){
-	 this.update()
+// Calculate coordinates for input area
+Dasher.prototype.calcInputArea=function(){
+	 var input=new Rect(new Victor(0,0),new Victor(1,1))
 
+	 switch(this.inputAreaGravity){
+			case "SW":
+				 input.P=new Victor(0,0.5)
+				 input.D.multiply(new Victor(0.5,0.5))
+				 break;
+			case "NW":
+				 input.P=new Victor(0,0.0)
+				 input.D.multiply(new Victor(0.5,0.5))
+				 break;
+			case "SW":
+				 input.P=new Victor(0.0,0.5)
+				 input.D.multiply(new Victor(0.5,0.5))
+				 break;
+			case "SE":
+				 input.P=new Victor(0.5,0.5)
+				 input.D.multiply(new Victor(0.5,0.5))
+				 break;
+			default:
+				 break;
+	 }
+	 // Apply padding
+	 var p=this.inputAreaPadding
+	 var w=this.w*(1-p*2)
+	 var h=this.h*(1-p*2)
+	 var x=this.w*p
+	 var y=this.h*p
+
+	 input.D.multiply(new Victor(w,h))
+	 input.P.multiply(new Victor(w,h))
+	 input.P.add(new Victor(x,y))
+	 
+	 console.log(input.P)
+	 console.log(input.D)
+
+	 this.inputRect=input
+
+	 var mid=input.center()
+	 this.inputCursor=mid
+}
+
+Dasher.prototype.inputArea=function(){
+	 this.rectR(this.inputRect)
+	 this.cursorP(this.inputCursor,this.inputCursorLen)
+}
+
+Dasher.prototype.render=function(){
+	 //  Do movement loggic
+	 this.update()
+	 //  Fill canvas
    this.clear()
 
    // needs to be cleared for every render
@@ -180,15 +245,20 @@ Dasher.prototype.render=function(){
       var f=this.prof.f(this.prof.sorted[k])
 			var x0=xoffs
 
-      xoffs+=this.dBox(this.prof.sorted[k],f,
-				 this.w,this.h,xoffs,0,0)
+//v      xoffs+=this.dBox(this.prof.sorted[k],f,
+//				 this.w,this.h,xoffs,0,0)
    }
-
+	 
+	 var pstr=this.tx+"x"+this.ty
+	 this.string(pstr,0,42,42,1000)
+	 
+	 // Draw input control box
+	 this.inputArea()
    // Draw cursor
    this.cursor()
 
 	 // Draw dir vector
    if(this.moving){
-      this.vector(this.cx,this.cy,this.tx,this.ty)
+      this.vector(this.inputCursor.x,this.inputCursor.y,this.tx,this.ty)
    }
 }

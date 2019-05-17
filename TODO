@@ -3,3 +3,6 @@ implement acceleratoin and resistance in dasher movement
 text vertical alignment
 fonts as bitmaps
 device orientation in presentation
+proper culling
+update position on each event
+Scale function for vectors
