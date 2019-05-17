@@ -80,13 +80,15 @@ function Dasher(el){
    this.touchend=end
 
 
+
    // bind touch events
 //   this.touch()
 }
 
 // Projection coeffecient 
 Dasher.prototype.coeff=function(dx){
-	 return 1-Math.log(1-dx)
+	 if(dx<0) return 1-Math.log(1-dx)
+	 return 1+dx
 }
 
 // Store box for hitbox purposes
@@ -146,7 +148,7 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 	 var k=this.coeff(dy)*2
 
 	 var P=new Victor(xo+k*dx,0)
-	 var D=new Victor(k*w,k*h)
+	 var D=new Victor(k*w,h+this.pos.y)
 	 
 	 // save hitbox for collision detection
 	 this.storeBox(P,D,s)
@@ -161,17 +163,21 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 			var f1=this.prof.f(this.prof.sorted[kx])
 			var s=this.prof.sorted[kx]
 
-			xoi+=this.dBoxII(s,f1,xoi,k*w,k*h,dy-1)
+			xoi+=this.dBoxII(s,f1,xoi,k*w,h+this.pos.y,dy-1)
 	 }
+
+	 this.printV(this.pos,1)
+	 this.printVAR("y=",dy,2)
+	 this.printVAR("k=",k,3)
 
    return w
 }
 
 Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
-	 if(dy<-2) return;
+	 if(dy<-1.999999) return;
 
 	 var dy1=dy
-	 var k1=this.coeff(dy1)*2
+//	 var k1=this.coeff(dy1)*2
 
 	 var w1=w0*f
 	 var h1=h0*f
@@ -330,6 +336,7 @@ Dasher.prototype.key=function(e){
 }
 
 Dasher.prototype.render=function(){
+	 this.n_strings=0
 	 //  Fill canvas
    this.clear()
 
@@ -367,4 +374,5 @@ Dasher.prototype.render=function(){
    }
 
 //	 this.vectorP(this.inputCursor.P,new Victor(this.tx,this.ty))
+	 this.printVAR("n strings",this.n_strings,4)
 }

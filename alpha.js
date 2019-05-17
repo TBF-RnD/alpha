@@ -25,7 +25,7 @@ function string(str,x,y,size,w,center){
 	 if(size < this.fontsize_th) return;
 	 // Don't bother if outside of screen
 	 var r=new Rect(new Victor(x,y),new Victor(w,size))
-	 if(!r.overlaps(this.screen)) return
+//	 if(!r.overlaps(this.screen)) return
 
 
 	 // Set foreground, fontsize and draw
@@ -39,6 +39,7 @@ function string(str,x,y,size,w,center){
 			}
 	 }
 	 this.ctx.fillText(str,x,y,w)
+	 this.n_strings++
 }
 
 function line(x0,y0,x1,y1){
@@ -172,6 +173,19 @@ function bindkey(){
 	})
 }
 
+//  print vector at line y
+function printV(V,y){
+	 var str=V.x+"x"+V.y
+	 var y=y*20
+	 this.string(str,0,y,20,1000)
+}
+function printVAR(n,v,y){
+	 var str=n+"="+v
+	 var y=y*20
+	 this.string(str,0,y,20,1000)
+}
+
+
 // Constructor for alpha object
 function Alpha(el){
 	 // Save referenec to DOM element via jQuery object
@@ -179,8 +193,6 @@ function Alpha(el){
 	 this.moving=false
 	 this.tx=-1
 	 this.ty=-1
-
-
 
 	// cfg options
    this.bg='white'
@@ -193,6 +205,10 @@ function Alpha(el){
 
 	 this.screen=new Rect(new Victor(0,0),new Victor(this.w,this.h))
 	 console.log(this.screen)
+
+	 // State
+	 this.n_strings=0
+	 this.n_rects=0
 
 	 // Functions 
 	 this.canvas=canvas
@@ -207,6 +223,8 @@ function Alpha(el){
    this.vectorP=vectorP
 	 this.cursorP=cursorP
 	 this.bindkey=bindkey
+	 this.printV=printV
+	 this.printVAR=printVAR
 
    this.touchstart=function(){
       console.log("A touchstart")
