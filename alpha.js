@@ -62,8 +62,10 @@ function lineV(p0,p1){
 function vector(x0,y0,x1,y1){
    var p0=new Victor(x0,y0)
    var p1=new Victor(x1,y1)
-  
-
+ 
+	 vectorP(p0,p1)
+}
+function vectorP(p0,p1){
    var i=p1.clone()
    i.subtract(p0)
    hl=Math.min(this.hlen,i.magnitude())
@@ -198,6 +200,7 @@ function Alpha(el){
    this.lineV=lineV
    this.touch=touch
    this.vector=vector
+   this.vectorP=vectorP
 	 this.cursorP=cursorP
 	 this.bindkey=bindkey
 
@@ -209,6 +212,10 @@ function Alpha(el){
    var profile=el.attr("profile")
    console.log("Trying to load: " + profile)
    this.prof=new FProf(profile)
+
+	 // Set up output model
+	 var targetid=el.attr("target")
+	 this.target=new Output($("#"+targetid))
 
    //  Set up graphics
    this.canvas(this.w,this.h)

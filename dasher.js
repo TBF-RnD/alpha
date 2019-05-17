@@ -1,3 +1,8 @@
+function Box(P,D,s){
+	 this.r=new Rect(P,D)
+	 this.s=s
+}
+
 function start(){
    var selfref=this
 
@@ -20,6 +25,16 @@ function move(e){
    this.tx=e.x
    this.ty=e.y
 
+	 console.log("move")
+	 console.log(e)
+	 console.log(this.ppos)
+/*	 if(this.ppos!=false){
+			this.gotHit(this.ppos,new Victor(e.x,e.y))
+	 }
+
+	 
+	 this.ppos=new Victor(e.x,e.y)
+*/
 	 /*
 	 console.log("move")
 	 console.log(e)
@@ -47,6 +62,9 @@ function Dasher(el){
    // State
    this.interval=-1
 	 this.pos=new Victor(0,0)
+	 this.ppos=false
+
+	 this.boxes=[]
 
 	 // Calc. pos & dim for touch area
 	 this.calcInputArea()
@@ -68,6 +86,51 @@ Dasher.prototype.coeff=function(dx){
 	 return 1-Math.log(1-dx)
 }
 
+// Store box for hitbox purposes
+Dasher.prototype.storeBox=function(P,D,s){
+	 this.boxes.push(new Box(P,D,s))
+}
+
+// Cursor going into box
+Dasher.prototype.intoBox=function(box){
+	 this.target.emit(box.s)
+	 console.log("into box")
+}
+
+// Cursor going out of box
+Dasher.prototype.outofBox=function(box){
+	 this.target.remove()
+	 console.log("backspace")
+}
+
+Dasher.prototype.gotHit=function(P0,P1){ 
+	 /*
+	 console.log("testing")
+	 console.log(P0)
+	 console.log(P1)
+	 console.log("Against:")
+	 console.log(this.boxes.length)
+	 */
+	 for(var k in this.boxes){
+			var box=this.boxes[k]
+			var m0=box.r.inside(P0)
+			var m1=box.r.inside(P1)
+
+			/*
+			console.log("#"+k)
+			console.log(box.r.P)
+			console.log(box.r.D)
+
+			console.log(
+				 (m0?"yes":"no")+"  "+
+				 (m1?"yes":"no"))
+			*/
+
+			if(!m0 && m1) this.intoBox(box)
+			if(m0 && !m1) this.outofBox(box)
+	 }
+}
+
 // Draw "Dasher" Box 
 // Returns width of box, for use as x offset
 Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
@@ -81,6 +144,9 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 
 	 var P=new Victor(xo+k*dx,0)
 	 var D=new Victor(k*w,k*h)
+	 
+	 // save hitbox for collision detection
+	 this.storeBox(P,D,s)
 
    this.rect(P.x,P.y,D.x,D.y)
 	 this.string(s,P.x,D.y,D.y/2,D.x,true)
@@ -99,7 +165,7 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 }
 
 Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
-	 if(dy<-4) return;
+	 if(dy<-2) return;
 
 	 var dy1=dy
 	 var k1=this.coeff(dy1)*2
@@ -107,6 +173,12 @@ Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
 	 var w1=w0*f
 	 var h1=h0*f
 
+	 // save for collision detection
+	 var P=new Victor(x0,0)
+	 var D=new Victor(w1,h1)
+	 this.storeBox(P,D,s)
+
+	 // Render
 	 this.rect(x0,0,w1,h1)
 	 this.string(s,x0,h1,h1/2,w1,true)
 
@@ -177,10 +249,26 @@ Dasher.prototype.update=function(){
 	 var d=t*this.v
 	 i.multiply(new Victor(d,d))
 
-	 console.log("V0: "+i.magnitude())
-	 
+//	 console.log("V0: "+i.magnitude())
+
+	 // Check if we've crossed a border
+	 /*
+	 if(this.ppos!==false){
+			this.gotHit(this.ppos,i)
+	 }
+	 this.ppos=i
+	 */
+
+	 // See if cursor crossed boundraries
+	 var c=new Victor(this.cx,this.cy)
+	 var c0=c.clone()
+	 c0.add(i)
+	 this.vectorP(c0,c)
+
+	 this.gotHit(c0,c)
+
 	 this.pos.add(i)
-	 console.log(i)
+// console.log(i)
 }
 
 // Calculate coordinates for input area
@@ -237,13 +325,14 @@ Dasher.prototype.key=function(e){
 }
 
 Dasher.prototype.render=function(){
-	 //  Do movement logic
-	 this.update()
 	 //  Fill canvas
    this.clear()
 
    // needs to be cleared for every render
 	 var xoffs=0
+
+	 // hitbox list is compiled on each render
+	 this.boxes=[]
 
    for(var k in this.prof.sorted){
       var f=this.prof.f(this.prof.sorted[k])
@@ -252,6 +341,8 @@ Dasher.prototype.render=function(){
       xoffs+=this.dBox(this.prof.sorted[k],f,
 				 this.w,this.h,xoffs,0,0)
    }
+	 //  Do movement logic
+	 this.update()
 	 
 	 var pstr=this.tx+"x"+this.ty
 //	 this.string(pstr,0,42,42,1000)
