@@ -108,12 +108,16 @@ function touch(){
    var el=this.el
    var selfref=this
 	
-   el.on("touchstart",function(){
-	 selfref.touchstart()
-	
-	 selfref.moving=true
+   el.on("touchstart",function(e){
+			selfref.touchstart()
+			selfref.moving=true
+			var touch=e.touches[0]
+      selfref.tx=touch.clientX
+      selfref.ty=touch.clientY-44
+      selfref.touchmove({x:selfref.tx,y:selfref.ty})
    })
    el.on("touchmove",function(e){	
+			console.log("Got " + e.touches.length + " touches")
 			var touch=e.touches[0]
 			var pos=el.position()
 			var offs=el.offset()

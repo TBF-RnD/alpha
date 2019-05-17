@@ -27,7 +27,9 @@ function move(e){
 
 	 console.log("move")
 	 console.log(e)
+	 /*
 	 console.log(this.ppos)
+	 */
 /*	 if(this.ppos!=false){
 			this.gotHit(this.ppos,new Victor(e.x,e.y))
 	 }
@@ -76,6 +78,7 @@ function Dasher(el){
    this.touchstart=start
    this.touchmove=move
    this.touchend=end
+
 
    // bind touch events
 //   this.touch()
@@ -313,6 +316,8 @@ Dasher.prototype.calcInputArea=function(){
 
 	 var mid=input.center()
 	 this.inputCursor=mid
+	 console.log("MID")
+	 console.log(mid)
 }
 
 Dasher.prototype.inputArea=function(){
@@ -354,6 +359,12 @@ Dasher.prototype.render=function(){
 
 	 // Draw dir vector
    if(this.moving){
-      this.vector(this.inputCursor.x,this.inputCursor.y,this.tx,this.ty)
+			console.log(this.tx+" x " + this.ty)
+			this.vectorP(new Victor(0,0),this.inputCursor)
+			this.vectorP(new Victor(0,0),new Victor(this.tx,this.ty))
+			this.vectorP(this.inputCursor,new Victor(this.tx,this.ty))
+//      this.vector(this.inputCursor.x,this.inputCursor.y,this.tx,this.ty)
    }
+
+//	 this.vectorP(this.inputCursor.P,new Victor(this.tx,this.ty))
 }
