@@ -249,12 +249,12 @@ Dasher.prototype.render=function(){
       var f=this.prof.f(this.prof.sorted[k])
 			var x0=xoffs
 
-//v      xoffs+=this.dBox(this.prof.sorted[k],f,
-//				 this.w,this.h,xoffs,0,0)
+      xoffs+=this.dBox(this.prof.sorted[k],f,
+				 this.w,this.h,xoffs,0,0)
    }
 	 
 	 var pstr=this.tx+"x"+this.ty
-	 this.string(pstr,0,42,42,1000)
+//	 this.string(pstr,0,42,42,1000)
 	 
 	 // Draw input control box
 	 this.inputArea()
