@@ -1,0 +1,8 @@
+input.mipmap  {
+	 width: 100%;
+}
+
+#mipmap {
+	 border: 1px solid black;
+	 box-radius: 8px;
+}
