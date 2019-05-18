@@ -10,7 +10,7 @@ As such the need for a quick way to demonstrate new technologies for an audience
 ## Perspectives
 With the aim of providing an as complete as possible overview of the subject, the area will be studied out of several angles. Starting with going through a list of input methods that seems suitable. 
 
-In the first part Software algorithm the _how_ will be discussed. In the second part on hardware, the _with what_ will be investigated. The third part will focus on what is to be done, i.e. the _why_. As such a matrix of all the parts of the universe we are trying to map out can  be combined and methodologically examined. The foruth part is the meta part, that discusses the finer theoretical points  behind the various methods. Whereas the fifth part deals with the technique of implementing and putting the code into use.  
+In the first part Software algorithm the _how_ will be discussed. In the second part on hardware, the _with what_ will be investigated. The third part will focus on what is to be done, i.e. the _why_. As such a matrix of all the parts of the universe we are trying to map out can  be combined and methodologically examined. The fourth part is the meta part, that discusses the finer theoretical points  behind the various methods. Whereas the fifth part deals with the technique of implementing and putting the code into use.  
 
 ### Software algorithms
 - Dasher
