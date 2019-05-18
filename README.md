@@ -31,6 +31,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - audio note detection
 - smartphone + word pred
 - swipe  wordsg
+- Velocitap
 
 ### Hardware / Devices
 - Plain old keyboard
