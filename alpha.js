@@ -38,6 +38,7 @@ function string(str,x,y,size,w,center){
 				 x+=dx
 			}
 	 }
+//	 console.log("string @ size: "+size)
 	 this.ctx.fillText(str,x,y,w)
 	 this.n_strings++
 }
