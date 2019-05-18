@@ -12,16 +12,25 @@ With the aim of providing an as complete as possible overview of the subject, th
 
 In the first part Software algorithm the _how_ will be discussed. In the second part on hardware, the _with what_ will be investigated. The third part will focus on what is to be done, i.e. the _why_. As such a matrix of all the parts of the universe we are trying to map out can  be combined and methodologically examined. The fourth part is the meta part, that discusses the finer theoretical points  behind the various methods. Whereas the fifth part deals with the technique of implementing and putting the code into use.  
 
+### Terminology / frequent concepts
+
 ### Software algorithms
 - Dasher
+- morse  code
 - Chorded
 - Fractal Dasher
 - Quadboard
 - Treeboard
 - Linear Search Onscreen / 10" / VR
 - Audio input
+	 [dasher  googgle  talk 39:56 140 wpm  -> 14wpm, with keyboard]
 - Plain old Keyboard
+- phone
+- half qwerty
+- T9
 - audio note detection
+- smartphone + word pred
+- swipe  wordsg
 
 ### Hardware / Devices
 - Plain old keyboard
@@ -29,7 +38,11 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - remote control
 - touchpad
 - one/two signal input
+- type with mouse
+- eyetracker
+- VR finger tracking
 - audio note
+- make use of rhytm /  timing
 
 ### Application / Use cases
 - people with disabilities
@@ -41,13 +54,23 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - prima materia of computational usage, the universal alphabet, applied to UI
 - turning a tablet from a consumption only device to a portable workstation
 - how to type in VR
+- Art write statistically as 
+- Autoverse / autorhyme
+- One language in, many out 
+- taxonomy of thought, from sub-symbool to taxonomy
+	 ->  also relating  to  languages  such as Korean,   Japaanese 2k, Chinese 6k see gtalk 46 ish
 
 ### Theoretical point of view
+- Zipfs law
 - Fitt's law
 - compression algorithms
 - user input bandwidth 
 - text input models
 - neurological latencies
+- word 2 vec
+- Languages - dialects
+- change of mode  cognitive  cost [googgle talk 13;15]
+- Shannon
 
 ### Technique - a framework for comparision
 - Windows integration
@@ -81,4 +104,12 @@ Going back all the way to the mother of all demos, this input method refuses to 
 ### Proposed improvements
 - Make use of HUD as fall back on user memorization miss
 
-
+# Resources
+- Dasher
+[Inference group Dasher](http://inference.org.co.uk/dasher)
+[Google Tech talk on Dasher](https://m.youtube.com/watch?v=wpOxbesRNB)
+[David Wards thesis](http://www.inference.org.uk/djw30/papers/thesis.html)
+- Bill Buxton
+[Microsoft Research Profile](https://www.microsoft.com/en-us/research/people/bibuxton/)
+- Stephen Hawking
+[Hawkings typing software as open source](https://www.wired.co.uk/article/stephen-hawking-software-open-source-intel)

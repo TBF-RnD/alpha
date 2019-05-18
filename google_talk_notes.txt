@@ -1,0 +1,52 @@
+two metaphors
+
+
+shannon
+English 1  bit  per character
+keyboard off by factor  of 6 by not taking  advantage of predictability
+
+Drury & Hoffman estimates 14 bps per  finger
+1 finger ->  14 cps  ->  170 wpm
+
+For explanation on Arithmetic  coding
+http://www.inference.org.uk/mackay/itila/
+
+** New metaphor
+writing is  navigating in  the  shelf of all possible books
+Tree of all books
+
+one movement - several letters
+
+change of mode  |  pocket pc + autocomplete | =  congitive  cost
+
+based in information theory => universal for all lanaguages
+
+colors
+
+No learning for each symbol as  with chorded, not created from a generalized theoretical principle
+
+PPM ->  2 bits
+compare to exponential attempts in sigma statistically according to shannon
+
+comparisions made with eye tracking onscreen
+	 - steeper learning curve  - better
+	 - much less  error
+
+	 Onscreen  keyboard  - is hell, gaze  to long select etc...
+
+John Lorre
+27000 persons  with ALS in Europe
+
+Mick Donegagn ACE institute
+Paul
+
+Write with any muscle
+breath-mouse
+
+STAR STAR 34:50, Implement one dimensional tilt in HTML5 for smartdevices
+
+
+37:27 good conversion nrate between two button dynamic mode and letters out
+13 - 
+
+Chinese  at 46:46
