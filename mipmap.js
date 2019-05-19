@@ -1,3 +1,6 @@
+function MMSize(P,D){
+}
+
 MipMap.prototype.fillToCTX=function(ctx,sym,P,s,w){
 	 ctx.font=Math.floor(s)+"px serif"
 	 ctx.fillStyle="black"
@@ -17,6 +20,7 @@ MipMap.prototype.getDim=function(ctx,sym,s){
 }
 
 // Test function for debugging prototyping
+// Note does not use scaling!!
 MipMap.prototype.renderAll=function(ctx,x,y){
 	 for(var size in this.bitmaps){
 			var bmp=this.bitmaps[size]
@@ -40,7 +44,7 @@ MipMap.prototype.renderAllRef=function(ctx,x,y){
 }
 
 // Render mip map onto canvas
-MipMap.prototype.draw(ctx,P,target_size){
+MipMap.prototype.draw=function(ctx,P,target_size){
 	 var bmp=false
 	 var dSizeMin=Infinity
 	 var cBestIndex=-1
@@ -50,14 +54,22 @@ MipMap.prototype.draw(ctx,P,target_size){
 	 // also:
 	 // maybe think in  terms of areas instead of lengths
 	 for(var s in this.bitmaps){
-			var size=parseFloat()
+			var size=parseFloat(s)
 			var dSize=Math.abs(target_size-size)
-			if(dSize<dSizeMin) cBestIndex=s
+			console.log("size:  "+size)
+			console.log("dSize: "+dSize)
+			console.log("target_size: "+target_size)
+			if(dSize<dSizeMin){
+				 cBestIndex=s
+				 dSizeMin=dSize
+			}
 	 }
+	 console.log("Best match: " + cBestIndex)
+	 console.log("dSize: "+dSizeMin)
 	 if(cBestIndex!=-1) bmp=this.bitmaps[cBestIndex]
 	 if(!bmp) return new Victor(0,0)
 
-//	 ctx.drawImage(
+	 ctx.drawImage(this.iData,P.x,P.y)
 
 	 return new Victor(bmp.width,bmp.height)
 }
@@ -76,8 +88,15 @@ function MipMap(ctx,sym,max,min){
 	 console.log("DIM")
 	 console.log(dim)
 
+	 // Set up offscreen canvas
+	 this.offscreen=new OffscreenCanvas(dim.x*1.5,dim.y)
+	 this.hctx=this.offscreen.getContext('2d')
+
 	 console.log(P)
-	 this.fillToCTX(ctx,sym,P,size)
+	 
+//	 this.fillToCTX(ctx,sym,P,size)
+	 this.fillToCTX(this.hctx,sym,P,size)
+
 	 var bmp=ctx.getImageData(P.x,P.y,dim.x,dim.y)
 	 this.bitmaps[size]=bmp
 
@@ -89,8 +108,10 @@ function MipMap(ctx,sym,max,min){
 	 var wp=0.5*dim.x
 
 	 while(size>min){		
-			this.fillToCTX(ctx,sym,P,size)
-			var bmp=ctx.getImageData(P.x,P.y,wp,size)
+//			this.fillToCTX(ctx,sym,P,size)
+			this.fillToCTX(this.hctx,sym,P,size)
+
+			var bmp=this.hctx.getImageData(P.x,P.y,wp,size)
 			this.bitmaps[size]=bmp
 			
 			P.y+=size
@@ -101,5 +122,6 @@ function MipMap(ctx,sym,max,min){
 			size/=2
 			n++
 	 }
+	 this.iData=this.offscreen.transferToImageBitmap()
 	 console.log("N="+n)
 }
