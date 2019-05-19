@@ -105,6 +105,8 @@ MipMap.prototype.put=function(ctx,TP,target_size){
 	 if(cBestIndex!=-1) bmp=this.bitmaps[cBestIndex]
 	 if(!bmp){
 			console.log("Found no bitmap  for "+cBestIndex)
+			console.log(this.sym)
+			return Victor(0,0)
 	 }
 
 	 var loc=this.map[cBestIndex]
@@ -129,6 +131,8 @@ function MipMap(ctx,sym,max,min){
 	 
 	 var dim=this.getDim(ctx,sym,size)
 	 
+	 ctx.fillStyle="white"
+	 ctx.fillRect(0,0,dim.x*1.5,dim.y)
 	 ctx.strokeStyle="black"
 //	 ctx.strokeRect(0,0,dim.x*1.5,dim.y)
 	 console.log("DIM")
@@ -174,4 +178,32 @@ function MipMap(ctx,sym,max,min){
 	 }
 //	 this.iData=this.offscreen.transferToImageBitmap()
 	 console.log("N="+n)
+}
+
+function MipMapCache(max,min){
+	 this.cache={}
+
+	 this.max_size=max
+	 this.min_size=min
+}
+
+MipMapCache.prototype.get=function(ctx,sym){
+	 if(typeof(this.cache[sym])=="undefined"){
+			this.cache[sym]=new MipMap(ctx,sym,this.max_size,this.min_size)
+			console.log("Cache miss")
+	 }
+	 return this.cache[sym]
+}
+
+MipMapCache.prototype.putString=function(ctx,TP,str,size){
+	 var P=TP.clone()
+
+	 console.log("writing: "+str)
+	 for(var i=0;i<str.length;i++){
+			var sym=str[i]
+//			console.log(sym)
+			var m=this.get(ctx,sym)
+			var d=m.put(ctx,P,size)
+			P.x+=d.x
+	 }
 }

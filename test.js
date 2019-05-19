@@ -10,7 +10,8 @@ function logTime(s,t0){
 	 return str
 }
 
-function MipMapTst(el){
+function MipMapTst(el,str){
+	 console.log("Str: "+str)
 	 var canvas=el[0]
 	 var ctx=canvas.getContext('2d')
 	 var max_size=256
@@ -22,7 +23,9 @@ function MipMapTst(el){
 	 logTime("new MipMap",t0)
 
 	 // Test parameters
-	 var testSizes=[220,192,96,48,24,12,6]
+//	 var testSizes=[220,192,96,48,24,12,6]
+//	 var testSizes=[220,96,24,8]
+	 var testSizes=[72]
 	 var n_iterations=16
 
 	 if(el.hasClass("plain")){
@@ -61,7 +64,7 @@ function MipMapTst(el){
 	 
 	 if(el.hasClass("put")){
 		 var mp=new MipMap(ctx,"Q",max_size,min_size)
-		 var P=new Victor(400,max_size)
+		 var P=new Victor(0,max_size)
 		 var dim=false
 		 var t1=getMS()
 		 for(var i in testSizes){
@@ -75,6 +78,26 @@ function MipMapTst(el){
 	//			logTime("put "+size,t0)
 		 }
 		 logTime("put tot",t1)
+
+			var t1=getMS()
+			var mmc=new MipMapCache(256,8)
+			
+		 for(var i in testSizes){
+				var size=testSizes[i]
+
+				console.log("put "+str+" at size: "+size)
+				mmc.putString(ctx,P,str,size)
+				break
+			}
+		 logTime("putStr tot",t1)
+		 for(var i in testSizes){
+				var size=testSizes[i]
+
+				console.log("put "+str+" at size: "+size)
+				mmc.putString(ctx,P,str,size)
+				break
+			}
+		 logTime("putStr tot",t1)
 	 }
 }
 
@@ -86,5 +109,6 @@ $(document).ready(function(){
 	 }
 
 	 var mipmap=$("#mipmap")
-	 if(mipmap.length==1) MipMapTst(mipmap)
+	 var str=$("input.mipmap").val()
+	 if(mipmap.length==1) MipMapTst(mipmap,str)
 })
