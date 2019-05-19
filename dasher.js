@@ -55,7 +55,7 @@ function Dasher(el){
    this.FPS = 30
 	 this.inputCursorLen = 20
 	 
-	 this.inputAreaGravity="SW"
+	 this.inputAreaGravity=this.getCFG("ctrl-gravity")
 	 this.inputAreaPadding=0.1
 
 	 // Velocity
