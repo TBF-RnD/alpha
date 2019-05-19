@@ -79,6 +79,7 @@ function MipMapTst(el,str){
 		 }
 		 logTime("put tot",t1)
 
+			/*
 			var t1=getMS()
 			var mmc=new MipMapCache(256,8)
 			
@@ -98,6 +99,7 @@ function MipMapTst(el,str){
 				break
 			}
 		 logTime("putStr tot",t1)
+		 */
 	 }
 }
 
