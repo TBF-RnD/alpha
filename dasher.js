@@ -24,23 +24,6 @@ function move(e){
 
    this.tx=e.x
    this.ty=e.y
-
-	 console.log("move")
-	 console.log(e)
-	 /*
-	 console.log(this.ppos)
-	 */
-/*	 if(this.ppos!=false){
-			this.gotHit(this.ppos,new Victor(e.x,e.y))
-	 }
-
-	 
-	 this.ppos=new Victor(e.x,e.y)
-*/
-	 /*
-	 console.log("move")
-	 console.log(e)
-	 */
 }
 
 // Constructor for dasher model 
@@ -272,40 +255,31 @@ Dasher.prototype.update=function(){
 // console.log(i)
 }
 
-// Calculate coordinates for input area
+// Calculate coordinates for input area	 
+//  TODO 
+//  -  add cfg box for non  square box
+//  - apply padding / margin	
 Dasher.prototype.calcInputArea=function(){
-	 var input=new Rect(new Victor(0,0),new Victor(1,1))
+	 var len=Math.min(this.w/2,this.h/2)
+	 var input=new Rect(new Victor(0,0),new Victor(len,len))
+	 var p=this.inputAreaPadding
+	 var w=h=len
 
+	 // NW by default
 	 switch(this.inputAreaGravity){
-			case "SW":
-				 input.P=new Victor(0,0.5)
-				 input.D.multiply(new Victor(0.5,0.5))
-				 break;
-			case "NW":
-				 input.P=new Victor(0,0.0)
-				 input.D.multiply(new Victor(0.5,0.5))
+			case "NE":
+				 input.P=new Victor(this.w-len,0)
 				 break;
 			case "SW":
-				 input.P=new Victor(0.0,0.5)
-				 input.D.multiply(new Victor(0.5,0.5))
+				 input.P=new Victor(0,this.h-len)
 				 break;
 			case "SE":
-				 input.P=new Victor(0.5,0.5)
-				 input.D.multiply(new Victor(0.5,0.5))
+				 input.P=new Victor(this.w-len,this.h-len)
 				 break;
 			default:
+				 input.P=new Victor(0,0)
 				 break;
 	 }
-	 // Apply padding
-	 var p=this.inputAreaPadding
-	 var w=this.w*(1-p*2)
-	 var h=this.h*(1-p*2)
-	 var x=this.w*p
-	 var y=this.h*p
-
-	 input.D.multiply(new Victor(w,h))
-	 input.P.multiply(new Victor(w,h))
-	 input.P.add(new Victor(x,y))
 	 
 	 console.log(input.P)
 	 console.log(input.D)
