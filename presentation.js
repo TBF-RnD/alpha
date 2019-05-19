@@ -1,3 +1,7 @@
+function getObj(){
+	 return $("alpha")[0].__aobj
+}
+
 mobileConsole.init()
 
 // Toggle fullscreen, takes DOM element as argument

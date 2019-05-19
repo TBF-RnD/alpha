@@ -7,7 +7,7 @@ function clear(){
 
 // Insert canvas and initialize ctx
 function canvas(width,height){
-				console.log("set up canvas stub")
+				console.log("set up canvas")
 
 				// create canvas element
 				var ce=$("<canvas></canvas>").prop({width:width,height:height})
@@ -16,7 +16,6 @@ function canvas(width,height){
 
 				// Get context
 				this.ctx=ce[0].getContext('2d')
-
 }
 
 // Draws a "centered" string
@@ -177,15 +176,18 @@ function bindkey(){
 //  print vector at line y
 function printV(V,y){
 	 var str=V.x+"x"+V.y
-	 var y=y*20
+	 var y=this.h-y*20
 	 this.string(str,0,y,20,1000)
 }
 function printVAR(n,v,y){
 	 var str=n+"="+v
-	 var y=y*20
+	 var y=this.h-y*20
 	 this.string(str,0,y,20,1000)
 }
 
+function getCFG(k){
+	 return this.el.attr(k)
+}
 
 // Constructor for alpha object
 function Alpha(el){
@@ -226,6 +228,7 @@ function Alpha(el){
 	 this.bindkey=bindkey
 	 this.printV=printV
 	 this.printVAR=printVAR
+	 this.getCFG=getCFG
 
    this.touchstart=function(){
       console.log("A touchstart")
@@ -245,7 +248,6 @@ function Alpha(el){
 
    // bind touch events
    this.touch()
-// rename this!!
 	 this.bindkey()
 
 	// For debugging
