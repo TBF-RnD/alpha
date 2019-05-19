@@ -90,6 +90,8 @@ function vectorP(p0,p1){
 function rect(x,y,w,h){
    this.ctx.strokeStyle=this.fg
    this.ctx.strokeRect(x,y,w,h)
+
+	 this.n_boxes++
 }
 
 function rectR(r){
@@ -116,6 +118,9 @@ function touch(){
       selfref.tx=touch.clientX
       selfref.ty=touch.clientY-44
       selfref.touchmove({x:selfref.tx,y:selfref.ty})
+
+			e.preventDefault()
+			e.stopDefault()
    })
    el.on("touchmove",function(e){	
 			console.log("Got " + e.touches.length + " touches")
@@ -134,11 +139,17 @@ function touch(){
       selfref.ty=touch.clientY-44
 	
       selfref.touchmove({x:selfref.tx,y:selfref.ty})
+
+			e.preventDefault()
+			e.stopDefault()
    })
    el.on("touchend",function(){
       selfref.touchend()
 	
       selfref.moving=false
+
+			e.preventDefault()
+			e.stopDefault()
    })
 }
 
@@ -201,7 +212,7 @@ function Alpha(el){
    this.bg='white'
    this.fg='black'
    this.hlen=48
-	 this.fontsize_th=8
+	 this.fontsize_th=12
 
 	 this.w=parseInt(el.attr('width'))
 	 this.h=parseInt(el.attr('height'))

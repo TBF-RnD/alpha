@@ -54,6 +54,7 @@ function Dasher(el){
    this.cy = this.h*.8
    this.FPS = 30
 	 this.inputCursorLen = 20
+	 this.box_width_th = 8
 	 
 	 this.inputAreaGravity=this.getCFG("ctrl-gravity")
 	 this.inputAreaPadding=0.1
@@ -104,27 +105,10 @@ Dasher.prototype.outofBox=function(box){
 }
 
 Dasher.prototype.gotHit=function(P0,P1){ 
-	 /*
-	 console.log("testing")
-	 console.log(P0)
-	 console.log(P1)
-	 console.log("Against:")
-	 console.log(this.boxes.length)
-	 */
 	 for(var k in this.boxes){
 			var box=this.boxes[k]
 			var m0=box.r.inside(P0)
 			var m1=box.r.inside(P1)
-
-			/*
-			console.log("#"+k)
-			console.log(box.r.P)
-			console.log(box.r.D)
-
-			console.log(
-				 (m0?"yes":"no")+"  "+
-				 (m1?"yes":"no"))
-			*/
 
 			if(!m0 && m1) this.intoBox(box)
 			if(m0 && !m1) this.outofBox(box)
@@ -135,6 +119,7 @@ Dasher.prototype.gotHit=function(P0,P1){
 // Returns width of box, for use as x offset
 Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
    var w=f*w0
+	 if(w<this.box_width_th) return w
    var h=f*h0
    var y=h0*0.05+this.pos.y
 
@@ -144,11 +129,16 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 
 	 var P=new Victor(xo+k*dx,0)
 	 var D=new Victor(k*w,h+this.pos.y)
+	 var R=new Rect(P,D)
+
+	 if(R.isOutsideOf(this.screen)) return w
 	 
 	 // save hitbox for collision detection
 	 this.storeBox(P,D,s)
 
-   this.rect(P.x,P.y,D.x,D.y)
+	 // Cull if box is bigger than screen
+	 if(!R.isInsideOf(this.screen)&&D.x>this.box_width_th)
+			this.rect(P.x,P.y,D.x,D.y)
 	 this.string(s,P.x,D.y,D.y/2,D.x,true)
 			
 	 var xoi=xo+k*(xoffs+this.pos.x)
@@ -169,21 +159,27 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 }
 
 Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
-	 if(dy<-1.999999) return;
+//	 if(dy<-1.999999) return;
 
 	 var dy1=dy
-//	 var k1=this.coeff(dy1)*2
 
 	 var w1=w0*f
+	 // If to small get back but  return w for xofs calc
+	 if(w1<this.box_width_th) return w1
 	 var h1=h0*f
 
 	 // save for collision detection
 	 var P=new Victor(x0,0)
 	 var D=new Victor(w1,h1)
+	 var R=new Rect(P,D)
+
+	 // Cull if outside
+	 if(R.isOutsideOf(this.screen)) return w1
 	 this.storeBox(P,D,s)
 
-	 // Render
-	 this.rect(x0,0,w1,h1)
+	 // Don't bother if rect is to small or larger than
+	 if(!R.isInsideOf(this.screen))
+			this.rect(x0,0,w1,h1)
 	 this.string(s,x0,h1,h1/2,w1,true)
 
 	 var xoi=x0
@@ -317,8 +313,6 @@ Dasher.prototype.calcInputArea=function(){
 
 	 var mid=input.center()
 	 this.inputCursor=mid
-	 console.log("MID")
-	 console.log(mid)
 }
 
 Dasher.prototype.inputArea=function(){
@@ -332,6 +326,7 @@ Dasher.prototype.key=function(e){
 
 Dasher.prototype.render=function(){
 	 this.n_strings=0
+	 this.n_boxes=0
 	 //  Fill canvas
    this.clear()
 
@@ -370,4 +365,5 @@ Dasher.prototype.render=function(){
 
 //	 this.vectorP(this.inputCursor.P,new Victor(this.tx,this.ty))
 	 this.printVAR("n strings",this.n_strings,4)
+	 this.printVAR("n boxes",this.n_boxes,5)
 }
