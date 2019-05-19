@@ -26,6 +26,8 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Audio input
 	 [dasher  googgle  talk 39:56 140 wpm  -> 14wpm, with keyboard]
 - Plain old Keyboard
+	 - different layouts
+	 - half
 - phone
 - half qwerty
 - T9
