@@ -78,11 +78,6 @@ function Dasher(el){
    this.touchstart=start
    this.touchmove=move
    this.touchend=end
-
-
-
-   // bind touch events
-//   this.touch()
 }
 
 // Projection coeffecient 
