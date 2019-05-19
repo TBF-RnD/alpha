@@ -2,6 +2,12 @@ body {
 	 background-color: #aaa;
 }
 
+#topwrap{
+	 height: 42px;
+	 width: 100%;
+	 overflow: hidden;
+}
+
 #output{
 	 font-size:27px;
 	 line-height:42px;
