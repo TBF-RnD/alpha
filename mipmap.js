@@ -106,6 +106,52 @@ MipMap.prototype.draw=function(ctx,TP,target_size){
 	 return new Victor(scale*D.x,scale*D.y)
 }
 
+//  Draw without scaling
+MipMap.prototype.put=function(ctx,TP,target_size){
+	 var bmp=false
+	 var dSizeMin=Infinity
+	 var cBestIndex=-1
+	 var source_size=-1
+
+	 // Find closest match
+	 // can be made more efficient
+	 // also:
+	 // maybe think in  terms of areas instead of lengths
+	 for(var s in this.bitmaps){
+			var size=parseFloat(s)
+			var dSize=Math.abs(target_size-size)
+			/*
+			console.log("size:  "+size)
+			console.log("dSize: "+dSize)
+			console.log("target_size: "+target_size)
+			*/
+			if(dSize<dSizeMin){
+				 cBestIndex=s
+				 dSizeMin=dSize
+				 source_size=size
+			}
+	 }
+	 /*
+	 console.log("Best match: " + cBestIndex)
+	 console.log("dSize: "+dSizeMin)
+	 */
+	 if(cBestIndex!=-1) bmp=this.bitmaps[cBestIndex]
+	 if(!bmp){
+			console.log("Found no bitmap  for "+cBestIndex)
+	 }
+
+	 var loc=this.map[cBestIndex]
+
+	 /*
+	 console.log("Put at")
+	 console.log(TP)
+	 console.log(target_size+" => "+cBestIndex)
+	 */
+	 ctx.putImageData(bmp,TP.x,TP.y)
+
+	 return new Victor(bmp.width,bmp.height)
+}
+
 function MipMap(ctx,sym,max,min){
 	 this.bitmaps={}
 	 this.map={}
@@ -125,9 +171,9 @@ function MipMap(ctx,sym,max,min){
 	 this.offscreen=new OffscreenCanvas(dim.x*1.5,dim.y)
 	 this.hctx=this.offscreen.getContext('2d')
 
-	 console.log(P)
+//	 console.log(P)
 	 
-//	 this.fillToCTX(ctx,sym,P,size)
+	 this.fillToCTX(ctx,sym,P,size)
 	 this.fillToCTX(this.hctx,sym,P,size)
 
 	 var bmp=ctx.getImageData(P.x,P.y,dim.x,dim.y)
@@ -136,23 +182,25 @@ function MipMap(ctx,sym,max,min){
 
 	 P.addX(dim)
 
-
+	 /*
 	 console.log("OP:")
 	 console.log(P)
+	 */
 
 	 var wp=0.5*dim.x
 
 	 while(size>min){		
 			size/=2
-//			this.fillToCTX(ctx,sym,P,size)
+			this.fillToCTX(ctx,sym,P,size)
 			this.fillToCTX(this.hctx,sym,P,size)
 
-			var bmp=this.hctx.getImageData(P.x,P.y,wp,size)
+//			var bmp=this.hctx.getImageData(P.x,P.y,wp,size)
+			var bmp=ctx.getImageData(P.x,P.y,wp,size)
 			this.bitmaps[size]=bmp
 			this.map[size]=new Rect(P.clone(),new Victor(wp,size))
 
-			console.log("size " +size+" at: ")
-			console.log(this.map[size])
+//			console.log("size " +size+" at: ")
+//			console.log(this.map[size])
 			
 			P.y+=size
 	 }
