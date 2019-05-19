@@ -1,6 +1,7 @@
-function Box(P,D,s){
+function Box(P,D,s,path){
 	 this.r=new Rect(P,D)
 	 this.s=s
+	 this.path=path
 }
 
 function start(){
@@ -28,6 +29,7 @@ function move(e){
 
 // Constructor for dasher model 
 function Dasher(el){
+	 this.framen=0
    //  Call parent class
    Alpha.call(this,el)
    
@@ -71,8 +73,8 @@ Dasher.prototype.coeff=function(dx){
 }
 
 // Store box for hitbox purposes
-Dasher.prototype.storeBox=function(P,D,s){
-	 this.boxes.push(new Box(P,D,s))
+Dasher.prototype.storeBox=function(P,D,s,path){
+	 this.boxes.push(new Box(P,D,s,path))
 }
 
 // Cursor going into box
@@ -86,16 +88,29 @@ Dasher.prototype.outofBox=function(box){
 	 this.target.remove()
 	 console.log("backspace")
 }
+// move elsewher
+function getMS(){ return Date.now() }
 
-Dasher.prototype.gotHit=function(P0,P1){ 
+function logTime(s,t0){
+	 var str=s+" in "+(getMS()-t0)+"ms"
+	 console.log(str)
+	 return str
+}
+
+Dasher.prototype.gotHit=function(P0){ 
+	 var t0=getMS()
+	 var p=""
 	 for(var k in this.boxes){
 			var box=this.boxes[k]
 			var m0=box.r.inside(P0)
-			var m1=box.r.inside(P1)
 
-			if(!m0 && m1) this.intoBox(box)
-			if(m0 && !m1) this.outofBox(box)
+			if(m0 && box.path.length>p.length) p=box.path
 	 }
+	 logTime("collision",t0)
+	 console.log("Longest path: "+p)
+
+	 // Check for  changes
+	 if(p.length) this.target.update(p)
 }
 
 // Draw "Dasher" Box 
@@ -117,7 +132,7 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 	 if(R.isOutsideOf(this.screen)) return w
 	 
 	 // save hitbox for collision detection
-	 this.storeBox(P,D,s)
+	 this.storeBox(P,D,s,s)
 
 	 // Cull if box is bigger than screen
 	 if(!R.isInsideOf(this.screen)&&D.x>this.box_width_th)
@@ -129,9 +144,9 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
 	 // next level
    for(var kx in this.prof.sorted){
 			var f1=this.prof.f(this.prof.sorted[kx])
-			var s=this.prof.sorted[kx]
+			var s1=this.prof.sorted[kx]
 
-			xoi+=this.dBoxII(s,f1,xoi,k*w,h+this.pos.y,dy-1)
+			xoi+=this.dBoxII(s1,f1,xoi,k*w,h+this.pos.y,dy-1,s)
 	 }
 
 	 this.printV(this.pos,1)
@@ -141,7 +156,7 @@ Dasher.prototype.dBox=function(s,f,w0,h0,xoffs,yoffs,xo){
    return w
 }
 
-Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
+Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy,path){
 //	 if(dy<-1.999999) return;
 
 	 var dy1=dy
@@ -159,7 +174,7 @@ Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
 
 	 // Cull if outside
 	 if(R.isOutsideOf(this.screen)) return w1
-	 this.storeBox(P,D,s)
+	 this.storeBox(P,D,s,path+s)
 
 	 // Don't bother if rect is to small or larger than
 	 if(!R.isInsideOf(this.screen))
@@ -170,9 +185,9 @@ Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
 
    for(var kx in this.prof.sorted){
 			var f1=this.prof.f(this.prof.sorted[kx])
-			var s=this.prof.sorted[kx]
+			var s1=this.prof.sorted[kx]
 
-			xoi+=this.dBoxII(s,f1,xoi,w1,h1,dy-1)
+			xoi+=this.dBoxII(s1,f1,xoi,w1,h1,dy-1,path+s)
 	 }
 
 	 return w1
@@ -215,9 +230,6 @@ Dasher.prototype.update=function(){
 	 if(!this.moving) return
 
 	 // cursor
-//	 var c=new Victor(this.cx,this.cy)
-//	 console.log("Cursor position")
-//	 console.log(this.inputCursor)
 	 var c=this.inputCursor
 
 	 // touch input
@@ -233,26 +245,13 @@ Dasher.prototype.update=function(){
 	 var d=t*this.v
 	 i.multiply(new Victor(d,d))
 
-//	 console.log("V0: "+i.magnitude())
-
-	 // Check if we've crossed a border
-	 /*
-	 if(this.ppos!==false){
-			this.gotHit(this.ppos,i)
-	 }
-	 this.ppos=i
-	 */
 
 	 // See if cursor crossed boundraries
 	 var c=new Victor(this.cx,this.cy)
-	 var c0=c.clone()
-	 c0.add(i)
-	 this.vectorP(c0,c)
 
-	 this.gotHit(c0,c)
+	 this.gotHit(c)
 
 	 this.pos.add(i)
-// console.log(i)
 }
 
 // Calculate coordinates for input area	 
@@ -341,4 +340,6 @@ Dasher.prototype.render=function(){
 //	 this.vectorP(this.inputCursor.P,new Victor(this.tx,this.ty))
 	 this.printVAR("n strings",this.n_strings,4)
 	 this.printVAR("n boxes",this.n_boxes,5)
+	 this.framen++
+	 this.printVAR("framen",this.framen,6)
 }

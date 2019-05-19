@@ -27,3 +27,6 @@ Output.prototype.remove=function(){
 	 this.el.html(c)
 }
 
+Output.prototype.update=function(s){
+	 this.el.html(s)
+}
