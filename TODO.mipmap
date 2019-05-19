@@ -1,0 +1,5 @@
+Compare non-scale performance
+Compare linear scaling
+Compare string performance
+Test webgl target surface
+cleanup draw

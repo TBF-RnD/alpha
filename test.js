@@ -53,7 +53,7 @@ function MipMapTst(el){
 				var t0=getMS()
 				for(var j=0;j<n_iterations;j++)
 		 			dim=m.draw(ctx,P,size)
-				P.y+=dim.y
+				P.y+=size
 	//			logTime("mipmap "+size,t0)
 		 }
 		 logTime("mipmap tot:  ",t1)
