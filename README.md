@@ -20,6 +20,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Chorded
 - Fractal Dasher
 - Quadboard
+	 - Z-mapping, linear - two dimensional locality, recursive Z
 - Treeboard
 - Linear Search Onscreen / 10" / VR
 - Audio input
@@ -44,6 +45,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - VR finger tracking
 - audio note
 - make use of rhytm /  timing
+- custom hardware
 
 ### Application / Use cases
 - people with disabilities
