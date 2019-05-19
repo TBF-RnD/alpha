@@ -29,16 +29,32 @@ function MipMapTst(el){
 	 m.renderAllRef(ctx,400,max_size)
 	 logTime("renderAllReg",t0,400)
 
-	 // Sizes to test
-	 var testSizes=[192,96,48,24,12,6,3]
+
 	 var P=new Victor(0,max_size*2)
+
+	 // Sizes to test
+	 var testSizes=[220,192,96,48,24,12,10,8,6,5,3]
+	 var P=new Victor(0,max_size*2)
+	 var dim=false
 	 for(var i in testSizes){
 			var size=testSizes[i]
 
 			var t0=getMS()
-			var dim=size.draw(ctx,P,size)
+			for(var j=0;j<16;j++)
+	 			dim=m.draw(ctx,P,size)
 			P.y+=dim.y
 			logTime("mipmap "+size,t0)
+	 }
+	 
+	 var P=new Victor(500,max_size*2)
+	 for(var i in testSizes){
+			var size=testSizes[i]
+			var t0=getMS()
+//			var dim=m.draw(ctx,P,size)
+			for(var j=0;j<16;j++)
+	 			m.fillToCTX(ctx,"Q",P,size,500)
+			P.y+=size
+			logTime("plain "+size,t0)
 	 }
 }
 

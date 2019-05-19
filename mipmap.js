@@ -1,6 +1,5 @@
-function MMSize(P,D){
-}
-
+//TODO
+// - probably add some line height padding at top & bottom
 MipMap.prototype.fillToCTX=function(ctx,sym,P,s,w){
 	 ctx.font=Math.floor(s)+"px serif"
 	 ctx.fillStyle="black"
@@ -44,10 +43,11 @@ MipMap.prototype.renderAllRef=function(ctx,x,y){
 }
 
 // Render mip map onto canvas
-MipMap.prototype.draw=function(ctx,P,target_size){
+MipMap.prototype.draw=function(ctx,TP,target_size){
 	 var bmp=false
 	 var dSizeMin=Infinity
 	 var cBestIndex=-1
+	 var source_size=-1
 
 	 // Find closest match
 	 // can be made more efficient
@@ -56,26 +56,59 @@ MipMap.prototype.draw=function(ctx,P,target_size){
 	 for(var s in this.bitmaps){
 			var size=parseFloat(s)
 			var dSize=Math.abs(target_size-size)
+			/*
 			console.log("size:  "+size)
 			console.log("dSize: "+dSize)
 			console.log("target_size: "+target_size)
+			*/
 			if(dSize<dSizeMin){
 				 cBestIndex=s
 				 dSizeMin=dSize
+				 source_size=size
 			}
 	 }
+	 /*
 	 console.log("Best match: " + cBestIndex)
 	 console.log("dSize: "+dSizeMin)
+	 */
 	 if(cBestIndex!=-1) bmp=this.bitmaps[cBestIndex]
 	 if(!bmp) return new Victor(0,0)
 
-	 ctx.drawImage(this.iData,P.x,P.y)
+	 var loc=this.map[cBestIndex]
+	 var P=loc.P
+	 var D=loc.D
+	 var scale=target_size/source_size
 
-	 return new Victor(bmp.width,bmp.height)
+	 /*
+	 console.log("Draw from")
+	 console.log(P)
+	 console.log(D)
+	 console.log("scale="+scale)
+	 */
+
+	 // Copy and scale best fit glyph from our bitmap 
+	 // onto destination canvas context
+// - no scaling
+//	 ctx.drawImage(this.iData,TP.x,TP.y)
+// - scale
+//	 ctx.drawImage(this.iData,TP.x,TP.y,
+//			D.x*scale,D.y*scale)
+// - Always use first
+/*	 ctx.drawImage(this.iData,
+			95,0,D.x,D.y,
+			TP.x,TP.y,
+			D.x*scale,D.y*scale)
+*/
+	 ctx.drawImage(this.iData,
+			P.x,P.y,D.x,D.y,
+			TP.x,TP.y,scale*D.x,scale*D.y)
+
+	 return new Victor(scale*D.x,scale*D.y)
 }
 
 function MipMap(ctx,sym,max,min){
 	 this.bitmaps={}
+	 this.map={}
 	 this.sym=sym
 	 var size=max
 	 var P=new Victor(0,0)
@@ -99,28 +132,29 @@ function MipMap(ctx,sym,max,min){
 
 	 var bmp=ctx.getImageData(P.x,P.y,dim.x,dim.y)
 	 this.bitmaps[size]=bmp
+	 this.map[size]=new Rect(P.clone(),dim)
 
-	 size/=2
 	 P.addX(dim)
 
+
+	 console.log("OP:")
 	 console.log(P)
 
 	 var wp=0.5*dim.x
 
 	 while(size>min){		
+			size/=2
 //			this.fillToCTX(ctx,sym,P,size)
 			this.fillToCTX(this.hctx,sym,P,size)
 
 			var bmp=this.hctx.getImageData(P.x,P.y,wp,size)
 			this.bitmaps[size]=bmp
+			this.map[size]=new Rect(P.clone(),new Victor(wp,size))
+
+			console.log("size " +size+" at: ")
+			console.log(this.map[size])
 			
 			P.y+=size
-
-			console.log(P)
-
-			console.log("Size:"+size)
-			size/=2
-			n++
 	 }
 	 this.iData=this.offscreen.transferToImageBitmap()
 	 console.log("N="+n)
