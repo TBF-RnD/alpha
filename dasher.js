@@ -60,7 +60,7 @@ function Dasher(el){
 	 this.inputAreaPadding=0.1
 
 	 // Velocity
-	 this.v = 250
+	 this.v = 1000
 
    // State
    this.interval=-1
@@ -162,11 +162,12 @@ Dasher.prototype.dBoxII=function(s,f,x0,w0,h0,dy){
 //	 if(dy<-1.999999) return;
 
 	 var dy1=dy
+	 var k=this.coeff(dy1)*2
 
 	 var w1=w0*f
 	 // If to small get back but  return w for xofs calc
 	 if(w1<this.box_width_th) return w1
-	 var h1=h0*f
+	 var h1=h0*f*k
 
 	 // save for collision detection
 	 var P=new Victor(x0,0)
