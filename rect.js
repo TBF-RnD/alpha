@@ -22,6 +22,15 @@ Rect.prototype.inside=function(P){
 	 return false
 }
 
+// See if rectangle is totally inside of
+Rect.prototype.isInsideOf=function(r){
+	 if(!this.inside(new Victor(r.P.x,				r.P.y))) return false
+	 if(!this.inside(new Victor(r.P.x+r.D.x,	r.P.y))) return false
+	 if(!this.inside(new Victor(r.P.x+r.D.x,	r.P.y+r.D.y))) return false
+	 if(!this.inside(new Victor(r.P.x,r.P.y+r.D.y))) return false
+	 return true
+}
+
 // Chec if two rectangles overlaps
 Rect.prototype.overlaps=function(r){
 	 // one to the left of the other
