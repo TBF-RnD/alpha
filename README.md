@@ -52,6 +52,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 ### Application / Use cases
 - people with disabilities
 - ergonomics
+- education
 - noisy / shaky environments
 - 10" interfaces
 - increased typing speed / user input bandwidth
@@ -76,6 +77,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Languages - dialects
 - change of mode  cognitive  cost [googgle talk 13;15]
 - Shannon
+- semantic primes
 
 ### Technique - a framework for comparision
 - Windows integration
@@ -87,6 +89,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Implementation of math editor
 - Web browser extension for 10" interface leveraging readily available consumer hardware
 - The UNIX shell as an alphabet, moving the language into the keyboard
+- Asychronous sending of statistical data along with prediction, delays and bandwidth constraints
 
 ## I: Dasher 
 The first implementation that is being investigated is the Dasher input method. 
