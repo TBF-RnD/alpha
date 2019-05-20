@@ -11,3 +11,4 @@ keybind manual repetition...
 vertiical /  horizontal  / slanted
 create font.js
 rendering and collision not scalable over large strings
+weighted input from several models
