@@ -1,3 +1,5 @@
+_This is work in progress and only outlines the scope of what I am trying to achieve_
+
 # Alpha - the Study of Esoteric Input Methods
 The alpha project is an attempt to create a framework for research and experimentation on Esoteric input methods. 
 
@@ -6,6 +8,28 @@ As to make the results and technologies available to as many as possible, the co
 This leads to platform independence and and ease of demonstration. The motive of the project is not so much to create the end all be all solution for text input, but rather to inspire programmers and computer enthusiasts alike to think outside of the box. 
 
 As such the need for a quick way to demonstrate new technologies for an audience with an ever shortening attention span. 
+
+## Motivation
+So why try to reinvent the wheel? Aren't keyboards good enough already, especially for people who have spent years and years learning to type efficiently? Well there are some paradigm shifts that are already happening and some that are on the horizon. 
+
+((The motivation part will be expanded and turned into a chapter / post of it's own)
+
+###  VR / AR
+Few people would question the inevitabilty of VR becomming common place  in the near future. However how do control the system. Simply using virtual versions of physical keyboards doesn't seem as a good fit. Why not leverage the paradigm shift to make a new attempt based on state of the art information theory. From the dasher project there are a lot of resources concerning how to create a mathematically and information theoretically sound method for this. 
+
+Let's face it, carrying a keyboard with you in VR/AR would break immersion. Using a single cursor to type  on a virtual keyboard would mean immense frustration and hinder actual work from being performed. Voice seems an attractive choice on the surface  but  look closer and  you'll find huge obstacles  whhen it comes  to  error correction and also it's quite unsuitable for  work that is not closely related to language. Such as computer programming. _Let us try to avoid having VR becomming a consumption only medium_.
+
+### Let's make tablets productive
+Speaking of consumption only devices, the advent of obiqitous smartphones is an immense step forward in terms of IT-availabilty. In third words a huge amount of people have entered the IT-arena via such devices, skipping past desktops and laptops. Sadly the devices are hardly suitable for productive work, leaving the consumer with a device suitable for choosing what to consume. 
+
+### 10" interfaces
+This is one of the original goals of the project and much of  my own work is focused on button interfaces such as gamepads and remote controls. I believe that gamepads have evolved by market preassure to a state where they can utilize the full bandwidth of the human hand. (See dasher chapter for more on the bandwidth of a human hand in terms of bits per  second). _Imagine sitting comfortable in your coach, coding away with a gamepad_. With new software and the increase of remote work this might be closer than you think!
+
+### Disabilities, the human aspect
+Furthermore everyone is not able to use keyboards. To present them with an option to work on equal terms as the rest of us could open up a new world to them. If we at the same time can gain access to more communication bandwidth is it not worth it?
+
+### Side effects in UI
+Perhaps doing investigation of the most overlooked part of computer system, can  lead us to  new  insights into User interfaces. By thinking out of the Box and question the very fundamentals.
 
 ## Perspectives
 With the aim of providing an as complete as possible overview of the subject, the area will be studied out of several angles. Starting with going through a list of input methods that seems suitable. 
@@ -21,6 +45,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Fractal Dasher
 - Quadboard
 	 - Z-mapping, linear - two dimensional locality, recursive Z
+	 - locality with dictionaries / corpuses as dimension
 - Treeboard
 - Linear Search Onscreen / 10" / VR
 - Audio input
@@ -94,6 +119,8 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 ## I: Dasher 
 The first implementation that is being investigated is the Dasher input method. 
 
+[Chapter 1: Dasher](https://github.com/TBF-RnD/alpha/blob/master/Ch_1.1_Dasher.md)
+
 ### Proposed improvements  
 - Non-linear use of two dimensional screen estate
 - Sorting symbols according frequency instead of alphabetic order
@@ -121,3 +148,5 @@ Going back all the way to the mother of all demos, this input method refuses to 
 [Microsoft Research Profile](https://www.microsoft.com/en-us/research/people/bibuxton/)
 - Stephen Hawking
 [Hawkings typing software as open source](https://www.wired.co.uk/article/stephen-hawking-software-open-source-intel)
+- Akavel
+[http://akavel.com/](Precise Eye Tracking)
