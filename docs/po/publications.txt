@@ -1,0 +1,819 @@
+                     [1]Per Ola Kristensson | Publications
+
+   [2]Bio
+   [3]Publications
+   [4]Impact / Press
+   [5]Teaching
+   [6]Software
+   [7]Other Stuff
+   [8]Blog
+
+   [[9]ACM Author Page] [[10]DBLP Bibliography Entry] [[11]HCIbib Entry]
+   [[12]Google Scholar]
+
+   102. Dudley, J.J., Jacques, J.T. and Kristensson, P.O. 2019. Crowdsourcing
+        interface feature design with Bayesian optimization. In Proceedings
+        of the 37^th ACM Conference on Human Factors in Computing Systems
+        (CHI 2019). ACM Press: forthcoming. (pdf) (publisher)
+   101. Jacques, J.T. and Kristensson, P.O. 2019. Crowdworker economics in
+        the gig economy. In Proceedings of the 37^th ACM Conference on Human
+        Factors in Computing Systems (CHI 2019). ACM Press: forthcoming.
+        (pdf) (publisher)
+   100. Vertanen, K., Gaines, D., Fletcher, C., Stanage, A.M., Watling, R.
+        and Kristensson, P.O. 2019. VelociWatch: designing and evaluating a
+        virtual keyboard for the input of challenging text. In Proceedings of
+        the 37^th ACM Conference on Human Factors in Computing Systems (CHI
+        2019). ACM Press: forthcoming. (pdf) (publisher)
+   99. Kristensson, P.O., Banovic, N., Oulasvirta, A. and Williamson, J.
+       2019. Computational interaction with Bayesian methods. In Extended
+       Abstracts of the 37^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2019). (CHI Courses). ACM Press: forthcoming. (pdf)
+       (publisher)
+   98. Banovic, N., Oulasvirta, A. and Kristensson, P.O. 2019. Computational
+       modeling in human-computer interaction. In Extended Abstracts of the
+       37^th ACM Conference on Human Factors in Computing Systems (CHI 2019).
+       (CHI Courses). ACM Press: forthcoming. (pdf) (publisher)
+   97. Grubert, J., Ofek, E., Pahud, M. and Kristensson, P.O. 2019. The
+       office of the future: virtual, portable and global. IEEE Computer
+       Graphics & Applications: forthcoming. (pdf) (publisher)
+   96. Dudley, J.J., Vertanen, K. and Kristensson, P.O. 2018. Fast and
+       precise touch-based text entry for head-mounted augmented reality with
+       variable occlusion. ACM Transactions on Computer-Human Interaction:
+       forthcoming. (pdf) (publisher)
+   95. Nel, E.M., Kristensson, P.O. and MacKay, D.J.C. 2018. Ticker: an
+       adaptive single-switch text entry method for visually impaired users.
+       IEEE Transactions on Pattern Analysis and Machine Intelligence:
+       forthcoming. (pdf) (publisher)
+   94. Dudley, J.J., Schuff, H. and Kristensson, P.O. 2018. Bare-handed 3D
+       drawing in augmented reality. In Proceedings of the 13^th ACM
+       Conference on Designing Interactive Systems (DIS 2018). ACM Press:
+       forthcoming. (pdf) (publisher)
+   93. Wolf, D., Dudley, J.J. and Kristensson, P.O. 2018. Performance
+       envelopes of in-air direct and smartwatch indirect control for
+       head-mounted augmented reality. In Proceedings of the 25^th IEEE
+       Conference on Virtual Reality and 3D User Interfaces. IEEE Press:
+       forthcoming. (pdf) (publisher)
+   92. Grubert, J., Witzani, L., Ofek, E., Pahud, M., Kranz, M. and
+       Kristensson, P.O. 2018. Effects of hand representations for typing in
+       virtual reality. In Proceedings of the 25^th IEEE Conference on
+       Virtual Reality and 3D User Interfaces (VR 2018). IEEE Press:
+       forthcoming. (pdf) (publisher)
+   91. Grubert, J., Witzani, L., Ofek, E., Pahud, M., Kranz, M. and
+       Kristensson, P.O. 2018. Text entry in immersive head-mounted
+       display-based virtual reality using standard keyboards. In Proceedings
+       of the 25^th IEEE Conference on Virtual Reality and 3D User Interfaces
+       (VR 2018). IEEE Press: forthcoming. (pdf) (publisher)
+   90. Nicosia, M. and Kristensson, P.O. 2018. Inattention management
+       middleware for human-in-the-loop multi-display applications. In
+       Proceedings of the IEEE Workshop on Human-Centered Computational
+       Sensing (HCCS 2018). IEEE Press: forthcoming. (pdf) (publisher)
+   89. Dudley, J.J. and Kristensson, P.O. 2018. A review of user interface
+       design for interactive machine learning. ACM Transactions on
+       Intelligent Interactive Systems: forthcoming. Special issue on
+       human-centred machine learning. (pdf) (publisher)
+   88. Oulasvirta, A., Kristensson, P.O., Bi, X. and Howes, A. (Eds.). 2018.
+       Computational Interaction. Oxford: Oxford University Press.
+       ([13]publisher)
+   87. Kristensson, P.O. 2018. Statistical language processing for text
+       entry. In Oulasvirta, A., Kristensson, P.O., Bi, X. and Howes, A.
+       (Eds.), Computational Interaction. Oxford: Oxford University Press,
+       41-61. (pdf) (publisher)
+   86. Brock, M., Quigley, A. and Kristensson, P.O. 2018. Change blindness in
+       proximity-aware mobile interfaces. In Proceedings of the 36^th ACM
+       Conference on Human Factors in Computing Systems (CHI 2018). ACM
+       Press: forthcoming. (pdf) (publisher)
+   85. Dhakal, V., Feit, A., Kristensson, P.O. and Oulasvirta, A. 2018.
+       Observations on typing from 136 million keystrokes. In Proceedings of
+       the 36^th ACM Conference on Human Factors in Computing Systems (CHI
+       2018). ACM Press: forthcoming. Best Paper Honourable Mention. (pdf)
+       (publisher)
+   84. Vertanen, K., Fletcher, C., Gaines, D., Gould, J. and Kristensson,
+       P.O. 2018. The impact of word, multiple word, and sentence input on
+       virtual keyboard decoding performance. In Proceedings of the 36^th ACM
+       Conference on Human Factors in Computing Systems (CHI 2018). ACM
+       Press: forthcoming. (pdf) (publisher) (youtube)
+   83. Williamson, J., Oulasvirta, A., Hilliges, O. and Kristensson, P.O.
+       2018. Computational interaction: theory and practice. In Extended
+       Abstracts of the 36^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2018). (CHI Courses). ACM Press: forthcoming. (pdf)
+       (publisher)
+   82. Jacqes, J.T. and Kristensson, P.O. 2017. Design strategies for
+       efficient access to mobile device users via Amazon Mechanical Turk. In
+       Proceedings of the 1^st ACM Workshop on Mobile Crowdsensing Systems
+       and Applications. ACM Press: forthcoming. (pdf) (publisher)
+   81. Yeo, H.S., Phang, X.S., Castellucci, S.J., Kristensson, P.O. and
+       Quigley, A. 2017. Investigating tilt-based gesture keyboard entry for
+       single-handed text entry on large devices. In Proceedings of the 35^th
+       ACM Conference on Human Factors in Computing Systems (CHI 2017). ACM
+       Press: 4194-4202. (pdf) (publisher) (youtube)
+   80. Williamson, J., Oulasvirta, A., Hilliges, O. and Kristensson, P.O.
+       2017. Computational approaches to interaction design. In Extended
+       Abstracts of the 35^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2017). (CHI Courses). ACM Press: 1182-1185. (pdf)
+       (publisher)
+   79. Jameson, A. and Kristensson, P.O. 2017. Understanding and supporting
+       modality choices. In Oviatt, S., Schuller, B., Cohen, P.R., Sonntag,
+       D., Potamianos, G. and Krüger, A. (Eds.), The Handbook of
+       Multimodal-Multisensor Interfaces. New York: ACM Press and Morgan &
+       Claypool, 201-238. (pdf) (publisher)
+   78. Pan, S., Brdiczka, O., Carenini, G., Chau, D.H. and Kristensson, P.O.
+       2016. What's hot in intelligent user interfaces. In Proceedings of the
+       30^th AAAI Conference on Artificial Intelligence (AAAI 2016). AAAI
+       Press: 4333-4334. (pdf) (publisher)
+   77. Gu, A., Zhang, Y., Sun, W., Bian, Y., Zhou, D. and Kristensson, P.O.
+       2016. Dexmo: an inexpensive and lightweight mechanical exoskeleton for
+       motion capture and force feedback in VR. In Proceedings of the 34^th
+       ACM Conference on Human Factors in Computing Systems (CHI 2016). ACM
+       Press: 1991-1995. (pdf) (publisher) (youtube)
+   76. Vertanen, K., Dunlop, M.D., Clawson, J., Kristensson, P.O. and Arif,
+       A.S. 2016. Inviscid text entry and beyond. In Extended Abstracts of
+       the 34^th ACM Conference on Human Factors in Computing Systems (CHI
+       2016). (Workshops). ACM Press: 3469-3476. (pdf) (publisher) (website)
+   75. Kristensson, P.O. and Lam, C.L. 2015. Aiding programmers using
+       lightweight integrated code visualization. In Proceedings of the 6^th
+       Workshop on Evaluation and Usability of Programming Languages and
+       Tools (PLATEAU 2015). ACM Press: 17-24. ([14]pdf) ([15]publisher)
+   74. Jacques, J.T. and Kristensson, P.O. 2015. Understanding the effects of
+       code presentation. In Proceedings of the 6^th Workshop on Evaluation
+       and Usability of Programming Languages and Tools (PLATEAU 2015). ACM
+       Press: forthcoming. (pdf)
+   73. Kristensson, P.O. 2015. Next-generation text entry. IEEE Computer
+       48(7): 84-87. Invited. ([16]pdf) ([17]publisher)
+   72. Jacques, J.T., Perry, M. and Kristensson, P.O. 2015. Differentiation
+       of online text-based advertising and the effect on users' click
+       behavior. Computers in Human Behavior 50: 535-543. ([18]pdf)
+       ([19]publisher)
+   71. Reyal, S., Zhai, S. and Kristensson, P.O. 2015. Performance and user
+       experience of touchscreen and gesture keyboards in a lab setting and
+       in the wild. In Proceedings of the 33^rd ACM Conference on Human
+       Factors in Computing Systems (CHI 2015). ACM Press: 679-688. ([20]pdf)
+       ([21]publisher)
+   70. Vertanen, K., Memmi, H., Emge, J., Reyal, S. and Kristensson, P.O.
+       2015. VelociTap: investigating fast mobile text entry using
+       sentence-based decoding of touchscreen keyboard input. In Proceedings
+       of the 33^rd ACM Conference on Human Factors in Computing Systems (CHI
+       2015). Best Paper Award. ACM Press: 659-668. ([22]pdf) ([23]publisher)
+       ([24]youtube)
+   69. Kristensson, P.O., Bi, X., Howes, A., Oulasvirta, A., Murray-Smith,
+       R., Thimbleby, H., Williamson, J. and Zhai, S. 2015. Principles,
+       techniques and perspectives on optimization and HCI. In Extended
+       Abstracts of the 33^rd ACM Conference on Human Factors in Computing
+       Systems (CHI 2015). (Workshops). ACM Press: forthcoming. (pdf)
+       (publisher) (website)
+   68. Clawson, J., Arif, A., Brewster, S., Dunlop, M., Kristensson, P.O. and
+       Oulasvirta, A. 2015. Text entry on the edge. In Extended Abstracts of
+       the 33^rd ACM Conference on Human Factors in Computing Systems (CHI
+       2015). (Workshops). ACM Press: forthcoming. (pdf) (publisher)
+       (website)
+   67. Grijincu, D., Nacenta, M. and Kristensson, P.O. 2014. User-defined
+       interface gestures: dataset and analysis. In Proceedings of the 9^th
+       ACM International Conference on Interactive Tabletops and Surfaces
+       (ITS 2014). ACM Press: 25-34. ([25]pdf) ([26]publisher) ([27]dataset)
+   66. Trinh, H., Waller, A., Vertanen, K., Kristensson, P.O. and Hanson, V.
+       Phoneme-based predictive text entry interface. In Proceedings of the
+       16^th International ACM SIGACCESS Conference on Computers and
+       Accessibility (ASSETS 2014). (Text Entry Challenge). ACM Press:
+       351-352. (pdf) ([28]publisher)
+   65. Kristensson, P.O. 2014. From wax tablets to touchscreens: an
+       introduction to text entry research. ACM XRDS 21(1): 28-33. Invited.
+       Special Issue on Computers and Language. Feature. ([29]pdf)
+       ([30]publisher)
+   64. Kristensson, P.O. and Vertanen, K. 2014. The inviscid text entry rate
+       and its application as a grand goal for mobile text entry. In
+       Proceedings of the 16^th ACM International Conference on
+       Human-Computer Interaction with Mobile Devices and Services (MobileHCI
+       2014). ACM Press: 335-338. ([31]pdf) ([32]publisher)
+   63. Rough, D., Vertanen, K. and Kristensson, P.O. 2014. An evaluation of
+       Dasher with a high-performing language model as a gaze communication
+       method. In Proceedings of the 12^th ACM International Working
+       Conference on Advanced Visual Interfaces (AVI 2014). ACM Press:
+       169-176. ([33]pdf) ([34]publisher)
+   62. Garrido, J.E., Penichet, V.M.R., Lozano, M.-D., Quigley, A. and
+       Kristensson, P.O. 2014. AwToolkit: attention-aware user interface
+       widgets. In Proceedings of the 12^th ACM International Working
+       Conference on Advanced Visual Interfaces (AVI 2014). ACM Press: 9-16.
+       Best Paper Award. ([35]pdf) ([36]publisher)
+   61. Dostal, J., Hinrichs, U., Kristensson, P.O. and Quigley, A. 2014.
+       SpiderEyes: designing attention- and proximity-aware collaborative
+       interfaces for wall-sized displays. In Proceedings of the 19^th ACM
+       International Conference on Intelligent User Interfaces (IUI 2014).
+       ACM Press: 143-152. ([37]pdf) ([38]publisher) ([39]youtube)
+       ([40]website)
+   60. Nicosia, M., Oulasvirta, A. and Kristensson, P.O. 2014. Modeling the
+       perception of user performance. In Proceedings of the 32^nd ACM
+       Conference on Human Factors in Computing Systems (CHI 2014). ACM
+       Press: 1747-1756. ([41]pdf) ([42]publisher) ([43]youtube)
+   59. Weir, D., Pohl, H., Rogers, S., Vertanen, K. and Kristensson, P.O.
+       2014. Uncertain text entry on mobile devices. In Proceedings of the
+       32^nd ACM Conference on Human Factors in Computing Systems (CHI 2014).
+       ACM Press: 2307-2316. ([44]pdf) ([45]publisher) ([46]youtube)
+   58. Aylett, M., Kristensson, P.O., Whittaker, S. and Vazquez-Alvarez, Y.
+       2014. None of a CHInd: relationship counselling for HCI and speech
+       technology. In Extended Abstracts of the 32^nd ACM Conference on Human
+       Factors in Computing Systems (CHI 2014). (alt.chi). ACM Press:
+       749-760. [47]People's Choice Best Talk Award (talk delivered by
+       Matthew Aylett) ([48]pdf) ([49]publisher) ([50]youtube)
+   57. Vertanen, K., Emge, J., Memmi, H. and Kristensson, P.O. 2014. Text
+       Blaster: a multi-player touchscreen typing game. In Extended Abstracts
+       of the 32^nd ACM Conference on Human Factors in Computing Systems (CHI
+       2014). (Interactivity). ACM Press: 379-382. ([51]pdf) ([52]publisher)
+       ([53]youtube)
+   56. Clawson, J., Brewster, S., Dunlop, M., Kristensson, P.O., Isokoski,
+       P., Oulasvirta, A., Vertanen, K. and Waller, A. 2014. The usability of
+       text entry systems now and in the future. In Extended Abstracts of the
+       32^nd ACM Conference on Human Factors in Computing Systems (CHI 2014).
+       (Special Interest Group Meeting). ACM Press: 1139-1142. ([54]pdf)
+       ([55]publisher)
+   55. Vertanen, K. and Kristensson, P.O. 2014. Complementing text entry
+       evaluations with a composition task. ACM Transactions on
+       Computer-Human Interaction 21(2): Article No. 8. ([56]pdf)
+       ([57]publisher)
+   54. Dostal, J., Kristensson, P.O. and Quigley, A. 2014. Estimating and
+       using absolute and relative viewing distance in interactive systems.
+       Pervasive and Mobile Computing 10(Part B): 173-186. ([58]pdf)
+       ([59]publisher)
+   53. Hoggan, E., Nacenta, M.A., Kristensson, P.O., Williamson, J.H.,
+       Oulasvirta, A. and Lehtiö, A. 2013. Multi-touch pinch gestures:
+       performance and ergonomics. In Proceedings of the 8^th ACM
+       International Conference on Interactive Tabletops and Surfaces (ITS
+       2013). ACM Press: 219-222. ([60]pdf) ([61]publisher)
+   52. Vertanen, K., Memmi, H. and Kristensson, P.O. 2013. The feasibility of
+       eyes-free touchscreen keyboard typing. In Proceedings of the 15^th
+       International ACM SIGACCESS Conference on Computers and Accessibility
+       (ASSETS 2013). (Poster). ACM Press: Article No. 69. ([62]pdf)
+       ([63]publisher) ([64]youtube)
+   51. Jacques, J.T. and Kristensson, P.O. 2013. Crowdsourcing a HIT:
+       measuring workers' pre-task interactions on microtask markets. In
+       Proceedings of the 1^st AAAI Conference on Human Computation and
+       Crowdsourcing (HCOMP 2013). AAAI Press: 86-93. ([65]pdf)
+       ([66]publisher) ([67]website)
+   50. Brock, M. and Kristensson, P.O. 2013. Supporting blind navigation
+       using depth sensing and sonification. In Adjunct Proceedings of the
+       2013 ACM International Joint Conference on Pervasive and Ubiquitous
+       Computing (Ubicomp 2013). (Poster). ACM Press: 255-258. ([68]pdf)
+       ([69]publisher) ([70]supplemental video)
+   49. Dostal, J., Kristensson, P.O. and Quigley, A. 2013. Multi-view
+       proxemics: distance and position sensitive interaction. In Proceedings
+       of the 2^nd ACM International Symposium on Pervasive Displays (PerDis
+       2013). ACM Press: 1-6. ([71]pdf) ([72]publisher) ([73]video)
+   48. Dostal, J., Kristensson, P.O. and Quigley, A. 2013. Subtle
+       gaze-dependent techniques for visualising display changes in
+       multi-display environments. In Proceedings of the 18^th ACM
+       International Conference on Intelligent User Interfaces (IUI 2013).
+       ACM Press: 137-147. ([74]pdf) ([75]publisher) ([76]youtube)
+       ([77]website) ([78]MIT Technology Review) ([79]The Huffington Post)
+   47. Nacenta, M.A., Kamber, Y., Qiang, Y. and Kristensson, P.O. 2013.
+       Memorability of pre-designed and user-defined gesture sets. In
+       Proceedings of the 31^st ACM Conference on Human Factors in Computing
+       Systems (CHI 2013). ACM Press: 1099-1108. ([80]pdf) ([81]publisher)
+       ([82]youtube) ([83]supplemental video) ([84]website) ([85]MIT
+       Technology Review) ([86]Co.Design)
+   46. [87][IMG] Oulasvirta, A., Reichel, A., Li, W., Zhang, Y., Bachnynskyi,
+       M., Vertanen, K. and Kristensson, P.O. 2013. Improving two-thumb text
+       entry on touchscreen devices. In Proceedings of the 31^st ACM
+       Conference on Human Factors in Computing Systems (CHI 2013). ACM
+       Press: 2765-2774. ([88]pdf) ([89]publisher) ([90]youtube)
+       ([91]website) ([92]TechCrunch) ([93]BBC) ([94]The Guardian) ([95]MIT
+       Technology Review) ([96]Fast Company) ([97]Wired) ([98]Boing Boing)
+   45. Hoggan, E., Williamson, J., Oulasvirta, A., Nacenta, M., Kristensson,
+       P.O. and Lehtiö, A. 2013. Multi-touch rotation gestures: performance
+       and ergonomics. In Proceedings of the 31^st ACM Conference on Human
+       Factors in Computing Systems (CHI 2013). ACM Press: 3047-3050.
+       ([99]pdf) ([100]publisher) ([101]youtube)
+   44. Dostal, J., Kristensson, P.O. and Quigley, A. 2013. The potential of
+       fusing computer vision and depth sensing for accurate distance
+       estimation. In Extended Abstracts of the 31^st ACM Conference on Human
+       Factors in Computing Systems (CHI 2013). (Works-in-Progress). ACM
+       Press: 1257-1262. ([102]pdf) ([103]publisher)
+   43. Kristensson, P.O., Brewster, S., Clawson, J., Dunlop, M., Findlater,
+       L., Isokoski, P., Martin, B., Oulasvirta, A., Vertanen, K. and Waller,
+       A. 2013. Grand challenges in text entry. In Extended Abstracts of the
+       31^st ACM Conference on Human Factors in Computing Systems (CHI 2013).
+       (Workshops). ACM Press: 3315-3318. ([104]pdf) ([105]publisher)
+       ([106]website)
+   42. Zhai, S., Kristensson, P.O., Appert, C., [107][IMG] Andersen, T.H. and
+       Cao, X. 2012. Foundational issues in touch-surface stroke gesture
+       design - an integrative review. Foundations and Trends in
+       Human-Computer Interaction 5(2): 97-205. [108]ACM Computing Reviews
+       Notable Computing Books and Articles of 2012. Invited. ([109]pdf)
+       ([110]publisher)
+   41. Zhai, S. and Kristensson, P.O. 2012. The word-gesture keyboard:
+       reimagining keyboard interaction. Communications of the ACM 55(9):
+       91-101. Invited. (Research Highlights). ([111]pdf) ([112]publisher)
+       ([113]introduction by Bill Buxton)
+   40. Trinh, H., Waller, A., Vertanen, K., Kristensson, P.O. and Hanson,
+       V.L. 2012. iSCAN: a phoneme-based predictive communication aid for
+       nonspeaking individuals. In Proceedings of the 14^th International ACM
+       SIGACCESS Conference on Computers and Accessibility (ASSETS 2012). ACM
+       Press: 57-64. ACM SIGACCESS Best Student Paper Award. ([114]pdf)
+       ([115]publisher)
+   39. Vertanen, K. and Kristensson, P.O. 2012. Spelling as a complementary
+       strategy for speech recognition. In Proceedings of the 13^th Annual
+       Conference of the International Speech Communication Association
+       (Interspeech 2012). ISCA: 2294-2297. ([116]pdf) ([117]publisher)
+   38. Trinh, H., Waller, A., Vertanen, K., Kristensson, P.O. and Hanson,
+       V.L. 2012. Applying prediction techniques to phoneme-based AAC
+       systems. In Proceedings of the 3^rd Workshop on Speech and Language
+       Processing for Assistive Technologies (SLPAT 2012). ACL: 19-27.
+       ([118]pdf) ([119]publisher)
+   37. [120][IMG] Kristensson, P.O. and Vertanen, K. 2012. The potential of
+       dwell-free eye-typing for fast assistive gaze communication. In
+       Proceedings of the 7^th ACM Symposium on Eye-Tracking Research &
+       Applications (ETRA 2012). ACM Press: 241-244. Best Paper Honourable
+       Mention. ([121]pdf) ([122]publisher) (youtube)
+   36. Kristensson, P.O., Nicholson, T.F.W. and Quigley, A. 2012. Continuous
+       recognition of one-handed and two-handed gestures using 3D full-body
+       motion tracking sensors. In Proceedings of the 17^th ACM International
+       Conference on Intelligent User Interfaces (IUI 2012). ACM Press:
+       89-92. ([123]pdf) ([124]publisher) (youtube) ([125]source code)
+   35. Kristensson, P.O. and Vertanen, K. 2012. Performance comparisons of
+       phrase sets and presentation styles for text entry evaluations. In
+       Proceedings of the 17^th ACM International Conference on Intelligent
+       User Interfaces (IUI 2012). ACM Press: 29-32. ([126]pdf)
+       ([127]publisher)
+   34. Coyle, D., Moore, J., Kristensson, P.O., Fletcher, P. and Blackwell,
+       A. 2012. I did that! Measuring users' experience of agency in their
+       own actions. In Proceedings of the 30^th ACM Conference on Human
+       Factors in Computing Systems (CHI 2012). ACM Press: 2025-2034. Best
+       Paper Honourable Mention. ([128]pdf) ([129]publisher)
+   33. Kristensson, P.O, Clawson, J., Dunlop, M., Isokoski, P., Roark, B.,
+       Vertanen, K., Waller, A. and Wobbrock, J.O. 2012. Designing and
+       evaluating text entry methods. In Extended Abstracts of the 30^th ACM
+       Conference on Human Factors in Computing Systems (CHI 2012).
+       (Workshops). ACM Press: 2747-2750. ([130]pdf) ([131]publisher)
+       ([132]website)
+   32. Kristensson, P.O. and Denby, L.C. 2011. Continuous recognition and
+       visualization of pen strokes and touch-screen gestures. In Proceedings
+       of the 8^th Eurographics Symposium on Sketch-Based Interfaces and
+       Modeling (SBIM 2011). ACM Press: 95-102. ([133]pdf) ([134]publisher)
+       ([135]source code)
+   31. Kristensson, P.O. and Vertanen, K. 2011. Asynchronous multimodal text
+       entry using speech and gesture keyboards. In Proceedings of the 12^th
+       Annual Conference of the International Speech Communication
+       Association (Interspeech 2011). ISCA: 581-584. ([136]pdf)
+       ([137]publisher)
+   30. Vertanen, K. and Kristensson, P.O. 2011. The imagination of crowds:
+       conversational AAC language modeling using crowdsourcing and large
+       data sources. In Proceedings of the 2011 Conference on Empirical
+       Methods in Natural Language Processing (EMNLP 2011). ACL: 700-711.
+       ([138]pdf) ([139]publisher) ([140]resources) ([141]New Scientist)
+   29. Vertanen, K. and Kristensson, P.O. 2011. A versatile dataset for text
+       entry evaluations based on genuine mobile emails. In Proceedings of
+       the 13^th ACM International Conference on Human-Computer Interaction
+       with Mobile Devices and Services (MobileHCI 2011). ACM Press: 295-298.
+       ([142]pdf) ([143]publisher) ([144]resources)
+   28. Kristensson, P.O. 2011. Design dimensions of intelligent text entry
+       tutors. In Proceedings of the 15^th International Conference on
+       Artificial Intelligence in Education (AIED 2011). Lecture Notes in
+       Artificial Intelligence (vol. 6738), Springer: 494-496. ([145]pdf)
+       ([146]publisher)
+   27. Jameson, A., Gabrielli, S., Kristensson, P.O., Reinecke, K., Cena, F.,
+       Gena, C. and Vernero, F. 2011. How can we support users' preferential
+       choice? In Extended Abstracts of the 29^th ACM Conference on Human
+       Factors in Computing Systems (CHI 2011). (alt.chi). ACM Press:
+       409-418. ([147]pdf) ([148]publisher)
+   26. Vertanen, K. and Kristensson, P.O. 2010. Getting it right the second
+       time: recognition of spoken corrections. In Proceedings of the 3^rd
+       IEEE Workshop on Spoken Language Technology (SLT 2010). IEEE Press:
+       277-282. ([149]pdf) ([150]publisher)
+   25. Bray, Z. and Kristensson, P.O. 2010. Using ensembles of decision trees
+       to automate repetitive tasks in web applications. In Proceedings of
+       the 2^nd ACM SIGCHI Symposium on Engineering Interactive Computing
+       Systems (EICS 2010). ACM Press: 35-40. ([151]pdf) ([152]publisher)
+   24. Vertanen, K. and Kristensson, P.O. 2010. Intelligently aiding
+       human-guided correction of speech recognition. In Proceedings of the
+       24^th AAAI Conference on Artificial Intelligence (AAAI 2010). AAAI
+       Press: 1698-1701. ([153]pdf) ([154]publisher) ([155]youtube)
+   23. [156][IMG] Kristensson, P.O. 2009. Five challenges for intelligent
+       text entry methods. AI Magazine 30(4): 85-94. ([157]pdf)
+       ([158]publisher)
+   22. Vertanen, K. and Kristensson, P.O. 2009. Automatic selection of
+       recognition errors by respeaking the intended text. In Proceedings of
+       the 11^th Biannual IEEE Workshop on Automatic Speech Recognition and
+       Understanding (ASRU 2009). IEEE Press: 130-135. ([159]pdf)
+       ([160]publisher)
+   21. Vertanen, K. and Kristensson, P.O. 2009. Recognition and correction of
+       voice web search queries. In Proceedings of the 10^th Annual
+       Conference of the International Speech Communication Association
+       (Interspeech 2009). ISCA: 1863-1866. ([161]pdf) ([162]publisher)
+       ([163]youtube)
+   20. Kristensson, P.O., Dahlbäck, N., Anundi, D., Björnstad, M., Gillberg,
+       H., Haraldsson, J., Mårtensson, I., Nordvall, M. and Ståhl, J. 2009.
+       An evaluation of space time cube representation of spatiotemporal
+       patterns. IEEE Transactions on Visualization and Computer Graphics
+       15(4): 696-702. ([164]pdf) ([165]publisher)
+   19. [166][IMG] Vertanen, K. and Kristensson, P.O. 2009. Parakeet: a
+       continuous speech recognition system for mobile touch-screen devices.
+       In Proceedings of the 14^th ACM International Conference on
+       Intelligent User Interfaces (IUI 2009). ACM Press: 237-246. ([167]pdf)
+       ([168]publisher) ([169]youtube) ([170]The Economist)
+   18. Vertanen, K. and Kristensson, P.O. 2009. Parakeet: a demonstration of
+       speech recognition on a mobile touch-screen device. In Proceedings of
+       the 14^th ACM International Conference on Intelligent User Interfaces
+       (IUI 2009). (Demonstration). ACM Press: 483-484. ([171]pdf)
+       ([172]publisher) ([173]youtube)
+   17. Kristensson, P.O. and Denby, L.C. 2009. Text entry performance of
+       state of the art unconstrained handwriting recognition: a longitudinal
+       user study. In Proceedings of the 27^th ACM Conference on Human
+       Factors in Computing Systems (CHI 2009). ACM Press: 567-570.
+       ([174]pdf) ([175]publisher) ([176]video of the talk at CHI)
+   16. Spaulding, A., Gajos, K.Z., Jamesson, A., Kristensson, P.O., Bunt, A.
+       and Haines, W. 2009. Usable intelligent interactive systems. In
+       Extended Abstracts of the 27^th ACM Conference on Human Factors in
+       Computing Systems (CHI 2009). (Special Interest Group Meeting). ACM
+       Press: 2743-2746. ([177]pdf) ([178]publisher)
+   15. Zhai, S., Kristensson, P.O., Gong, P., Greiner, M., Peng, S. and Liu,
+       M. 2009. ShapeWriter on the iPhone - from the laboratory to the real
+       world. In Extended Abstracts of the 27^th ACM Conference on Human
+       Factors in Computing Systems (CHI 2009). (Design Practice). ACM Press:
+       2667-2670. ([179]pdf) ([180]publisher)
+   14. Kristensson, P.O., Arnell, O., Björk, A., Dahlbäck, N., Pennerup, J.,
+       Prytz, E., Wikman, J. and Åström, N. 2008. InfoTouch: an explorative
+       multi-touch visualization interface for tagged photo collections. In
+       Proceedings of the 5^th Nordic Conference on Human-Computer
+       Interaction (NordiCHI 2008). ACM Press: 491-494. ([181]pdf)
+       ([182]publisher) ([183]youtube)
+   13. Kristensson, P.O. and Zhai, S. 2008. Improving word-recognizers using
+       an interactive lexicon with active and passive words. In Proceedings
+       of the 13^th ACM International Conference on Intelligent User
+       Interfaces (IUI 2008). ACM Press: 353-356. ([184]pdf) ([185]publisher)
+   12. Vertanen, K. and Kristensson, P.O. 2008. On the benefits of confidence
+       visualization in speech recognition. In Proceedings of the 26^th ACM
+       Conference on Human Factors in Computing Systems (CHI 2008). ACM
+       Press: 1497-1500. ([186]pdf) ([187]publisher) ([188]youtube)
+   11. Zhai, S. and Kristensson, P.O. 2008. Interlaced QWERTY - accommodating
+       ease of visual search and input flexibility in shape writing. In
+       Proceedings of the 26^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2008). ACM Press: 593-596. ([189]pdf) ([190]publisher)
+   10. Sylverberg, T., Kristensson, P.O., Leifler, O. and Berglund, E. 2007.
+       Drawing on paper maps: reliable on-line symbol recognition of
+       handwritten symbols using a digital pen and a mobile phone. In
+       Proceedings of the 2^nd International Conference on Pervasive
+       Computing and Applications (ICPCA 2007). IEEE Press: 515-520.
+       ([191]pdf) ([192]publisher)
+    9. Kristensson, P.O. and Zhai, S. 2007. Command strokes with and without
+       preview: using pen gestures on keyboard for command selection. In
+       Proceedings of the 25^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2007). ACM Press: 1137-1146. ([193]pdf) ([194]publisher)
+       ([195]youtube)
+    8. Cockburn, A., Kristensson, P.O., Alexander, J. and Zhai, S. 2007. Hard
+       lessons: effort-inducing interfaces benefit spatial learning. In
+       Proceedings of the 25^th ACM Conference on Human Factors in Computing
+       Systems (CHI 2007). ACM Press: 1571-1580. ([196]pdf) ([197]publisher)
+    7. Kristensson, P.O. and Zhai, S. 2007. Learning shape writing by game
+       playing. In Extended Abstracts of the 25^th ACM Conference on Human
+       Factors in Computing Systems (CHI 2007). (Interactivity). ACM Press:
+       1971-1976. ([198]pdf) ([199]publisher) ([200]youtube)
+    6. Zhai, S. and Kristensson, P.O. 2007. Introduction to shape writing. In
+       MacKenzie, I.S. and Tanaka-Ishii, K. (Eds.), Text Entry Systems. San
+       Francisco: Morgan Kauffman, 139-158. Invited. ([201]publisher)
+    5. Kristensson, P.O. and Zhai, S. 2005. Relaxing stylus typing precision
+       by geometric pattern matching. In Proceedings of the 10^th ACM
+       International Conference on Intelligent User Interfaces (IUI 2005).
+       ACM Press: 151-158. ([202]pdf) ([203]publisher) ([204]youtube)
+    4. Kristensson, P.O. 2005. Breaking the laws of action in the user
+       interface. In Extended Abstracts of the 23^rd ACM Conference on Human
+       Factors in Computing Systems (CHI 2005). (Doctoral Consortium). ACM
+       Press: 1120-1121. Best Doctoral Consortium Contribution Award.
+       ([205]pdf) ([206]publisher) ([207]slides)
+    3. Zhai, S., Kristensson, P.O. and Smith, B.A. 2005. In search of
+       effective text input interfaces for off the desktop computing.
+       Interacting with Computers 17(3): 229-250. Invited. ([208]pdf)
+       ([209]publisher)
+    2. [210][IMG] Kristensson, P.O. and Zhai, S. 2004. SHARK^2: a large
+       vocabulary shorthand writing system for pen-based computers. In
+       Proceedings of the 17^th Annual ACM Symposium on User Interface
+       Software and Technology (UIST 2004). ACM Press: 43-52. [211]2014 ACM
+       User Interface Software and Technology (UIST) Lasting Impact Award.
+       ([212]pdf) ([213]publisher) ([214]youtube) ([215]BBC) ([216]The New
+       York Times) ([217]slashdot.org) ([218]New Scientist 1) ([219]New
+       Scientist 2) ([220]Time)
+    1. Zhai, S. and Kristensson, P.O. 2003. Shorthand writing on stylus
+       keyboard. In Proceedings of the 21^st ACM Conference on Human Factors
+       in Computing Systems (CHI 2003). ACM Press: 97-104. ([221]pdf)
+       ([222]publisher) ([223]San Jose Mercury News)
+
+Non-Scholarly Publications
+
+    1. [224][IMG] Kristensson, P.O. 2013. Smart phones: it's now the age of
+       the thumb. The World Today 69(5): 10. Chatham House / Royal Institute
+       of International Affairs. Invited. ([225]pdf) ([226]publisher)
+
+Patents
+
+   11. Kristensson, P.O. and Zhai, S. U.S. Patent 9,256,580.
+   10. Kristensson, P.O. U.S. Patent 9,158,757.
+    9. Kristensson, P.O. and Zhai, S. U.S. Patent 8,712,755.
+    8. Kristensson, P.O. and Zhai, S. U.S. Patent 8,543,384.
+    7. Kristensson, P.O. and Zhai, S. U.S. Patent 8,311,796.
+    6. Kristensson, P.O. U.S. Patent 7,895,518.
+    5. Kristensson, P.O. and Zhai, S. U.S. Design Patent D614,645.
+    4. Kristensson, P.O. and Zhai, S. U.S. Design Patent D614,644.
+    4. Kristensson, P.O., Wang, J. and Zhai, S. U.S. Patent 7,706,616.
+    2. Kristensson, P.O. and Zhai, S. U.S. Design Patent D591,307.
+    1. Zhai, S. and Kristensson, P.O. U.S. Patent 7,487,461.
+
+Theses
+
+     • Kristensson, P.O. 2007. Discrete and Continuous Shape Writing for Text
+       Entry and Control. Doctoral dissertation, Linköping University,
+       Sweden. ISBN 978-91-85831-77-7. (Monograph; 200 pages). ([227]pdf)
+       ([228]press coverage)
+     • Kristensson, P.O. 2004. Large Vocabulary Shorthand Writing on Stylus
+       Keyboard. Licentiate thesis, Linköping University, Sweden. ISBN
+       91-85295-76-0. (Collection of papers; 88 pages).
+     • Kristensson, P.O. 2002. Design and Evaluation of a Shorthand-Aided
+       Soft Keyboard. Final/master's thesis (D-Uppsats), Linköping
+       University, Sweden. ISRN LiU-KOGVET-D--02/07--SE. (Monograph; 96
+       pages).
+
+Co-authors with a web presence
+
+     • [229]Dr Jason Alexander, University of Canterbury, New Zealand
+     • [230]Dr Caroline Appert, University of Paris-Sud, France
+     • [231]Dr Alan Blackwell, University of Cambridge, UK
+     • [232]Dr Federica Cena, University of Turin, Italy
+     • [233]Dr Xiang Cao, Microsoft Research Asia, China
+     • [234]Prof. Andy Cockburn, University of Canterbury, New Zealand
+     • [235]Dr David Coyle, formerly University of Cambridge, now University
+       of Bristol, UK
+     • [236]Prof. Nils Dahlbäck, Linköping University, Sweden
+     • [237]Mr Jakub Dostal, University of St Andrews, UK
+     • [238]Dr Silvia Gabrielli, Fondazione Bruno Kessler, Italy
+     • [239]Dr Cristina Gena, University of Turin, Italy
+     • [240]Prof. Vicki Hanson, University of Dundee, UK
+     • [241]Dr Eve Hoggan, University of Helsinki, Finland
+     • [242]Mr Jason Jacques, University of St Andrews, UK
+     • [243]Dr Anthony Jameson, German Research Center for Artificial
+       Intelligence, Germany
+     • [244]Dr Miguel Nacenta, University of St Andrews, UK
+     • [245]Dr Antti Oulasvirta, Max Planck Institute for Informatics,
+       Germany
+     • [246]Prof. Aaron Quigley, University of St Andrews, UK
+     • [247]Dr Katharina Reinecke, Harvard University, USA
+     • [248]Ms Ha Trinh, University of Dundee, UK
+     • [249]Dr Keith Vertanen, formerly University of Cambridge and Princeton
+       University, now Montana Tech of the University of Montana, USA
+     • [250]Prof. Annalu Waller, University of Dundee, UK
+     • [251]Dr John Williamson, University of Glasgow, UK
+     • [252]Dr Shumin Zhai, formerly IBM Almaden Research Center, now Google,
+       USA
+
+   Copyright © Per Ola Kristensson 2007-2018. All rights reserved.
+   Last updated: December 20, 2018.
+
+References
+
+   Visible links
+   1. http://pokristensson.com/index.html
+   2. http://pokristensson.com/bio.html
+   3. http://pokristensson.com/publications.html
+   4. http://pokristensson.com/press.html
+   5. http://pokristensson.com/teaching.html
+   6. http://pokristensson.com/software.html
+   7. http://pokristensson.com/otherstuff.html
+   8. http://blog.pokristensson.com/
+   9. http://portal.acm.org/author_page.cfm?id=81100362804
+  10. http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/k/Kristensson:Per_Ola.html
+  11. http://hcibib.org/bs.cgi?query=Kristensson_P*&searchtype=topauthor
+  12. http://scholar.google.com/citations?user=mH69Wm4AAAAJ
+  13. https://global.oup.com/academic/product/computational-interaction-9780198799603?cc=gb&lang=en&
+  14. http://pokristensson.com/pubs/KristenssonLamPLATEAU2015.pdf
+  15. http://dx.doi.org/10.1145/2846680.2846683
+  16. http://pokristensson.com/pubs/KristenssonIEEEComputer2015.pdf
+  17. http://dx.doi.org/10.1109/MC.2015.185
+  18. http://pokristensson.com/pubs/JacquesEtAlCHB2015.pdf
+  19. http://dx.doi.org/10.1016/j.chb.2015.04.031
+  20. http://pokristensson.com/pubs/ReyalEtAlCHI2015.pdf
+  21. http://dx.doi.org/10.1145/2702123.2702597
+  22. http://pokristensson.com/pubs/VertanenEtAlCHI2015.pdf
+  23. http://dx.doi.org/10.1145/2702123.2702135
+  24. https://www.youtube.com/watch?v=NwCQNO5f2xM
+  25. http://pokristensson.com/pubs/GrijincuEtAlITS2014.pdf
+  26. http://dx.doi.org/10.1145/2669485.2669511
+  27. http://udigesturesdataset.cs.st-andrews.ac.uk/
+  28. http://dx.doi.org/10.1145/2661334.2661424
+  29. http://pokristensson.com/pubs/KristenssonXRDS2014.pdf
+  30. http://dx.doi.org/10.1145/2659835
+  31. http://pokristensson.com/pubs/KristenssonVertanenMobileHCI2014.pdf
+  32. http://dx.doi.org/10.1145/2628363.2628405
+  33. http://pokristensson.com/pubs/RoughEtAlAVI2014.pdf
+  34. http://dx.doi.org/10.1145/2598153.2598157
+  35. http://pokristensson.com/pubs/GarridoEtAlAVI2014.pdf
+  36. http://dx.doi.org/10.1145/2598153.2598160
+  37. http://pokristensson.com/pubs/DostalEtAlIUI2014.pdf
+  38. http://dx.doi.org/10.1145/2557500.2557541
+  39. https://www.youtube.com/watch?v=uNJZ63lKUFA
+  40. http://sachi.cs.st-andrews.ac.uk/research/software/spidereyes/
+  41. http://pokristensson.com/pubs/NicosiaEtAlCHI2014.pdf
+  42. http://dx.doi.org/10.1145/2556288.2557355
+  43. http://www.youtube.com/watch?v=EXFhFhB-cf0
+  44. http://pokristensson.com/pubs/WeirEtAlCHI2014.pdf
+  45. http://dx.doi.org/10.1145/2556288.2557412
+  46. http://www.youtube.com/watch?v=D1tY31hjIoQ
+  47. http://chi2014.acm.org/program/best-talk
+  48. http://pokristensson.com/pubs/AylettEtAlCHI2014.pdf
+  49. http://dx.doi.org/10.1145/2559206.2578868
+  50. http://www.youtube.com/watch?v=ncf9XavN0xE
+  51. http://pokristensson.com/pubs/VertanenEtAlCHI2014.pdf
+  52. http://dx.doi.org/10.1145/2559206.2574802
+  53. http://www.youtube.com/watch?v=zA0sLLhRa4E
+  54. http://pokristensson.com/pubs/ClawsonEtAlCHI2014.pdf
+  55. http://dx.doi.org/10.1145/2559206.2559217
+  56. http://pokristensson.com/pubs/VertanenKristenssonTOCHI2014.pdf
+  57. http://dx.doi.org/10.1145/2555691
+  58. http://pokristensson.com/pubs/DostalEtAlPMC2014.pdf
+  59. http://dx.doi.org/10.1016/j.pmcj.2012.06.009
+  60. http://pokristensson.com/pubs/HogganEtAlITS2013.pdf
+  61. http://dx.doi.org/10.1145/2512349.2512817
+  62. http://pokristensson.com/pubs/VertanenEtAlASSETS2013.pdf
+  63. http://dx.doi.org/10.1145/2513383.2513399
+  64. http://www.youtube.com/watch?v=HT2j5AlHehk
+  65. http://pokristensson.com/pubs/JacquesKristenssonHCOMP2013.pdf
+  66. http://www.aaai.org/ocs/index.php/HCOMP/HCOMP13/paper/view/7540
+  67. http://jtj2.host.cs.st-andrews.ac.uk/turkmill/
+  68. http://pokristensson.com/pubs/BrockKristenssonUbicomp2013.pdf
+  69. http://dx.doi.org/10.1145/2494091.2494173
+  70. http://pokristensson.com/pubs/BrockKristenssonUbicomp2013.mp4
+  71. http://pokristensson.com/pubs/DostalEtAlPerDis2013.pdf
+  72. http://dx.doi.org/10.1145/2491568.2491570
+  73. http://pokristensson.com/pubs/DostalEtAlPerDis2013.mov
+  74. http://pokristensson.com/pubs/DostalEtAlIUI2013.pdf
+  75. http://dx.doi.org/10.1145/2449396.2449416
+  76. http://www.youtube.com/watch?v=_V_tJmJ8cYw
+  77. http://sachi.cs.st-andrews.ac.uk/research/software/diffdisplays/
+  78. http://www.technologyreview.com/news/512891/software-makes-multiple-screens-less-distracting/
+  79. http://www.huffingtonpost.com/2013/03/18/diffdisplays-computer-program-looking-screen_n_2902295.html
+  80. http://pokristensson.com/pubs/NacentaEtAlCHI2013.pdf
+  81. http://dx.doi.org/10.1145/2470654.2466142
+  82. http://www.youtube.com/watch?v=BmxhwFzhJaQ
+  83. http://pokristensson.com/pubs/NacentaEtAlCHI2013.mp4
+  84. http://sachi.cs.st-andrews.ac.uk/people/faculty/miguel-nacenta/gesture-based-interface-memorability/
+  85. http://www.technologyreview.com/view/514286/think-gestural-interactions-suck-design-your-own/
+  86. http://www.fastcodesign.com/1672458/users-are-better-off-designing-their-own-ui-gestures
+  87. http://www.sueddeutsche.de/digital/tastaturbelegung-bei-touchscreens-kalq-ist-schneller-als-qwerty-1.1652981
+  88. http://pokristensson.com/pubs/OulasvirtaEtAlCHI2013.pdf
+  89. http://dx.doi.org/10.1145/2470654.2481383
+  90. http://www.youtube.com/watch?v=HCcLO1AfGAg
+  91. http://www.mpi-inf.mpg.de/~oantti/KALQ/
+  92. http://techcrunch.com/2013/04/24/kalq/
+  93. http://www.bbc.co.uk/news/uk-scotland-22283117
+  94. http://www.guardian.co.uk/technology/shortcuts/2013/apr/25/kalk-keyboard-end-qwerty-touchscreen
+  95. http://www.technologyreview.com/view/514256/two-ways-to-fix-the-typing-on-touch-screens-problem/
+  96. http://www.fastcompany.com/3008822/tech-forecast/thumbs-researchers-develop-new-tablet-friendly-keyboard-kalq
+  97. http://www.wired.co.uk/news/archive/2013-06/08/kalq
+  98. http://boingboing.net/2013/06/07/kalq-is-the-new-qwerty.html
+  99. http://pokristensson.com/pubs/HogganEtAlCHI2013.pdf
+ 100. http://dx.doi.org/10.1145/2470654.2481423
+ 101. http://www.youtube.com/watch?v=ZdjUsJHu69k
+ 102. http://pokristensson.com/pubs/DostalEtAlCHI2013.pdf
+ 103. http://dx.doi.org/10.1145/2468356.2468581
+ 104. http://pokristensson.com/pubs/KristenssonEtAlCHI2013.pdf
+ 105. http://dx.doi.org/10.1145/2468356.2479675
+ 106. http://textentry.org/chi2013
+ 107. http://www.computingreviews.com/recommend/bestof/notableitems_2012.cfm
+ 108. http://www.computingreviews.com/recommend/bestof/notableitems_2012.cfm#listd/bestof/notableitems_2012.cfm
+ 109. http://pokristensson.com/pubs/ZhaiEtAlFnTHCI2012.pdf
+ 110. http://dx.doi.org/10.1561/1100000012
+ 111. http://pokristensson.com/pubs/ZhaiKristenssonCACM2012.pdf
+ 112. http://dx.doi.org/10.1145/2330667.2330689
+ 113. http://pokristensson.com/pubs/ZhaiKristenssonCACM2012BuxtonIntroduction.pdf
+ 114. http://pokristensson.com/pubs/TrinhEtAlASSETS2012.pdf
+ 115. http://dx.doi.org/10.1145/2384916.2384927
+ 116. http://pokristensson.com/pubs/VertanenKristenssonInterspeech2012.pdf
+ 117. http://www.isca-speech.org/archive/interspeech_2012/i12_2294.html
+ 118. http://pokristensson.com/pubs/TrinhEtAlSLPAT2012.pdf
+ 119. http://aclweb.org/anthology-new/W/W12/W12-2904.pdf
+ 120. http://pokristensson.com/etra_cd.jpg
+ 121. http://pokristensson.com/pubs/KristenssonVertanenETRA2012.pdf
+ 122. http://dx.doi.org/10.1145/2168556.2168605
+ 123. http://pokristensson.com/pubs/KristenssonEtAlIUI2012.pdf
+ 124. http://dx.doi.org/10.1145/2166966.2166983
+ 125. http://pokristensson.com/kinect.html
+ 126. http://pokristensson.com/pubs/KristenssonVertanenIUI2012.pdf
+ 127. http://dx.doi.org/10.1145/2166966.2166972
+ 128. http://pokristensson.com/pubs/CoyleEtAlCHI2012.pdf
+ 129. http://dx.doi.org/10.1145/2207676.2208350
+ 130. http://pokristensson.com/pubs/KristenssonEtAlCHI2012.pdf
+ 131. http://dx.doi.org/10.1145/2212776.2212711
+ 132. http://textentry.org/chi2012/
+ 133. http://pokristensson.com/pubs/KristenssonDenbySBIM2011.pdf
+ 134. http://dx.doi.org/10.1145/2021164.2021181
+ 135. http://pokristensson.com/increc.html
+ 136. http://pokristensson.com/pubs/KristenssonVertanenInterspeech2011.pdf
+ 137. http://www.isca-speech.org/archive/interspeech_2011/i11_0581.html
+ 138. http://pokristensson.com/pubs/VertanenKristenssonEMNLP2011.pdf
+ 139. http://aclweb.org/anthology-new/D/D11/D11-1065.pdf
+ 140. http://www.aactext.org/imagine/
+ 141. http://www.newscientist.com/article/mg21328536.600-crowdsourcing-improves-predictive-texting.html
+ 142. http://pokristensson.com/pubs/VertanenKristenssonMobileHCI2011.pdf
+ 143. http://dx.doi.org/10.1145/2037373.2037418
+ 144. http://keithv.com/software/enronmobile
+ 145. http://pokristensson.com/pubs/KristenssonAIED2011.pdf
+ 146. http://dx.doi.org/10.1007/978-3-642-21869-9_80
+ 147. http://pokristensson.com/pubs/JamesonEtAlCHI2011.pdf
+ 148. http://dx.doi.org/10.1145/1979742.1979620
+ 149. http://pokristensson.com/pubs/VertanenKristenssonSLT2010.pdf
+ 150. http://dx.doi.org/10.1109/SLT.2010.5700866
+ 151. http://pokristensson.com/pubs/BrayKristenssonEICS2010.pdf
+ 152. http://dx.doi.org/10.1145/1822018.1822025
+ 153. http://pokristensson.com/pubs/VertanenKristenssonAAAI2010.pdf
+ 154. http://www.aaai.org/ocs/index.php/AAAI/AAAI10/paper/viewFile/1914/2286
+ 155. http://www.youtube.com/watch?v=kri_x1SSFZo
+ 156. http://www.aaai.org/ojs/index.php/aimagazine/issue/view/188
+ 157. http://pokristensson.com/pubs/KristenssonAIMagazine2009.pdf
+ 158. http://aaaipress.org/ojs/index.php/aimagazine/article/viewArticle/2269
+ 159. http://pokristensson.com/pubs/VertanenKristenssonASRU2009.pdf
+ 160. http://dx.doi.org/10.1109/ASRU.2009.5373347
+ 161. http://pokristensson.com/pubs/VertanenKristenssonInterspeech2009.pdf
+ 162. http://www.isca-speech.org/archive/interspeech_2009/i09_1863.html
+ 163. http://www.youtube.com/watch?v=BNNT-pYAIX4
+ 164. http://pokristensson.com/pubs/KristenssonEtAlTVCG2009.pdf
+ 165. http://doi.ieeecomputersociety.org/10.1109/TVCG.2008.194
+ 166. http://www.economist.com/node/16909957
+ 167. http://pokristensson.com/pubs/VertanenKristenssonIUI2009a.pdf
+ 168. http://dx.doi.org/10.1145/1502650.1502685
+ 169. http://www.youtube.com/watch?v=DV-WNQFe-LM
+ 170. http://www.economist.com/node/16909957
+ 171. http://pokristensson.com/pubs/VertanenKristenssonIUI2009b.pdf
+ 172. http://dx.doi.org/10.1145/1502650.1502726
+ 173. http://www.youtube.com/watch?v=DV-WNQFe-LM
+ 174. http://pokristensson.com/pubs/KristenssonDenbyCHI2009.pdf
+ 175. http://dx.doi.org/10.1145/1518701.1518788
+ 176. http://pokristensson.com/pubs/KristenssonDenbyCHI2009.mp4
+ 177. http://pokristensson.com/pubs/SpauldingEtAlCHI2009.pdf
+ 178. http://dx.doi.org/10.1145/1520340.1520396
+ 179. http://pokristensson.com/pubs/ZhaiEtAlCHI2009.pdf
+ 180. http://dx.doi.org/10.1145/1520340.1520380
+ 181. http://pokristensson.com/pubs/KristenssonEtAlNordiCHI2008.pdf
+ 182. http://dx.doi.org/10.1145/1463160.1463227
+ 183. http://www.youtube.com/watch?v=DHMJJwouq5I
+ 184. http://pokristensson.com/pubs/KristenssonZhaiIUI2008.pdf
+ 185. http://dx.doi.org/10.1145/1378773.1378828
+ 186. http://pokristensson.com/pubs/VertanenKristenssonCHI2008.pdf
+ 187. http://dx.doi.org/10.1145/1357054.1357288
+ 188. http://www.youtube.com/watch?v=EoL0sb0U9Lk
+ 189. http://pokristensson.com/pubs/ZhaiKristenssonCHI2008.pdf
+ 190. http://dx.doi.org/10.1145/1357054.1357149
+ 191. http://pokristensson.com/pubs/SylverbergEtAlICPCA2007.pdf
+ 192. http://dx.doi.org/10.1109/ICPCA.2007.4365498
+ 193. http://pokristensson.com/pubs/KristenssonZhaiCHI2007a.pdf
+ 194. http://dx.doi.org/10.1145/1240624.1240797
+ 195. http://www.youtube.com/watch?v=cuKYvEygPgg
+ 196. http://pokristensson.com/pubs/CockburnKristenssonAlexanderZhaiCHI2007.pdf
+ 197. http://dx.doi.org/10.1145/1240624.1240863
+ 198. http://pokristensson.com/pubs/KristenssonZhaiCHI2007b.pdf
+ 199. http://dx.doi.org/10.1145/1240866.1240934
+ 200. http://www.youtube.com/watch?v=DbM0UMQMXCw
+ 201. http://www.elsevierdirect.com/ISBN/9780123735911/Text-Entry-Systems
+ 202. http://pokristensson.com/pubs/KristenssonZhaiIUI2005.pdf
+ 203. http://dx.doi.org/10.1145/1040830.1040867
+ 204. http://www.youtube.com/watch?v=_VgYrz7Pi60
+ 205. http://pokristensson.com/pubs/KristenssonCHI2005.pdf
+ 206. http://dx.doi.org/10.1145/1056808.1056841
+ 207. http://pokristensson.com/pubs/KristenssonCHI2005.ppt
+ 208. http://pokristensson.com/pubs/ZhaiKristenssonSmithIwC2005.pdf
+ 209. http://dx.doi.org/10.1016/j.intcom.2003.12.007
+ 210. http://www.zeit.de/2005/36/C-Kalligrafie
+ 211. http://pokristensson.com/ACMUISTLastingImpactAward.jpg
+ 212. http://pokristensson.com/pubs/KristenssonZhaiUIST2004.pdf
+ 213. http://dx.doi.org/10.1145/1029632.1029640
+ 214. http://www.youtube.com/watch?v=-ZCGKqjTqvE
+ 215. http://news.bbc.co.uk/1/hi/technology/4145184.stm
+ 216. http://www.nytimes.com/2004/11/11/technology/circuits/11next.html
+ 217. http://developers.slashdot.org/story/04/10/28/1320202/shorthand-aided-rapid-keyboarding
+ 218. http://www.newscientist.com/article/mg18725105.600
+ 219. http://www.newscientist.com/article/dn16891-innovation-the-mobile-future-of-the-keyboard.html
+ 220. http://www.time.com/time/specials/packages/article/0,28804,1823107_1823513_1823544,00.html
+ 221. http://pokristensson.com/pubs/ZhaiKristenssonCHI2003.pdf
+ 222. http://dx.doi.org/10.1145/642611.642630
+ 223. http://pokristensson.com/SanJoseMercuryNewsShapeWriter2003.png
+ 224. http://www.chathamhouse.org/node/191881
+ 225. http://pokristensson.com/pubs/KristenssonTheWorldToday2013.pdf
+ 226. http://www.chathamhouse.org/node/191881
+ 227. http://pokristensson.com/pubs/KristenssonDoctoralDissertation2007.pdf
+ 228. http://pokristensson.com/press_phd2007.html
+ 229. http://www.cs.bris.ac.uk/~jason/
+ 230. https://www.lri.fr/~appert/website/index.html
+ 231. http://www.cl.cam.ac.uk/~afb21/
+ 232. http://www.di.unito.it/~cena/
+ 233. http://research.microsoft.com/en-us/people/xiangc/
+ 234. http://www.cosc.canterbury.ac.nz/andrew.cockburn/
+ 235. http://www.davidcoyle.org/
+ 236. http://www.ida.liu.se/~nilda
+ 237. http://jakubdostal.com/
+ 238. http://i3.fbk.eu/people/gabrielli
+ 239. http://www.di.unito.it/~cgena/
+ 240. http://www.computing.dundee.ac.uk/staff/vlh/
+ 241. http://www.cs.helsinki.fi/u/hoggan/index.html
+ 242. http://www.cs.st-andrews.ac.uk/~jtj2/
+ 243. http://www.dfki.de/~jameson/
+ 244. http://nacenta.com/
+ 245. http://www.mpi-inf.mpg.de/~oantti/
+ 246. http://www.cs.st-andrews.ac.uk/~aquigley/
+ 247. http://people.seas.harvard.edu/~reinecke/
+ 248. http://www.computing.dundee.ac.uk/staff/hatrinh/
+ 249. http://www.keithv.com/
+ 250. http://www.computing.dundee.ac.uk/staff/awaller/
+ 251. http://www.dcs.gla.ac.uk/~jhw/
+ 252. http://www.shuminzhai.com/

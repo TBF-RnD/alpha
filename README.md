@@ -69,10 +69,12 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - one/two signal input
 - type with mouse
 - eyetracker
+	 - opengazer
 - VR finger tracking
 - audio note
 - make use of rhytm /  timing
 - custom hardware
+- smartwatches (Keith Vertanen)
 
 ### Application / Use cases
 - people with disabilities
@@ -138,6 +140,8 @@ Going back all the way to the mother of all demos, this input method refuses to 
 
 ### Proposed improvements
 - Make use of HUD as fall back on user memorization miss
+- Velocitap style correction, present tree with suggested error correction
+- multidimensionality by dictionary, tree node size
 
 # Resources
 - Dasher
