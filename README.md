@@ -120,10 +120,13 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - The UNIX shell as an alphabet, moving the language into the keyboard
 - Asychronous sending of statistical data along with prediction, delays and bandwidth constraints
 
-## I: Dasher 
+## I: Dasher, zoom through the tree of all possible books
 The first implementation that is being investigated is the Dasher input method. 
 
 [Chapter 1: Dasher](https://github.com/TBF-RnD/alpha/blob/master/Ch_1.1_Dasher.md)
+
+## II: Chorded, multiple keys at the same  time 
+[Chapter 2: Chorded keys](https://github.com/TBF-RnD/alpha/blob/master/Ch_1.2_Chorded.md)
 
 ### Proposed improvements  
 - Non-linear use of two dimensional screen estate
