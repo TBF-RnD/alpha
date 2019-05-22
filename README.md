@@ -60,6 +60,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - smartphone + word pred
 - swipe  wordsg
 - Velocitap
+- Shape recognition [Per  Ola Kristensson]
 
 ### Hardware / Devices
 - Plain old keyboard
@@ -70,6 +71,8 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - type with mouse
 - eyetracker
 	 - opengazer
+	 - with dasher -> P.O. Kristensson
+	 - akavel
 - VR finger tracking
 - audio note
 - make use of rhytm /  timing
@@ -143,6 +146,14 @@ Going back all the way to the mother of all demos, this input method refuses to 
 - Velocitap style correction, present tree with suggested error correction
 - multidimensionality by dictionary, tree node size
 
+## Targets
+- Web - HTML5/js
+- Win
+- Ubuntu
+- Mac
+- Android
+- Android TV
+
 # Resources
 - Dasher
 [Inference group Dasher](http://inference.org.co.uk/dasher)
@@ -154,3 +165,7 @@ Going back all the way to the mother of all demos, this input method refuses to 
 [Hawkings typing software as open source](https://www.wired.co.uk/article/stephen-hawking-software-open-source-intel)
 - Akavel
 [http://akavel.com/](Precise Eye Tracking)
+- Keith Vertanen,  smartwatches, velicotap a lot of good data sets  participated  on Dasher a lot of excellent papers
+[https://www.keithv.com/software/](keithv.com)
+- Per Ola Kristensson
+[http://pokristensson.com/](Short hand writingg, velicotap)
