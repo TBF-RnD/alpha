@@ -65,6 +65,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - swipe  wordsg
 - Velocitap
 - Shape recognition [Per  Ola Kristensson]
+- m_eiman method
 
 ### Hardware / Devices
 - Plain old keyboard
