@@ -42,6 +42,8 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Dasher
 - morse  code
 - Chorded
+	- Plover! 
+- MessageEase
 - Fractal Dasher
 - Quadboard
 	 - Z-mapping, linear - two dimensional locality, recursive Z
@@ -53,6 +55,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Plain old Keyboard
 	 - different layouts
 	 - half
+	 - Drawback in VR, where is it  [microsoft research on youtube]
 - phone
 - half qwerty
 - T9
@@ -65,6 +68,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 ### Hardware / Devices
 - Plain old keyboard
 - gamepad 
+ - ARS-method http://arsdnet.net/jsinput.d, courtesy of Adam Ruppe
 - remote control
 - touchpad
 - one/two signal input
@@ -154,6 +158,10 @@ Going back all the way to the mother of all demos, this input method refuses to 
 - Android
 - Android TV
 
+# Discussion
+[Lobste.rs](https://lobste.rs/s/jkeeh8/case_for_new_input_method)
+adam\_d\_ruppe
+
 # Resources
 - Dasher
 [Inference group Dasher](http://inference.org.co.uk/dasher)
@@ -169,3 +177,8 @@ Going back all the way to the mother of all demos, this input method refuses to 
 [https://www.keithv.com/software/](keithv.com)
 - Per Ola Kristensson
 [http://pokristensson.com/](Short hand writingg, velicotap)
+- Adam D. Ruppe
+[http://arsdnet.net/](arsdnet.net)
+
+# Discussion
+[https://lobste.rs/s/jkeeh8/case_for_new_input_method](lobste.rs 22 May 2019)
