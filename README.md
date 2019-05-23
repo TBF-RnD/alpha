@@ -41,6 +41,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 ### Software algorithms
 - Dasher
 - morse  code
+	- [https://thehelpfulhacker.net/projects/morse-code-glove/](Morse code glove)
 - Chorded
 	- Plover! 
 - MessageEase
@@ -77,7 +78,8 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 	 - opengazer
 	 - with dasher -> P.O. Kristensson
 	 - akavel
-- VR finger tracking
+- VR finger tracking / glove
+	[https://thehelpfulhacker.net/projects/morse-code-glove/](Peter Zach, the helpfull hcker)
 - audio note
 - make use of rhytm /  timing
 - custom hardware
@@ -111,6 +113,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - change of mode  cognitive  cost [googgle talk 13;15]
 - Shannon
 - semantic primes
+- attention bandwidth
 
 ### Technique - a framework for comparision
 - Windows integration
@@ -179,6 +182,8 @@ adam\_d\_ruppe
 [http://pokristensson.com/](Short hand writingg, velicotap)
 - Adam D. Ruppe
 [http://arsdnet.net/](arsdnet.net)
+- Zach Peters
+[https://thehelpfulhacker.net/](The helpful hacker)
 
 # Discussion
 [https://lobste.rs/s/jkeeh8/case_for_new_input_method](lobste.rs 22 May 2019)
