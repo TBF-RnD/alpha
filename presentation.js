@@ -12,7 +12,7 @@ function toggleFullscreen(el){
 
 $(document).ready(function(){
 				var editor=$("#editor")
-				if(true){
+				if(false){
 					toggleFullscreen(editor[0])
 					mobileConsole.toggle()
 				}
