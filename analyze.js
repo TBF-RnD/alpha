@@ -1,8 +1,8 @@
 var fs=require("fs")
 
 // Settings
-var corpus_path="/storage/emulated/0/corpus_light"
-var ngram=5
+var corpus_path="/storage/emulated/0/corpus_skeleton"
+var ngram=3
 var out_path="./output/"
 
 var collections=[]
