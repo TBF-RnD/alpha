@@ -46,3 +46,5 @@ Whereas for some nieche areas the chorded keyboard is used with great success fo
 
 ## Proposed improvements
 Leaving out tablets and smartphones which in it's  current form seem to be utterly incompatible with chorded input, what can be done to improve the methods viability? Well first of all we can mitigate both the learning curve and the error recovery rate by providing on screen assitance at all times. All of the sudden the power law of symbol frequency distribution works in our favour. The top 20-40% of the keystrokes would quickly be memorized and accessed via neurologically low latency muscle memory. For misses in this "wetware" system, the user refer to an onscreen reference constantly represented on the HUD. So if the user forgets the given chord for an unlikely key such as z, the user only have to  use his eyes to scan the screen to find it. Furthermore the software might predict the most likely incomming chords and might with good accuracy present the most likely incomming symbols with a very high accuracy.   
+## TODO:
+write about Plover
