@@ -42,6 +42,11 @@ Dasher can take the menu information from a GNOME appplication and present it as
 - thumb in the way on touch (designed for pen)
 - Integrate beta taxonomy - to make use of additional digits / multiple dimensions
 
+- 3D Dasher three approaches
+ * extra dimension for other dictionaries
+ * extra  dimension for longer strings ngram -> to  many
+ * one dictionary z-mapped over surface
+ + roll to switch between alternatives
 
 \*) Or paper to someone who have been carving in stone for his whole life for that matter
 \*\*) The corpuses used in the Dasher program is surprisingly small, so there might be room  for improvement here
