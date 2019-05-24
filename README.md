@@ -40,6 +40,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 
 ### Software algorithms
 - Dasher
+- VirHkey
 - morse  code
 	- [https://thehelpfulhacker.net/projects/morse-code-glove/](Morse code glove)
 - Chorded
@@ -66,6 +67,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Velocitap
 - Shape recognition [Per  Ola Kristensson]
 - m_eiman method
+- vimperator
 
 ### Hardware / Devices
 - Plain old keyboard
@@ -125,7 +127,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Efficient text rendering
 - Marketing novel user interfaces to a broad audiance
 - Implementation of math editor
-- Web browser extension for 10" interface leveraging readily available consumer hardware
+- Web browser extension for 10" interface leveraging readily available consumer hardware,  also vimperator analogy
 - The UNIX shell as an alphabet, moving the language into the keyboard
 - Asychronous sending of statistical data along with prediction, delays and bandwidth constraints
 
