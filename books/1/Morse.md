@@ -1,3 +1,15 @@
+Around 40 wpm according to wikipedia. Really good at 60 wpm
+In aviation standard is 5 wpm  
+official
+amateur extra at 20wpm
+Extra class requirement 5 wpm  along with boy scouts
+
+26 english letters + arabic numerals
+
+other versions has more letters 
+
+Try it out in  gboard, maybe non  functional at the moment
+
 #
 
 ## The genology (sic) of the terminal
@@ -12,8 +24,14 @@ Interesting as that may be, I am going way off topic. Looking back at how the mo
 ## Shannon ???
 How to calculate input bandwidth?
 
+Try it out in Gboard
+
 ## Prediction assisted morse
 - luminosity as a function of probabily
 - size as a function of probability 
 - static /  dual -> split screen
 - z-ordering
+
+# Further reading
+[https://pcarleton.com/2017/03/07/morse-to-emoji/](Morse to emoji)
+[https://support.google.com/accessibility/android/answer/9011881?co=GENIE.Platform%3DAndroid&hl=en](enable morse in gboard)
