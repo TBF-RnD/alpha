@@ -56,9 +56,11 @@ m n o p
 
 Groups similar letters close to each other making them easier to spot. Compare to
 
+```
 a b c d e f g h i j k l
 m n o p q r s t u v x y
 z 0 1 2 3 4 5 6 7 8 9 
+```
 
 Here the letters 0 and 9 while intuitiely similar are quite far from   each other.  Compare a d, which in the first version have a distance of 1 but in  the  second of 3, and so forth. 
 
