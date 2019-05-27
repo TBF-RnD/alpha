@@ -1,7 +1,7 @@
 # Dasher input method
 Whereas most input methods here at least have roots that go very far back. A relatively recent attempt however is the Dasher method. With it's theoretical heritage in Information Theory it provides an excellent source of thinking strategies that are useful when dealing with text input.
 
-[![Demonstration](https://img.youtube.com/vi/0d6yIqu0KQ0/0.jpg)](https://youtu.be/0d6yIquOKQ0)
+[![Demonstration](https://img.youtube.com/vi/0d6yIquOKQ0/hqdefault.jpg)](https://youtu.be/0d6yIquOKQ0)
 
 It was originally developed by David JC McKay and David Ward. David Ward wrote his PhD on the subject which you can find below. Currently it is being administered by the inference group and is supported by the Gatsby Foundation and the European Commission. 
 
