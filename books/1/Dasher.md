@@ -1,6 +1,8 @@
 # Dasher input method
 Whereas most input methods here at least have roots that go very far back. A relatively recent attempt however is the Dasher method. With it's theoretical heritage in Information Theory it provides an excellent source of thinking strategies that are useful when dealing with text input.
 
+[![Demonstration](https://img.youtube.com/vi/0d6yIqu0KQ0/0.jpg)](https://youtu.be/0d6yIquOKQ0)
+
 It was originally developed by David JC McKay and David Ward. David Ward wrote his PhD on the subject which you can find below. Currently it is being administered by the inference group and is supported by the Gatsby Foundation and the European Commission. 
 
 At first glance the Dasher input method looks very strange. However if you think of as a top down racing game, you'll understand it quite quickly.  For comparison imagine the shock for someone who was used to writing with a pen for his entire life when  presented with a typewriter\*. When presented with using the method however most people catch on quite quickly. Once you get  a short introduction to the why behind the setup you'll catch on quite quickly. Something that has been demonstrated scientifically as well.
@@ -86,6 +88,8 @@ There exists a android app for this which you can find on Google Play Store. Sin
 
 A dual mode for gamepads or left or right thumb It would be interesting to see a dual dasher input system. The left thumb for exammple could select with a Dasher tree from a set of probable words whereas the right thumb would select the letters. This would double the input bandwidth. The other system also could be tied to using commands say for example to map one of the modes in the VIM editor to the left thumb. To take this even further and use all fingers for cursors seems improbable however but worth consideration. This really plays into the left-right hand holding-painting dualism that is applicable in so many areas of HID.   
 
+One line of thought that I find really interesting in UI, is giving elements a physical feel to them. So if you slide down a menu it has a momentum that gives it a natural "feel". Implementing a newtonian vehicle like feel to the cursor  might have advantages. Partly because it would help by using what I suspect is natural prediction  mechanism built into the brain.  From  a theoretical point of view stringing letters upon a curve would give us additional input bandwidth. 
+
 Last but not least I'd say that it's time to take Dasher into 3D. Selection here would probably give us more than 14 bits per second. The extra dimension could for instance:
 - Show same tree but with more symbols in the map
 	- so at the top 1-symbol, at row 24 the 24 most probable characters
@@ -96,13 +100,10 @@ Last but not least I'd say that it's time to take Dasher into 3D. Selection here
 	- draw back that symbols behind might be obscured, fixable via transparency
 See videos below or a stab at 3D implementation, not applying my theories or my work!
 
-## Really good1!
-HUD - [Implementation of Dasher](https://www.academia.edu/362275/Implementation_of_Dasher_An_Information_Efficient_Input_Mechanism)
 
 ## Online resources
 [Data Entry Interface Using Continuous Gestures and Language Models](http://www.inference.org.uk/djw30/papers/uist2000.html)
-
-
+[Implementation of Dasher](https://www.academia.edu/362275/Implementation_of_Dasher_An_Information_Efficient_Input_Mechanism)
 - comparision with 
 	- T9
 	- chorded,ternary (TCK) @ ~ 16 wpm
@@ -120,3 +121,5 @@ HUD - [Implementation of Dasher](https://www.academia.edu/362275/Implementation_
 [HN Post](https://news.ycombinator.com/item?id=17105728)
 
 [Keith V](https://www.keithv.com/software/speechdasher/)
+[Alan Blackwell](https://www.cl.cam.ac.uk/~afb21/publications/index.html)
+[P.O. Kristensson](http://pokristensson.com/publications.html)
