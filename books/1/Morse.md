@@ -47,10 +47,12 @@ The reference would display a reference table of each available symbol along  wi
 - z-ordering 
 In order to have as small  distance between letters close visualy a recursive z-ordering is applied
 
+```
 a b e f q r u v 
 c d g h s t x y
 i j k l
 m n o p
+```
 
 Groups similar letters close to each other making them easier to spot. Compare to
 
