@@ -1,5 +1,5 @@
-# Genalogy of digital communication
-What can we learn from a almost two hundred year old standard of communcations today?Well, quite a lot it turns out. First of all I'd say that it should put the idea of the IT/-age. It is possible to trace UTF-8, through ASCII all the way back to morse code. Continuing from there we had light speed communication before that with semaphores mirrors or even fire. So rather than a quantum leap into doing something completely different, we are in fact dealing with a continous improvement, that is doing the same thing  but faster. 
+# Genealogy of digital communication
+What can we learn from a almost two hundred year old standard of communcations today?Well, quite a lot it turns out. First of all I'd say that it should put the idea of the IT-age as a total break fromm the past into question. It is possible to trace UTF-8, through ASCII all the way back to morse code. Continuing from there we had light speed communication before that with semaphores mirrors or even fire. So rather than a quantum leap into doing something completely different, we are in fact dealing with a continous improvement, that is doing the same thing  but faster. 
 
 ## Compression
 Take a look at the morse code table and you'll find tha the most common letters have shorter codes. This is quite clever and is done to cut down the amount of signals that you have to send. 
@@ -18,7 +18,7 @@ Take a look at the morse code table and you'll find tha the most common letters 
 -----------------
 [Cornell university](http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html)
 
-Study the frequencies of english words above. Given that there is a 12.02 % chance that an E will appear  and a 0.07 % chance that a Z will appear, wouldn't it make sense to have a shorter series for the A than the Z. Creating a map that assigns shorter series to more frequent letter is in fact a form of compression. Which is impressive for a system designed in the beginning of the 19-th century.  
+Study the frequencies of english words above. Given that there is a 12.02 % chance that an E will appear  and a 0.07 % chance that a Z will appear, wouldn't it make sense to have a shorter series for the A than the Z. Creating a map that assigns shorter series to more frequent letter is in fact a form of compression. So when you sum up the lenghts on an average text you'll receive a lower data rate than before.  Which is impressive for a system designed in the beginning of the 19-th century.  
 
 ## Limitations 
 Morse code have some few variations. It supports A-Z, the arabic numbers and a few more symbols. Notable exceptions are "!". Support for other languages do exist but requires that the users memorize a totally new table. 
@@ -80,6 +80,6 @@ By creating a n-gram model of the language on a suitable data set. A PPM-like  s
 Given big enough screen, a static reference could be offered next to a dynamic. Given a miss in one system the user can quickly recover by looking at the other. 
 
 # Further reading
-[https://en.wikipedia.org/w/Morse_Code](Wikipedia article)
-[https://pcarleton.com/2017/03/07/morse-to-emoji/](Morse to emoji)
-[https://support.google.com/accessibility/android/answer/9011881?co=GENIE.Platform%3DAndroid&hl=en](enable morse in gboard)
+[Wikipedia article](https://en.wikipedia.org/w/Morse_Code)
+[Morse to emoji](https://pcarleton.com/2017/03/07/morse-to-emoji/)
+[enable morse in gboard](https://support.google.com/accessibility/android/answer/9011881?co=GENIE.Platform%3DAndroid&hl=en)
