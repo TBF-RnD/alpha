@@ -66,7 +66,7 @@ Here the letters 0 and 9 while intuitiely similar are quite far from   each othe
 
 Also z-ordering saves space. 
 - Ordering by frequency, statically 
-The first mode would be to statically order the references according to their averageg occurence. This would mean  that the user would quickly  learn  the top 8 or so which more  or less would account for 80% of the letters,  quite quickly. So there is a 20% chance that he has to do a lookup. 
+The first mode would be to statically order the references according to their average occurence. This would mean that the user would quickly learn  the top 8 or so which more  or less would account for 80% of the letters,  quite quickly. So there is a 20% chance that he has to do a lookup. 
 - Color by probability 
 Whereas still maintaing a static ordering, it is still possible to change the size and color of the more frequent letters. 
 - Ordering by frequency, dynamically 
