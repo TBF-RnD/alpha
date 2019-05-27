@@ -33,23 +33,14 @@ Communcation requires several involved parties however. What limits the bandwidt
 
 So in reality the bar is set a fair  bit lower. The FCC awards a first  class license to anybody capable of over 20 wpm.
 
-## A proposal for a 0-learning curve morse text editor
-In order to demonstrate some of my findings from eariler projects. Most notably the erudite.now sigma project. I  would like to suggest the following morse code editor. 
------------------
-|               |
-| entered text  |
-|               |
-----------------
-|               |
-|  α-ΜORSE      |  
-|               |
-----------------
-|  the button   |
------------------
 
+##  A proposal for a 0-learning curve morse text editor
+
+In order to demonstrate some of my findings from eariler projects. Most notably the erudite.now sigma project. I  would like to suggest the following morse code editor. 
 1. the entered text, where output ends up
 2. α-ΜORSE, morse reference as defined below
 3. Button to send morse
+
 
 ### α-Morse
 The reference would display a reference table of each available symbol along  with the code that describes it in Morse. The reference receives no input whatsoever.
