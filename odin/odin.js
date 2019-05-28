@@ -1,5 +1,7 @@
 //  External
 var fs=require('fs')
+var path=require('path')
+
 // Internal 
 var dict=require('./dict')
 var jsonfmt=require('./fmt_json')
@@ -14,15 +16,15 @@ function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" }
 function logMem(){ console.log(process.memoryUsage()) }
 
 // Analyze a single txt file
-function single(path,destpath){
+function single(srcpath,destpath){
 	// boring IO stuff
-	console.log("Analyzing "+path)
+	console.log("Analyzing "+srcpath)
 	logMem()
 	var t0=getMS()
 	try{
-		var data=fs.readFileSync(path,'utf8')
+		var data=fs.readFileSync(srcpath,'utf8')
 	}catch(e){
-		console.error("Failed to read "+path)
+		console.error("Failed to read "+srcpath)
 		process.exit(1)
 	}
 	logTime("Read  " + data.length + " bytes",t0)
@@ -45,14 +47,20 @@ function single(path,destpath){
 	logTime("processed  "+path,t0)
 	logMem()
 
-	// TODO get export format by file ending
+	var ext=path.extname(destpath)
 	console.log("exporting")
 	var t0=getMS()
-	var outdata=jsonfmt.format(dictobj)
+	var data=""
+	if(ext==".json")
+		outdata=jsonfmt.format(dictobj)
+	else if(ext==".md")
+		outdata=mdfmt.format(dictobj)
+	else{
+		console.error("Unknown format "+ext)
+		process.exit(1)
+	}
 	logTime("exported in ",t0)
 	logMem()
-
-	var outdata=mdfmt.format(dictobj)
 	
 	try{
 		var data=fs.writeFileSync(destpath,outdata,'utf8')
