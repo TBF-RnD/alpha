@@ -3,6 +3,7 @@ var fs=require('fs')
 // Internal 
 var dict=require('./dict')
 var jsonfmt=require('./fmt_json')
+var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
 var degree=2
@@ -51,6 +52,8 @@ function single(path,destpath){
 	logTime("exported in ",t0)
 	logMem()
 
+	var outdata=mdfmt.format(dictobj)
+	
 	try{
 		var data=fs.writeFileSync(destpath,outdata,'utf8')
 	}catch(e){
