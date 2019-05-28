@@ -1,10 +1,90 @@
 # Odin 
 
-Analyze text files to generate PPM like data usable for text prediction on a symbol  level.   
+Analyze text files to generate PPM like data usable for text prediction on a symbol level. Exports the data to json file for use for javascript based input methods. Can also output markdown  tables for visualisations here and in the chapters.   
 
-Usage
+## Usage
+Use the engine to generate a json formated output on a single  file.
+```
+node single odin.js <INPUT> <OUTPUT>.json
+```
+Can also be used to generate a markdown table representation:
 ```
 node single odin.js <INPUT> <OUTPUT>.json
 ```
 
-Example
+##  Example
+For example given the string:
+```
+foobarfoofoobar!
+```
+
+We get the following results. The data is hardly useful for anything  except for giving predictions of a user trying to type foo or bar.
+
+### 1-gram
+|   | a | b | f | o | r | 
+|---|---|---|---|---|---|
+| f | 0 | 0 | 0 | 3 | 0 |
+| o | 0 | 2 | 1 | 3 | 0 |
+| b | 2 | 0 | 0 | 0 | 0 |
+| a | 0 | 0 | 0 | 0 | 2 |
+| r | 0 | 0 | 1 | 0 | 0 |
+
+ - 3 occurences of o after f and o
+ - b comes after o 2 times
+ - ...
+
+### 2-gram
+|   | a | b | f | o | r | 
+|---|---|---|---|---|---|
+| fo | 0 | 0 | 0 | 3 | 0 |
+| oo | 0 | 2 | 1 | 0 | 0 |
+| ob | 2 | 0 | 0 | 0 | 0 |
+| ba | 0 | 0 | 0 | 0 | 2 |
+| ar | 0 | 0 | 1 | 0 | 0 |
+| rf | 0 | 0 | 0 | 1 | 0 |
+| of | 0 | 0 | 0 | 1 | 0 |
+
+ - o after fo 3 times
+ - b ater o 2 times
+ - ...
+
+### 3-gram
+|   | a | b | f | o | r | 
+|---|---|---|---|---|---|
+| foo | 0 | 2 | 1 | 0 | 0 |
+| oob | 2 | 0 | 0 | 0 | 0 |
+| oba | 0 | 0 | 0 | 0 | 2 |
+| bar | 0 | 0 | 1 | 0 | 0 |
+| arf | 0 | 0 | 0 | 1 | 0 |
+| rfo | 0 | 0 | 0 | 1 | 0 |
+| oof | 0 | 0 | 0 | 1 | 0 |
+| ofo | 0 | 0 | 0 | 1 | 0 |
+| ar! | 0 | 0 | 0 | 0 | 0 |
+ 
+ - b after foo, 2 times, beginning of "bar"
+ - r after  oba 2 times
+ - ...
+
+### Build examples
+The examples are built using make. Go  to corpus/test and run  
+```
+make
+```
+To build json and markdown representations. On  slightly larger texts and  with longer memory these tend to get quite memory and cpu intensive. 
+
+It might be useful to run 
+```
+make -j4 json
+```
+to only build json  files on a 4-core CPU. Bear in mind however that another bottleneck  is memory. If you heighten   the degree  that is length of the  string  before the the memory goes through the rough quite quickly.  
+
+What happens is that since for each level given a 26 letter alphabet the size of the frequency representation increases by 26. Obviously 26 to the power of l, increases quite quickly. For  practical usecases 26 is quite the low estimate as  well. So even if the hash maps used in javascript  are sparesly populated the memory usage gets quite large quite quickly. 
+
+Thankfully a memory of  5-10 is quite sufficient for usable predictions. If you really want to test the limit you can always add more swap memory to your OS. In linux as below:
+
+```
+dd  if=/dev/zero  bs=1G count=512 of=swap
+mkswap  swap
+swapon swap
+```
+Adds an insane amount of swap to your OS. Change count in   the dd command to something that suits your purposes.   
