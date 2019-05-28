@@ -16,8 +16,11 @@ Dict.prototype.addText=function(name,data){
 // Add occurence of symbol appearing after stringg of symbols
 Dict.prototype.addOccurence=function(string,symbol){
 //	console.log("{"+string+"} => ["+symbol+"]")
-	if(typeof(this.d[string])=="undefined")
-		this.d[string]={symbol:1}
+	if(typeof(this.d[string])=="undefined"){
+		var to={}
+		to[symbol]=1
+		this.d[string]=to
+	}
 	else if(typeof(this.d[string][symbol])=="undefined")
 		this.d[string][symbol]=1
 	else this.d[string][symbol]++
@@ -27,10 +30,10 @@ Dict.prototype.procText=function(name){
 	var data=this.texts[name]
 	var degree=this.degree
 
-	for(var j=0;j<degree;j++){
+	for(var j=0;j<=degree;j++){
 		for(var i=0;i<data.length-degree;i++){
-			var back=data.substr(i,degree)
-			var s=data[i+degree]
+			var back=data.substr(i,j)
+			var s=data[i+j]
 
 //			console.log(j+"/"+degree+":"+i+"/"+data.length)
 			this.addOccurence(back,s)

@@ -75,7 +75,7 @@ switch(cmd){
 			process.exit(1)
 		}
 		
-		single(process.argv[3])
+		single(process.argv[3],process.argv[4])
 		break;
 	default:
 		console.error("Unknown command "+cmd)

@@ -4,7 +4,7 @@ Analyze text files to generate PPM like data usable for text prediction on a sym
 
 Usage
 ```
-nodejs single odin.js <INPUT> <OUTPUT>.json
+node single odin.js <INPUT> <OUTPUT>.json
 ```
 
 Example
