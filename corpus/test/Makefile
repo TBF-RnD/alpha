@@ -1,7 +1,7 @@
 SINGLE=./single.sh
-SRC=Morse_Code.txt quickfox.txt
-JSON=Morse_Code.json quickfox.json
-MD=Morse_Code.md quickfox.md
+SRC=Morse_Code.txt quickfox.txt foobar.txt
+JSON=Morse_Code.json quickfox.json foobar.json
+MD=Morse_Code.md quickfox.md foobar.md
 
 all: json markdown
 
