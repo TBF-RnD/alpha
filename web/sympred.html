@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="../ext/hnl.mobileConsole.js"></script>
 		<script type="text/javascript" src="../ext/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="../ext/jquery.selection.js"></script>
+		<script type="text/javascript" src="../ext/textarea-caret-position.js"></script>
 
 		<!-- Statistical data -->
 		<script type="text/javascript"> profiles=[] </script>
@@ -22,6 +23,8 @@
 		<link rel="stylesheet" type="text/css" href="../models/sympred.css"></link>
 	</head>
 	<body>
-		<textarea sympred dict="../corpus/text/Morse_Code.json" cols="80" rows="25">Test it </textarea>
+		<div id="suggest" class="suggest"></div>
+		<textarea id="edit" sympred dict="../corpus/text/Morse_Code.json" cols="80" rows="25">Try it </textarea> 
+		<!--		<div id="sympred" contenteditable sympred dict="../corpus/text/Morse_Code.json" cols="80" rows="25">Try it ou</div> -->
 	</body>
 </html>

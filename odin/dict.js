@@ -25,9 +25,6 @@ Dict.prototype.predict=function(string){
 	var  degree=this.degree
 	var degree=2
 
-
-	console.log("Predicting: " +string)
-
 	for(var i=0;i<=degree;i++){
 		var needle=__last_n_sym(string,i)
 		var subset=this.d[i]
@@ -44,13 +41,14 @@ Dict.prototype.predict=function(string){
 
 			tot_f+=f
 		}
-		console.log("sum(f)="+tot_f)
+//		console.log("sum(f)="+tot_f)
 		tot_f_tot+=tot_f*mult
 
 		// A n+1 degree match is valued expk times a n degree match
 		mult*=this.expk
 	}
-	console.log("Sym(tot_f)"+tot_f_tot)
+//	console.log("Sym(tot_f)"+tot_f_tot)
+	
 	
 	// Sort
 	var  sorted=[]
@@ -63,6 +61,7 @@ Dict.prototype.predict=function(string){
 	}
 	*/
 	var  i=0
+	console.log("TOP")
 	for(var k in sorted){
 		console.log(sorted[k].s+" "+sorted[k].f)
 		i++

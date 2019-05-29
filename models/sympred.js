@@ -1,8 +1,6 @@
 
 function SymPred(current){
 	this.current=current
-
-	console.log("new SymPred:  init'ed  with: "+current)
 }
 
 SymPred.prototype.setLibrary=function(lib){
@@ -11,7 +9,10 @@ SymPred.prototype.setLibrary=function(lib){
 
 SymPred.prototype.setDict=function(dict){
 	this.dict=dict
-	console.log("Dicct is  set!!")
+}
+
+SymPred.prototype.setCurr=function(ncurr){
+	this.current=ncurr
 }
 
 SymPred.prototype.insert=function(s,p0,p1){
@@ -19,6 +20,9 @@ SymPred.prototype.insert=function(s,p0,p1){
 	
 	var head=d.substr(0,p0)
 	var tail=d.substr(p1)
+
+	head=typeof(head)=="undefined"?"":head
+	tail=typeof(tail)=="undefined"?"":tail
 
 	this.current=head+s+tail
 
