@@ -8,7 +8,7 @@ var jsonfmt=require('./fmt_json')
 var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
-var degree=3
+var degree=6
 
 // Debug helpers
 function getMS(){ return Date.now() }

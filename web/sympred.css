@@ -1,0 +1,35 @@
+#sympred {
+	width: 80%;
+	height: 80%;
+	border: 1px solid black;
+	border-radius: 8px;
+}
+
+.pre { color: red }
+.mid { color: green }
+.post  { color: blue }
+
+.suggest {
+	background-color:  white;
+	border: 1px solid blue;
+	min-width: 48px;
+	min-height: 64px;
+	position:absolute;
+	left: 0px;
+	top:  0px;
+/* TODO add two divs one with 0.7 and one with 1.0 w/o  bg and text. See-through background AND  eligible text!!  */
+	opacity: 0.7;
+	border-radius:  8px;
+}
+
+.suggest ul {
+	list-style:  none;
+	margin: 0;
+	padding: 0;
+}
+
+#edit{
+	font-size:12px;
+	line-height:18px;
+	font: monospace;
+}

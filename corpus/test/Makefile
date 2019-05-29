@@ -1,4 +1,4 @@
-SINGLE=./single.sh
+SINGLE=bash ./single.sh
 SRC=Morse_Code.txt quickfox.txt foobar.txt
 JSON=Morse_Code.json quickfox.json foobar.json
 MD=Morse_Code.md quickfox.md foobar.md

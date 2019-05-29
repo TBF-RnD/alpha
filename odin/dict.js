@@ -1,9 +1,81 @@
 // Constructor for dict object
 function Dict(degree){
+	// TODO make  exp k configurable
+	// - I assume that size ought to be related to alphabet size
+	// - so expk ought to be bigger than the alphabet size
+	// 27 and eulers number are as such almost arbitrary and chosen because
+	// I find the numbers neat! 42*pi would probably also work ok!!
+	this.expk=27*Math.E
 	this.texts={}
 	this.degree=degree
 	this.d=[]
 	for(var i=0;i<=degree;i++) this.d.push({})
+}
+
+// Get last n symbols from string
+// substr(-0) becomes substr(0) so hence a replacement
+function __last_n_sym(s,n){ return s.substr(s.length-n,s.length) }
+
+// TODO implement cache of string -> results
+Dict.prototype.predict=function(string){
+	var mult=1
+	var res={}
+	var tot_f_tot=0
+
+	var  degree=this.degree
+	var degree=2
+
+	for(var i=0;i<=degree;i++){
+		var needle=__last_n_sym(string,i)
+		var subset=this.d[i]
+
+		var tot_f=0
+		if(typeof(subset[needle])=="undefined") continue
+		var matches=subset[needle]
+		
+		for(var sym in matches){
+			var f=matches[sym]
+
+			if(typeof(res[sym])=="undefined") res[sym]=f*mult
+			else res[sym]+=f*mult
+
+			tot_f+=f
+		}
+//		console.log("sum(f)="+tot_f)
+		tot_f_tot+=tot_f*mult
+
+		// A n+1 degree match is valued expk times a n degree match
+		mult*=this.expk
+	}
+//	console.log("Sym(tot_f)"+tot_f_tot)
+	
+	
+	// Sort
+	var  sorted=[]
+	for(var k in res){ sorted.push({s:k,f:res[k]}) }
+	sorted.sort(function(a,b){ return b.f-a.f  })
+
+	/*
+	for(var k in sorted){
+		console.log(sorted[k].s+" "+sorted[k].f)
+	}
+	*/
+	var  i=0
+	console.log("TOP")
+	for(var k in sorted){
+		console.log(sorted[k].s+" "+sorted[k].f)
+		i++
+		if(i>4)  break
+	}
+
+	return {m:sorted,sum_f:tot_f_tot}
+}
+
+// loads a JSON object containing statistics
+Dict.prototype.loadProfile=function(d){
+	console.log("Loaded  profile of degree: "+d.length)
+	this.degree=d.length
+	this.d=d
 }
 
 // TODO
@@ -62,4 +134,7 @@ Dict.prototype.enterText=function(name,data){
 	this.procText(name)
 }
 
-exports.dict=Dict
+
+if(typeof(exports)=="object"){
+	exports.dict=Dict
+}
