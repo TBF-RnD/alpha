@@ -68,7 +68,7 @@ Dict.prototype.predict=function(string){
 		if(i>4)  break
 	}
 
-	return {m:res,sum_f:tot_f_tot}
+	return {m:sorted,sum_f:tot_f_tot}
 }
 
 // loads a JSON object containing statistics

@@ -1,6 +1,7 @@
 
 function SymPred(current){
 	this.current=current
+	this.show_n=12
 }
 
 SymPred.prototype.setLibrary=function(lib){
@@ -26,9 +27,15 @@ SymPred.prototype.insert=function(s,p0,p1){
 
 	this.current=head+s+tail
 
-	this.dict.predict(head+s)
+	var res=this.dict.predict(head+s)
+	var suggestions=[]
+	var  i=0; for(var k in res.m) {
+		if(i>=this.show_n) break;
+		suggestions.push(res.m[k].s)
+		i++
+	}
 
-	this.onupdate(this.current)
+	this.onupdate(this.current,suggestions)
 }
 
 SymPred.prototype.onupdate=function(cback){

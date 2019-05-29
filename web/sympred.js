@@ -1,6 +1,7 @@
 // Console for mobile development
 mobileConsole.init()
 
+// update positioning of "suggestionBox"
 function updateSuggest(el){
 	if(!el.is(":focus")){
 		$("#suggest").hide()
@@ -17,6 +18,17 @@ function updateSuggest(el){
 	suggest.css("left",coord.left+"px")
 }
 
+function setSuggestions(list){
+	var ul=$("<ul />>")
+	var sbox=$("#suggest")
+	for(var k in list){
+		var sym=list[k]
+		var li=$("<li />").html(sym)
+		ul.append(li)
+	}
+	sbox.html("")
+	sbox.append(ul)
+}
 
 function initSymPred(){
 	//  create library object  containing dictionaries
@@ -53,8 +65,9 @@ function initSymPred(){
 			console.log("fail")
 		})*/
 		
-		spred.onupdate(function(cnt){ 
+		spred.onupdate(function(cnt,list){ 
 			el.val(cnt)
+			setSuggestions(list)
 		})
 
 		el.change(function(){
