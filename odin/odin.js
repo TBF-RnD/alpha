@@ -8,7 +8,7 @@ var jsonfmt=require('./fmt_json')
 var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
-var degree=6
+var degree=3
 
 // Debug helpers
 function getMS(){ return Date.now() }
@@ -16,7 +16,7 @@ function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" }
 function logMem(){ console.log(process.memoryUsage()) }
 
 // Analyze a single txt file
-function single(srcpath,destpath){
+function single(srcpath,destpath,options){
 	// boring IO stuff
 	console.log("Analyzing "+srcpath)
 	logMem()
@@ -31,7 +31,7 @@ function single(srcpath,destpath){
 	logMem()
 
 	// Create a  collection containing one text
-	var dictobj=new dict.dict(degree)
+	var dictobj=new dict.dict(options)
 	
 	// Add text to dictionary
 	console.log("adding "+path+" to dict")
@@ -74,19 +74,45 @@ function single(srcpath,destpath){
 var cmd=process.argv[2]
 var argc=process.argv.length
 
-if(argc<3){
-	console.error("To few arguments")
-	process.exit(1)
+var argv=process.argv
+var a=argv.shift()
+var n=argv.shift()
+
+var options={permutation:true,degree:degree} 
+
+console.log(a+" executing  "+n)
+console.log(argv)
+
+// Get switches --
+while(argv[0].substr(0,2)=="--"){
+	var s=argv.shift().substr(2)
+	console.log("S:"+s)
+	switch(s){
+		case "combination":
+			console.log("combination mode: order doesn't matter")
+			options.permutation=false
+			break;
+		case "permutation":
+			options.permutation=true
+			break;
+		default:
+			console.error("unknown switch: "+s)
+			process.exit(1)
+			break;
+	}
 }
+
+var cmd=argv[0]
+var argc=argv.length
 
 switch(cmd){
 	case "single":
-		if(argc<5){
+		if(argc<3){
 			console.error("To few arguments")
 			process.exit(1)
 		}
 		
-		single(process.argv[3],process.argv[4])
+		single(argv[1],argv[2],options)
 		break;
 	default:
 		console.error("Unknown command "+cmd)

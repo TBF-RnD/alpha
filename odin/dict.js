@@ -1,5 +1,5 @@
 // Constructor for dict object
-function Dict(degree){
+function Dict(options){
 	// TODO make  exp k configurable
 	// - I assume that size ought to be related to alphabet size
 	// - so expk ought to be bigger than the alphabet size
@@ -7,17 +7,33 @@ function Dict(degree){
 	// I find the numbers neat! 42*pi would probably also work ok!!
 	this.expk=27*Math.E
 	this.texts={}
-	this.degree=degree
+	this.degree=options.degree
+	this.permutation=options.permutation
 	this.d=[]
-	for(var i=0;i<=degree;i++) this.d.push({})
+	for(var i=0;i<=this.degree;i++) this.d.push({})
 }
 
 // Get last n symbols from string
 // substr(-0) becomes substr(0) so hence a replacement
 function __last_n_sym(s,n){ return s.substr(s.length-n,s.length) }
 
+// Whem dealing with combinations the order of the elements of 
+// the  string doesn't matter
+// TODO
+//   -  runs quite often, possible / meaningful to optimize?
+//   maybe  remove functionality in  it's entirety
+Dict.prototype.sortString=function(s){
+	var a=[]
+	for(var i=0;i<s.length;i++) a.push(s[i])
+	a.sort()
+	var so=""
+	for(var k in a) so+=a[k]
+	return so
+}
+
 // TODO implement cache of string -> results
-Dict.prototype.predict=function(string){
+Dict.prototype.predict=function(string_in){
+	var string=this.sortString(string_in)
 	var mult=1
 	var res={}
 	var tot_f_tot=0
@@ -103,8 +119,9 @@ Dict.prototype.getAlphabet=function(){
 }
 
 // Add occurence of symbol appearing after stringg of symbols
-Dict.prototype.addOccurence=function(l,string,symbol){
-//	console.log("{"+string+"} => ["+symbol+"]")
+Dict.prototype.addOccurence=function(l,string_in,symbol){
+	var string=this.permutation?string_in:this.sortString(string_in)
+
 	if(typeof(this.d[l][string])=="undefined"){
 		var to={}
 		to[symbol]=1
