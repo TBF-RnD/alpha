@@ -5,7 +5,7 @@ function Dict(options){
 	// - so expk ought to be bigger than the alphabet size
 	// 27 and eulers number are as such almost arbitrary and chosen because
 	// I find the numbers neat! 42*pi would probably also work ok!!
-	this.expk=
+	this.expk=27*Math.E
 	this.texts={}
 	this.degree=options.n
 	this.degree1=options.m

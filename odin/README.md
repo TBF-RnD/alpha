@@ -11,6 +11,11 @@ Can also be used to generate a markdown table representation:
 ```
 node single odin.js <INPUT> <OUTPUT>.json
 ```
+When you have json files containing dictionaries these can be combined into a library. 
+```
+node compile odin.js <OUT> <input 0>.json  <input 1>.json ... <input 2>.json
+```
+While compiling they are simply packed together and the data is not merged. As such the filesize of the library will be approximately the sum of the input files. 
 
 ##  Example
 For example given the string:
@@ -19,6 +24,13 @@ foobarfoofoobar!
 ```
 
 We get the following results. The data is hardly useful for anything  except for giving predictions of a user trying to type foo or bar.
+
+
+## Switches 
+```
+node --combination single in.txt out.json
+```
+So with a combination the order of the previous string doesn't  matter whereas by default i.e. using a permutation the order does matter.  Turned out to be a really badidea, you are probably much better off using permutations. 
 
 ### 1-gram
 |   | a | b | f | o | r | 

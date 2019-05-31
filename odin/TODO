@@ -8,3 +8,9 @@ n:m prediction trees
 also fix  markdown table breakdown
 Present compressed data
 string to collection similarity measure
+get most  commonly used strings, count length of value object in table
+load data from json and query it
+set hotkeys to suggestions (sympred)
+binary optimized  format  for   storage
+split  nto server client model to avoid client loading megagbytes of text
+add  metadata type to json

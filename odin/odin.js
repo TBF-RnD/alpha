@@ -4,6 +4,7 @@ var path=require('path')
 
 // Internal 
 var dict=require('./dict')
+var lib=require('./lib')
 var jsonfmt=require('./fmt_json')
 var mdfmt=require('./fmt_md')
 
@@ -15,6 +16,43 @@ function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
 
+// compiles dictionaries in srcs into library
+function compile(dest,srcs){
+	console.log("compiling")
+	console.log(srcs)
+	console.log("into => "+dest)
+	var lobj=new lib.lib()
+	for(var k in srcs){
+		var pathname=srcs[k]
+		console.log(pathname)
+		var dictobj=load(pathname) 
+		
+		lobj.addDict(pathname,dictobj,1)
+	}
+
+	console.log("exporting")
+	var t0=getMS()
+	var ext=path.extname(dest)
+	if(ext==".js"){
+		outdata="library="+jsonfmt.format_dict(lobj)
+	}else{
+		console.error("Unsupported extension: "+ext)
+		process.exit(1)
+	}
+	logTime("exported in ",t0)
+	logMem()
+
+	console.log("writing")
+	var t0=getMS()
+	try{
+		var data=fs.writeFileSync(dest,outdata,'utf8')
+	}catch(e){
+		console.error("Failed to write "+dest)
+		process.exit(1)
+	}
+	logTime("Wrote in ",t0)
+	logMem()
+}
 
 function load(db){
 	var ext=path.extname(db)
@@ -136,7 +174,7 @@ var options={permutation:true,degree:degree}
 console.log(a+" executing  "+n)
 console.log(argv)
 
-var n=6
+var n=4
 var m=1
 
 // Get switches --
@@ -172,7 +210,7 @@ while(argv[0].substr(0,2)=="--"){
 	}
 }
 
-var cmd=argv[0]
+var cmd=argv.shift()
 var argc=argv.length
 
 options.n=n
@@ -182,32 +220,40 @@ console.log("Alive")
 
 switch(cmd){
 	case "single":
-		if(argc<3){
+		if(argc<2){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		single(argv[1],argv[2],options)
+		single(argv[0],argv[1],options)
 		break;
 	case  "query":
-		if(argc<3){
+		if(argc<2){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		query(argv[1],argv[2],options)
+		query(argv[0],argv[1],options)
 		break;
 	case "strings_val":
-		if(argc<2){
+		if(argc<1){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		strings_val(argv[1])
+		strings_val(argv[0])
 		break;
 	case "strings_freq":
-		if(argc<2){
+		if(argc<1){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		strings_freq(argv[1])
+		strings_freq(argv[0])
+		break;
+	case "compile":
+		var into=argv.shift()
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		compile(into,argv)
 		break;
 	default:
 		console.error("Unknown command "+cmd)
