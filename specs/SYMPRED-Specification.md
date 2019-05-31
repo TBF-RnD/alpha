@@ -14,3 +14,6 @@ Demo accessible via web to show case Odin functionality.
  - instructions on how to generate dicts (odin)
  - hotkeys for select suggestion n
  - permutation /  combination (odin)
+ - overlays after weights,  (long term)  {syntax highlight, word}
+ - overlays as heightmaps from each symbol
+ - (α-edit) physics based lense visualisation and 3d  folding of references (long-term)
