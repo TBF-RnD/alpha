@@ -1,5 +1,8 @@
 // Constructor for dict object
 function Dict(options){
+	if(typeof(options)=="undefined"){
+		options={n:4,n:2,permutation:true}
+	}
 	// TODO make  exp k configurable
 	// - I assume that size ought to be related to alphabet size
 	// - so expk ought to be bigger than the alphabet size
@@ -33,9 +36,13 @@ Dict.prototype.sortString=function(s){
 }
 
 // TODO implement cache of string -> results
+// TODO make unsorted variant for use from library as to  not
+// 	cycles on sorting data twice
 Dict.prototype.predict=function(string_in){
-	var string=this.sortString(string_in)
-	console.log("Predicting: "+string_in)
+	var string=string_in
+//  TODO revisit?
+//	var string=this.sortString(string_in)
+//	console.log("Predicting: "+string_in)
 	var mult=1
 	var res={}
 	var tot_f_tot=0
@@ -44,12 +51,12 @@ Dict.prototype.predict=function(string_in){
 
 	for(var i=0;i<=degree;i++){
 		var needle=__last_n_sym(string,i)
-		console.log(i+":needle is: "+needle)
+//		console.log(i+":needle is: "+needle)
 		var subset=this.d[i]
 
 		var tot_f=0
 		if(typeof(subset[needle])=="undefined"){
-			console.log("miss at "+i)
+//			console.log("miss at "+i)
 			continue
 		}
 		var matches=subset[needle]
@@ -81,12 +88,14 @@ Dict.prototype.predict=function(string_in){
 		console.log(sorted[k].s+" "+sorted[k].f)
 	}
 	*/
+	if(false){
 	var  i=0
 	console.log("TOP")
 	for(var k in sorted){
 		console.log(sorted[k].s+" "+sorted[k].f)
 		i++
 		if(i>4)  break
+	}
 	}
 
 	return {m:sorted,sum_f:tot_f_tot}
@@ -136,7 +145,7 @@ Dict.prototype.getAlphabet=function(){
 // TODO overlaps by Freq 
 Dict.prototype.getStringsByVal=function(){
 	var degree=this.degree
-	var res=[]
+	var res={}
 	var mul=1
 
 	for(var	i=0;i<=degree;i++){

@@ -23,7 +23,7 @@ function setSuggestions(list){
 	var ul=$("<ul />>")
 	var sbox=$("#suggest")
 	for(var k in list){
-		var sym=list[k]
+		var sym=list[k].s
 		var li=$("<li />").html(sym)
 		ul.append(li)
 	}
@@ -33,20 +33,11 @@ function setSuggestions(list){
 
 function initSymPred(){
 	//  create library object  containing dictionaries
-	var lib=new Library()
+	var libo=new Library()
 
-	// Load frequency profiles loaded via javascript files
-	for(var name in  profiles){
-		var dict=new Dict({permutation:true})
+	libo.loadData(library)
 
-		dict.loadProfile(profiles[name])
-		lib.addDict(name,dict,1)
-	}
-
-	// temporarily testing with only dict to eliminate variables
-	var dict=new Dict({permutation:true})
-	dict.loadProfile(profiles["morse"])
-
+	libo.predict("testing")
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
 	$("[sympred]").each(function(){
@@ -56,7 +47,7 @@ function initSymPred(){
 //		console.log("dict: "+dict)
 
 		var spred=new SymPred(el.val())
-		spred.setDict(dict)
+		spred.setLibrary(libo)
 
 //		spred.setLibrary(lib)
 

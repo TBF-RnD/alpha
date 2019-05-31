@@ -5,6 +5,7 @@ function SymPred(current){
 }
 
 SymPred.prototype.setLibrary=function(lib){
+	console.log("setlibrary")
 	this.lib=lib
 }
 
@@ -27,7 +28,16 @@ SymPred.prototype.insert=function(s,p0,p1){
 
 	this.current=head+s+tail
 
-	var res=this.dict.predict(head+s)
+	console.log(head+s)
+	var res={}
+	if(typeof(this.lib)!="undefined"){
+		res=this.lib.predict(head+s)
+		console.log("using lib")
+	}
+	else  if(typeof(this.dict)!="undefined")
+		res=this.dict.predict(head+s)
+	else 
+		console.error("Failed to predict")
 	var suggestions=[]
 	var  i=0; for(var k in res.m) {
 		if(i>=this.show_n) break;
