@@ -37,7 +37,7 @@ function initSymPred(){
 
 	// Load frequency profiles loaded via javascript files
 	for(var name in  profiles){
-		var dict=new Dict({permutation:truee})
+		var dict=new Dict({permutation:true})
 
 		dict.loadProfile(profiles[name])
 		lib.addDict(name,dict,1)
@@ -46,6 +46,7 @@ function initSymPred(){
 	// temporarily testing with only dict to eliminate variables
 	var dict=new Dict({permutation:true})
 	dict.loadProfile(profiles["morse"])
+
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
 	$("[sympred]").each(function(){
