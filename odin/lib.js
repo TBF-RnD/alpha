@@ -11,7 +11,6 @@ function Library(){
 Library.prototype.addDict=function(name,dict,weight){
 	var w=1
 
-	console.log('libadddict '+name)
 	this.n_dicts++
 
 	if(typeof(weight)!="undefined") w=weight
@@ -23,7 +22,7 @@ Library.prototype.addDict=function(name,dict,weight){
 // mirrors  predict in dict implement abstraction!!
 Library.prototype.predict=function(string_in){
 	var comp={}
-//	console.log("libpred:  "+string_in)
+	console.log("libpred:  "+string_in)
 //	console.log("Got "+this.n_dicts+" dictionaries")
 	for(var k in this.dicts){
 		var  dict=this.dicts[k]
@@ -51,13 +50,14 @@ Library.prototype.predict=function(string_in){
 	for(var k in comp){ sorted.push({s:k,v:comp[k]}) }
 	sorted.sort(function(a,b){ return b.v-a.v })
 	
+	/*
 	console.log("NTOP sorted")
 	for(var i=0;i<4;i++){
 		console.log(sorted[i])
 	}
+	*/
 	
-//	console.log(comp)
-	return sorted
+	return {m:sorted}
 }
 
 // TODO

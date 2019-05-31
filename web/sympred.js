@@ -23,7 +23,7 @@ function setSuggestions(list){
 	var ul=$("<ul />>")
 	var sbox=$("#suggest")
 	for(var k in list){
-		var sym=list[k].s
+		var sym=list[k]
 		var li=$("<li />").html(sym)
 		ul.append(li)
 	}
@@ -72,7 +72,7 @@ function initSymPred(){
 		})
 
 		$(document).on("input",function(){
-//			updateSuggest(el)
+			updateSuggest(el)
 		})
 
 		el.keypress(function(ev){
