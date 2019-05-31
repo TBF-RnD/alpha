@@ -22,7 +22,7 @@ Library.prototype.addDict=function(name,dict,weight){
 // mirrors  predict in dict implement abstraction!!
 Library.prototype.predict=function(string_in){
 	var comp={}
-	console.log("libpred:  "+string_in)
+//	console.log("libpred:  "+string_in)
 //	console.log("Got "+this.n_dicts+" dictionaries")
 	for(var k in this.dicts){
 		var  dict=this.dicts[k]

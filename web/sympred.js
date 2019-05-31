@@ -61,17 +61,23 @@ function initSymPred(){
 		spred.onupdate(function(cnt,list){ 
 			el.val(cnt)
 			setSuggestions(list)
+			updateSuggest(el)
 		})
 
 		el.change(function(){
 			console.log("Changed")
 		})
 
-		el.on("input",function(){
+/*		el.on("input","input:text",function(){
+			console.log("input...")
 			spred.setCurr(el.val())
-		})
+		}) */
 
 		$(document).on("input",function(){
+			console.log("Document  input")
+
+			var pos=el.selection('getPos')
+			console.log("Now at")
 			updateSuggest(el)
 		})
 
@@ -79,18 +85,23 @@ function initSymPred(){
 			var el=$(this)
 			var pos=el.selection('getPos')
 			var s=String.fromCharCode(ev.which)
+			var d=el.val()
+			
+			console.log("key")
 
-			spred.insert(s,pos.start,pos.end)
+			spred.insert(s,pos.start,pos.end,d)
 
 			ev.preventDefault()
 		})
 
 		el.focus(function(e){ updateSuggest($(this)) })
 		el.blur(function(e){ updateSuggest($(this)) })
-		el.keydown(function(e){  updateSuggest($(this)) })
+		el.keydown(function(e){ 
+		//	updateSuggest($(this)) 
+		})
 		
 		el.keyup(function(e){
-			var el=$(this)
+//			var el=$(this)
 		})
 	})
 }
