@@ -5,7 +5,7 @@ function Dict(options){
 	// - so expk ought to be bigger than the alphabet size
 	// 27 and eulers number are as such almost arbitrary and chosen because
 	// I find the numbers neat! 42*pi would probably also work ok!!
-	this.expk=5
+	this.expk=
 	this.texts={}
 	this.degree=options.n
 	this.degree1=options.m
@@ -113,15 +113,69 @@ Dict.prototype.addSymbol=function(symbol){
 		this.alphabet[symbol]=symbol
 }
 
+//  TODO
+// - Add as option!!
+Dict.prototype.autoAdjustExpk=function(){
+	this.expk=this.getAlphabet().length
+}
+
 // Return alphabet as array
 // We get the unique from a degree zero table
 // and find the symbols that come after empty  string
+// TODO
+// - cache calculation?
+// - get unsorted?
 Dict.prototype.getAlphabet=function(){
 	var unique=this.d[0]['']
 	var ret=[]
 	for(var k in unique) ret.push(k)
 	return ret.sort()
 }
+
+// Get  strings ordered by frequency 
+// TODO overlaps by Freq 
+Dict.prototype.getStringsByVal=function(){
+	var degree=this.degree
+	var res=[]
+	var mul=1
+
+	for(var	i=0;i<=degree;i++){
+		var subset=this.d[i]
+		for(var string in subset){
+			var syms=subset[string]
+			var f_tot=0
+			for(var k in syms){
+				var f=syms[k]
+				f_tot+=f
+			}
+			res.push({s:string,f:f_tot*mul})
+		}
+		mul*=this.expk
+	}
+	res.sort(function(a,b){ return b.f-a.f})
+	return res
+}
+// Get  strings ordered by frequency 
+Dict.prototype.getStringsByFreq=function(){
+	var degree=this.degree
+	var res=[]
+
+	for(var	i=0;i<=degree;i++){
+		var subset=this.d[i]
+		for(var string in subset){
+			var syms=subset[string]
+			var f_tot=0
+			for(var k in syms){
+				var f=syms[k]
+				f_tot+=f
+			}
+			res.push({s:string,f:f_tot})
+		}
+	}
+	res.sort(function(a,b){ return b.f-a.f})
+	return res
+}
+
 
 // Add occurence of symbol appearing after stringg of symbols
 Dict.prototype.addOccurence=function(l,string_in,symbol){

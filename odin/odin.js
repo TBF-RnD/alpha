@@ -15,8 +15,8 @@ function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
 
-// Query a database 
-function query(db,query,options){
+
+function load(db){
 	var ext=path.extname(db)
 	if(ext!=".json"){
 		console.error("db must be in json format")
@@ -38,7 +38,28 @@ function query(db,query,options){
 
 	var dictobj=new dict.dict(options)
 	dictobj.loadProfile(d)
+	
+	return dictobj
+}
 
+//  Prints  out strings sorted by frequency
+//  only meaningful when m=1,  I think
+function  strings_freq(db){
+	var dictobj=load(db) 
+	strings=dictobj.getStringsByFreq()
+	console.log(strings)
+}
+function  strings_val(db){
+	var dictobj=load(db) 
+	dictobj.autoAdjustExpk()
+	console.log("expk  adjusted to: "+this.expk)
+	strings=dictobj.getStringsByVal()
+	console.log(strings)
+}
+
+// Query a database 
+function query(db,query,options){
+	var dictobj=load(db) 
 	var ret=dictobj.predict(query)
 	console.log("QUERY:  "+query)
 	console.log(ret)
@@ -173,6 +194,20 @@ switch(cmd){
 			process.exit(1)
 		}
 		query(argv[1],argv[2],options)
+		break;
+	case "strings_val":
+		if(argc<2){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		strings_val(argv[1])
+		break;
+	case "strings_freq":
+		if(argc<2){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		strings_freq(argv[1])
 		break;
 	default:
 		console.error("Unknown command "+cmd)
