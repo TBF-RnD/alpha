@@ -5,9 +5,10 @@ function Dict(options){
 	// - so expk ought to be bigger than the alphabet size
 	// 27 and eulers number are as such almost arbitrary and chosen because
 	// I find the numbers neat! 42*pi would probably also work ok!!
-	this.expk=27*Math.E
+	this.expk=5
 	this.texts={}
-	this.degree=options.degree
+	this.degree=options.n
+	this.degree1=options.m
 	this.permutation=options.permutation
 	this.d=[]
 	for(var i=0;i<=this.degree;i++) this.d.push({})
@@ -34,19 +35,23 @@ Dict.prototype.sortString=function(s){
 // TODO implement cache of string -> results
 Dict.prototype.predict=function(string_in){
 	var string=this.sortString(string_in)
+	console.log("Predicting: "+string_in)
 	var mult=1
 	var res={}
 	var tot_f_tot=0
 
 	var  degree=this.degree
-	var degree=2
 
 	for(var i=0;i<=degree;i++){
 		var needle=__last_n_sym(string,i)
+		console.log(i+":needle is: "+needle)
 		var subset=this.d[i]
 
 		var tot_f=0
-		if(typeof(subset[needle])=="undefined") continue
+		if(typeof(subset[needle])=="undefined"){
+			console.log("miss at "+i)
+			continue
+		}
 		var matches=subset[needle]
 		
 		for(var sym in matches){
@@ -90,7 +95,7 @@ Dict.prototype.predict=function(string_in){
 // loads a JSON object containing statistics
 Dict.prototype.loadProfile=function(d){
 	console.log("Loaded  profile of degree: "+d.length)
-	this.degree=d.length
+	this.degree=d.length-1
 	this.d=d
 }
 
@@ -122,6 +127,8 @@ Dict.prototype.getAlphabet=function(){
 Dict.prototype.addOccurence=function(l,string_in,symbol){
 	var string=this.permutation?string_in:this.sortString(string_in)
 
+//	console.log(string_in,symbol)
+
 	if(typeof(this.d[l][string])=="undefined"){
 		var to={}
 		to[symbol]=1
@@ -135,13 +142,19 @@ Dict.prototype.addOccurence=function(l,string_in,symbol){
 Dict.prototype.procText=function(name){
 	var data=this.texts[name]
 	var degree=this.degree
+	var m=this.degree1
 
+//	console.log(degree+" "  +m)
 	for(var j=0;j<=degree;j++){
 		for(var i=0;i<data.length-degree;i++){
-			var back=data.substr(i,j)
-			var s=data[i+j]
-
-			this.addOccurence(j,back,s)
+			for(var k=1;k<=m;k++){
+//				console.log(i+" "+j+" "+k)
+				var back=data.substr(i,j)
+				var s=data.substr(i+j,k)
+//				var s=data[i+j]
+		
+				this.addOccurence(j,back,s)
+			}
 		}
 	}
 }

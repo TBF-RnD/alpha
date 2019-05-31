@@ -15,6 +15,35 @@ function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
 
+// Query a database 
+function query(db,query,options){
+	var ext=path.extname(db)
+	if(ext!=".json"){
+		console.error("db must be in json format")
+		process.exit(1)
+	}
+	var t0=getMS()
+	try{
+		var data=fs.readFileSync(db,'utf8')
+	}catch(e){
+		console.error("Failed to read "+db)
+		process.exit(1)
+	}
+	logTime("Read  " + data.length + " bytes",t0)
+
+	// TODO try catch
+	var  t0=getMS()
+	var d=JSON.parse(data)
+	logTime("Parsed JSON",t0)
+
+	var dictobj=new dict.dict(options)
+	dictobj.loadProfile(d)
+
+	var ret=dictobj.predict(query)
+	console.log("QUERY:  "+query)
+	console.log(ret)
+}
+
 // Analyze a single txt file
 function single(srcpath,destpath,options){
 	// boring IO stuff
@@ -51,7 +80,10 @@ function single(srcpath,destpath,options){
 	console.log("exporting")
 	var t0=getMS()
 	var data=""
-	if(ext==".json")
+	if(ext==".js"){
+		var name=destpath.substr(0,destpath.length-ext.length)
+		outdata='profiles["'+name+'"]='+jsonfmt.format(dictobj)
+	}else if(ext==".json")
 		outdata=jsonfmt.format(dictobj)
 	else if(ext==".md")
 		outdata=mdfmt.format(dictobj)
@@ -83,17 +115,34 @@ var options={permutation:true,degree:degree}
 console.log(a+" executing  "+n)
 console.log(argv)
 
+var n=6
+var m=1
+
 // Get switches --
 while(argv[0].substr(0,2)=="--"){
 	var s=argv.shift().substr(2)
 	console.log("S:"+s)
 	switch(s){
+		case "n":
+			if(argv.length<1){
+				console.error("To few arguments")
+				process.exit(1)
+			}
+			n=parseInt(argv.shift())
+			break;
 		case "combination":
 			console.log("combination mode: order doesn't matter")
 			options.permutation=false
 			break;
 		case "permutation":
 			options.permutation=true
+			break;
+		case "m":
+			if(argv.length<1){
+				console.error("To few arguments")
+				process.exit(1)
+			}
+			m=parseInt(argv.shift())
 			break;
 		default:
 			console.error("unknown switch: "+s)
@@ -105,14 +154,25 @@ while(argv[0].substr(0,2)=="--"){
 var cmd=argv[0]
 var argc=argv.length
 
+options.n=n
+options.m=m
+
+console.log("Alive")
+
 switch(cmd){
 	case "single":
 		if(argc<3){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		
 		single(argv[1],argv[2],options)
+		break;
+	case  "query":
+		if(argc<3){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		query(argv[1],argv[2],options)
 		break;
 	default:
 		console.error("Unknown command "+cmd)
