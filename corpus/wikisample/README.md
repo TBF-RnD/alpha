@@ -13,3 +13,6 @@ Downloads all links and creates json profiles
 make -j4 all
 ```
 For running parallel instances where possible. Note that this might lead to memory problems for large sets. 
+
+## Dependencies
+Uses elinks -dump to convert html to text and of course wget -i to download files from the links file.
