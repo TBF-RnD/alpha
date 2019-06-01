@@ -1,2 +1,3 @@
 -add config.json for odin config
 - fetch files without wget and convert html w/o elinks
+- doesn't work with -j option on account of wget
