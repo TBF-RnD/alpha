@@ -1,6 +1,60 @@
 // Console for mobile development
 mobileConsole.init()
 
+					
+
+//  Not extremely good practice but it works
+var dictbtnstring_head='<div class="btn-group-toggle" data-toggle="buttons"><label  class="btn btn-outline-secondary active btn-group-toggle"><input type="checkbox">'
+var  dictbtnstring_tail='</label>'
+var prog_string='<div class="progress"> <div class="progress-bar" style="width:75%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div> </div>'
+
+function renderDicts(dictinfo){
+	var cgroup=$("#dicts")
+	cgroup.html("")
+	for(var name in dictinfo){
+		var w=dictinfo[name].w
+		console.log(name+" "+w)
+		var row=$("<div  />")
+		cgroup.append(row)
+
+		var igroup=$("<div/>",{class:"input-group"})
+
+		var btn=$(dictbtnstring_head+name+dictbtnstring_tail)
+		var label=$("<label />").html("weight:"+w)
+		prog=$(prog_string)
+		prog.find(".progress-bar").css('width',(w*100)+"%")
+
+		console.log(prog)
+
+		igroup.append(btn)
+		igroup.append(label)
+		igroup.append(prog)
+		cgroup.append(igroup)
+
+		/*
+		var btnlbl=$("<label />",{class:"btn-group-toggle"}).html(name)
+		var btn=$("<input  />",{class:"btn btn-outline-secondary"})
+		btnlbl.append(btn)
+		row.append(btnlbl)
+
+		var cbox=$("<input  />",{type:"checkbox"})
+		row.append(cbox)
+		console.log(cbox)
+		console.log(cbox)
+		var name=$("<div>").html(name)
+		var weight=$("<div>").html(w)
+//		var wbar=$("<div>",{class:"pbar"}).progressbar({value:w*100})
+		var wbar=$("<div>",{class:"pbar"})
+
+		row.append(cbox)
+		row.append(name)
+		row.append(weight)
+		row.append(wbar)
+
+		cgroup.append(row)
+		*/
+	}
+}
 
 // update positioning of "suggestionBox"
 function updateSuggest(el){
@@ -14,6 +68,7 @@ function updateSuggest(el){
 	var coord=getCaretCoordinates(el[0],pos.start)
 
 	var suggest=$("#suggest")
+	suggest.show(0)
 
 	suggest.css("top",(coord.top+18)+"px")
 	suggest.css("left",coord.left+"px")
@@ -37,27 +92,18 @@ function initSymPred(){
 
 	libo.loadData(library)
 
-	libo.predict("testing")
+	var dictinfo=libo.getDictInfo()
+	console.log(dictinfo)
+	renderDicts(dictinfo)
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
 	$("[sympred]").each(function(){
 		var  el=$(this)
 		updateSuggest(el)
-//		var  dict=el.attr("dict")
-//		console.log("dict: "+dict)
 
 		var spred=new SymPred(el.val())
 		spred.setLibrary(libo)
 
-//		spred.setLibrary(lib)
-
-		/*
-		jQuery.get(dict,function(data){
-			console.log("Got data")
-		}).fail(function(e){
-			console.log("fail")
-		})*/
-		
 		spred.onupdate(function(cnt,list){ 
 			el.val(cnt)
 			setSuggestions(list)
@@ -73,11 +119,11 @@ function initSymPred(){
 			spred.setCurr(el.val())
 		}) */
 
+		//  handles backspace, ctr-c,ctrl-v etc
+		//  todo get predictions from new cursor pos
 		$(document).on("input",function(){
-			console.log("Document  input")
-
 			var pos=el.selection('getPos')
-			console.log("Now at")
+
 			updateSuggest(el)
 		})
 
@@ -86,8 +132,6 @@ function initSymPred(){
 			var pos=el.selection('getPos')
 			var s=String.fromCharCode(ev.which)
 			var d=el.val()
-			
-			console.log("key")
 
 			spred.insert(s,pos.start,pos.end,d)
 

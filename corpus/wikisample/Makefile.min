@@ -8,7 +8,7 @@ all: lib
 	wget -i links
 
 %.txt: %.html
-	elinks -dump $< | grep "Visible links" -B10000 > $@
+	elinks -dump $< | head -n100 > $@
 
 %.json: %.txt
 	$(SINGLE) $< $@

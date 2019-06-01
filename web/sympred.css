@@ -10,6 +10,7 @@
 .post  { color: blue }
 
 .suggest {
+	display: none;
 	background-color:  white;
 	border: 1px solid blue;
 	min-width: 48px;
@@ -20,6 +21,7 @@
 /* TODO add two divs one with 0.7 and one with 1.0 w/o  bg and text. See-through background AND  eligible text!!  */
 	opacity: 0.7;
 	border-radius:  8px;
+	z-index:1000;
 }
 
 .suggest ul {
@@ -32,4 +34,7 @@
 	font-size:12px;
 	line-height:18px;
 	font: monospace;
+}
+#dicts div.progress {
+	width:  50%;
 }

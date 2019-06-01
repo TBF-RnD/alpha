@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!--  Styling  -->
+		<link rel="stylesheet" type="text/css" href="../ext/bootstrap-4.3.1-dist/css/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="sympred.css"></link>
+
+		<!--  External  -->
+		<script type="text/javascript" src="../ext/hnl.mobileConsole.js"></script>
+		<script type="text/javascript" src="../ext/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../ext/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="../ext/jquery.selection.js"></script>
+		<script type="text/javascript" src="../ext/textarea-caret-position.js"></script>
+
+		<!-- Statistical data -->
+		<script type="text/javascript"> profiles=[] </script>
+		<script defer src="../corpus/wikisample/lib.js" type="text/javascript"></script>
+
+		<!--  Internal  -->
+		<script src="../odin/lib.js" type="text/javascript"></script>
+		<script src="../odin/dict.js" type="text/javascript"></script>
+		<script src="../models/sympred.js" type="text/javascript"></script>
+		<script defer src="sympred.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css" href="general.css"></link>
+		<link rel="stylesheet" type="text/css" href="../models/sympred.css"></link>
+	</head>
+	<body>
+		<!-- Text suggestion box  -->
+		<div id="suggest" class="suggest"></div>
+		<main role="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<textarea id="edit" sympred dict="../corpus/text/Morse_Code.json" cols="40" rows="25">Try it </textarea> 
+				</div>
+				<div class="col-lg-6">
+					<div id="dicts">
+						<div class="text-center">
+						<div class="spinner-border">
+							<span class="sr-only">Loading...</span>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<h1>Explanation A</h1>
+				</div>
+				<div class="col-lg-6">
+					<h1>Explanation B</h1>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
