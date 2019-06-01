@@ -5,7 +5,7 @@ function SymPred(current){
 }
 
 SymPred.prototype.setLibrary=function(lib){
-	console.log("setlibrary")
+	console.log("Set  library")
 	this.lib=lib
 }
 
@@ -17,7 +17,8 @@ SymPred.prototype.setCurr=function(ncurr){
 	this.current=ncurr
 }
 
-SymPred.prototype.insert=function(s,p0,p1,d,d){
+SymPred.prototype.insert=function(s,p0,p1,d){
+	console.log("insert "+s)
 	var head=d.substr(0,p0)
 	var tail=d.substr(p1)
 
@@ -26,7 +27,6 @@ SymPred.prototype.insert=function(s,p0,p1,d,d){
 
 	this.current=head+s+tail
 
-	console.log(head+s)
 	var res={}
 	if(typeof(this.lib)!="undefined"){
 		res=this.lib.predict(head+s)
