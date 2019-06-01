@@ -17,9 +17,7 @@ SymPred.prototype.setCurr=function(ncurr){
 	this.current=ncurr
 }
 
-SymPred.prototype.insert=function(s,p0,p1){
-	var d=this.current
-	
+SymPred.prototype.insert=function(s,p0,p1,d,d){
 	var head=d.substr(0,p0)
 	var tail=d.substr(p1)
 
