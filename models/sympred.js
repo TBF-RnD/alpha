@@ -72,7 +72,6 @@ SymPred.prototype.insert=function(s,p0,p1,d){
 			this.scores[k]=adjusted
 		else this.scores[k]+=adjusted
 	}
-	console.log("Adjusting weights")
 	this.adjustWeights()
 
 	var res={}

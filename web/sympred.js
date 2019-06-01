@@ -8,6 +8,18 @@ var dictbtnstring_head='<div class="btn-group-toggle" data-toggle="buttons"><lab
 var  dictbtnstring_tail='</label>'
 var prog_string='<div class="progress"> <div class="progress-bar" style="width:75%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div> </div>'
 
+function updateDicts(dictinfo){
+	var cgroup=$("#dicts")
+
+	for(var name in dictinfo){
+		var w=dictinfo[name].w
+	
+		var pbar=cgroup.find("."+name).find(".progress-bar")
+
+		pbar.css("width",(w*100)+"%")
+	}
+}
+
 function renderDicts(dictinfo){
 	var cgroup=$("#dicts")
 	cgroup.html("")
@@ -17,7 +29,7 @@ function renderDicts(dictinfo){
 		var row=$("<div  />")
 		cgroup.append(row)
 
-		var igroup=$("<div/>",{class:"input-group"})
+		var igroup=$("<div/>",{class:"input-group "+name})
 
 		var btn=$(dictbtnstring_head+name+dictbtnstring_tail)
 		var label=$("<label />").html("weight:"+w)
@@ -93,7 +105,6 @@ function initSymPred(){
 	libo.loadData(library)
 
 	var dictinfo=libo.getDictInfo()
-	console.log(dictinfo)
 	renderDicts(dictinfo)
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
@@ -108,6 +119,11 @@ function initSymPred(){
 			el.val(cnt)
 			setSuggestions(list)
 			updateSuggest(el)
+
+			// show weigths in controlbar
+			// won't work for multiple elements
+			var dictinfo=libo.getDictInfo()
+			updateDicts(dictinfo)
 		})
 
 		el.change(function(){

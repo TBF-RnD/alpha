@@ -12,7 +12,6 @@ Library.prototype.setDictWeight=function(name,weight){
 		console.err("No such dict: "+name)
 		return
 	}
-	console.log("Adjusting "+name+" to " +weight)
 	this.dicts[name].w=weight
 }
 
@@ -28,7 +27,7 @@ Library.prototype.addDict=function(name,dict,weight){
 
 // Get the dictionaries estimates values for sym appearing after string
 Library.prototype.getPredEstimates=function(string,sym){
-	console.log("P("+sym+"|"+string+")")
+//	console.log("P("+sym+"|"+string+")")
 	var estimates=[]
 	for(var k in this.dicts){
 		var  dict=this.dicts[k]

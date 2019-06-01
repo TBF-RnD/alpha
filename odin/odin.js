@@ -27,7 +27,9 @@ function compile(dest,srcs){
 		console.log(pathname)
 		var dictobj=load(pathname) 
 		
-		lobj.addDict(pathname,dictobj,1)
+		var ext=path.extname(pathname)
+		var name=pathname.substr(0,pathname.length-ext.length)
+		lobj.addDict(name,dictobj,1)
 	}
 
 	console.log("exporting")
