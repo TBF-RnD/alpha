@@ -7,6 +7,14 @@ function Library(){
 	this.n_dicts=0
 }
 
+Library.prototype.setDictWeight=function(name,weight){
+	if(typeof(this.dicts[name])=="undefined"){
+		console.err("No such dict: "+name)
+		return
+	}
+	console.log("Adjusting "+name+" to " +weight)
+	this.dicts[name].w=weight
+}
 
 Library.prototype.addDict=function(name,dict,weight){
 	var w=1
@@ -39,7 +47,8 @@ Library.prototype.getPredEstimates=function(string,sym){
 		var v=f/sub.sum_f
 		estimates[k]=v
 	}
-	console.log(estimates)
+
+	return  estimates
 }
 
 // Composite prediction merged from dictionaries adjusted by weight
