@@ -2,6 +2,32 @@
 mobileConsole.init()
 
 
+function renderDicts(dictinfo){
+	var cgroup=$("#dicts")
+	cgroup.html("")
+	for(var name in dictinfo){
+		var w=dictinfo[name].w
+		console.log(name+" "+w)
+		var row=$("<div  />")
+		cgroup.append(row)
+		var cbox=$("<input  />",{type:"checkbox"})
+		row.append(cbox)
+		console.log(cbox)
+		console.log(cbox)
+		var name=$("<div>").html(name)
+		var weight=$("<div>").html(w)
+//		var wbar=$("<div>",{class:"pbar"}).progressbar({value:w*100})
+		var wbar=$("<div>",{class:"pbar"})
+
+		row.append(cbox)
+		row.append(name)
+		row.append(weight)
+		row.append(wbar)
+
+		cgroup.append(row)
+	}
+}
+
 // update positioning of "suggestionBox"
 function updateSuggest(el){
 	if(!el.is(":focus")){
@@ -14,6 +40,7 @@ function updateSuggest(el){
 	var coord=getCaretCoordinates(el[0],pos.start)
 
 	var suggest=$("#suggest")
+	suggest.show(0)
 
 	suggest.css("top",(coord.top+18)+"px")
 	suggest.css("left",coord.left+"px")
@@ -37,7 +64,9 @@ function initSymPred(){
 
 	libo.loadData(library)
 
-	libo.predict("testing")
+	var dictinfo=libo.getDictInfo()
+	console.log(dictinfo)
+	renderDicts(dictinfo)
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
 	$("[sympred]").each(function(){
