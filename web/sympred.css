@@ -35,3 +35,6 @@
 	line-height:18px;
 	font: monospace;
 }
+#dicts div.progress {
+	width:  50%;
+}

@@ -6,6 +6,7 @@ mobileConsole.init()
 //  Not extremely good practice but it works
 var dictbtnstring_head='<div class="btn-group-toggle" data-toggle="buttons"><label  class="btn btn-outline-secondary active btn-group-toggle"><input type="checkbox">'
 var  dictbtnstring_tail='</label>'
+var prog_string='<div class="progress"> <div class="progress-bar" style="width:75%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div> </div>'
 
 function renderDicts(dictinfo){
 	var cgroup=$("#dicts")
@@ -16,8 +17,19 @@ function renderDicts(dictinfo){
 		var row=$("<div  />")
 		cgroup.append(row)
 
+		var igroup=$("<div/>",{class:"input-group"})
+
 		var btn=$(dictbtnstring_head+name+dictbtnstring_tail)
-		row.append(btn)
+		var label=$("<label />").html("weight:"+w)
+		prog=$(prog_string)
+		prog.find(".progress-bar").css('width',(w*100)+"%")
+
+		console.log(prog)
+
+		igroup.append(btn)
+		igroup.append(label)
+		igroup.append(prog)
+		cgroup.append(igroup)
 
 		/*
 		var btnlbl=$("<label />",{class:"btn-group-toggle"}).html(name)
@@ -39,8 +51,8 @@ function renderDicts(dictinfo){
 		row.append(weight)
 		row.append(wbar)
 
-		*/
 		cgroup.append(row)
+		*/
 	}
 }
 
