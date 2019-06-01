@@ -12,29 +12,29 @@ As such the need for a quick way to demonstrate new technologies for an audience
 ## Motivation
 So why try to reinvent the wheel? Aren't keyboards good enough already, especially for people who have spent years and years learning to type efficiently? Well there are some paradigm shifts that are already happening and some that are on the horizon. 
 
-(The motivation part will be expanded and turned into a chapter / post of it's own)
+(The motivation part will be expanded and turned into a chapter/post of it's own.)
 
 ###  VR / AR
-Few people would question the inevitabilty of VR becomming commonplace  in the near future. However how do control the system. Simply using virtual versions of physical keyboards doesn't seem as a good fit. Why not leverage the paradigm shift to make a new attempt based on state of the art information theory? From the dasher project there are a lot of resources concerning how to create a mathematically and information theoretically sound method for this. 
+Few people would question the inevitabilty of VR becomming commonplace in the near future. However, how do we control the system. Simply using virtual versions of physical keyboards doesn't seem as a good fit. Why not leverage the paradigm shift to make a new attempt based on state of the art information theory? From the Dasher project, there are a lot of resources concerning how to create a mathematically and information theoretically sound method for this. 
 
-Let's face it, carrying a keyboard with you in VR/AR would break immersion. Using a single cursor to type on a virtual keyboard would mean immense frustration and hinder actual work from being performed. Voice seems an attractive choice on the surface  but  look closer and  you'll find huge obstacles  whhen it comes  to  error correction and also it's quite unsuitable for  work that is not closely related to language. Such as computer programming. _Let us try to avoid having VR becomming a consumption only medium_.
+Let's face it, carrying a keyboard with you in VR/AR would break immersion. Using a single cursor to type on a virtual keyboard would mean immense frustration and hinder actual work from being performed. Voice seems an attractive choice on the surface, but look closer and  you'll find huge obstacles when it comes to error correction, and also it's quite unsuitable for work that is not closely related to language - such as computer programming. _Let us try to avoid having VR become a consumption only medium_.
 
 ### Let's make tablets productive
-Speaking of consumption only devices, the advent of obiqitous smartphones is an immense step forward in terms of IT-availabilty. In third words a huge amount of people have entered the IT-arena via such devices, skipping past desktops and laptops. Sadly the devices are hardly suitable for productive work, leaving the consumer with a device suitable for choosing what to consume. 
+Speaking of consumption only devices, the advent of ubiquitous smartphones is an immense step forward in terms of IT-availabilty. In third words a huge amount of people have entered the IT-arena via such devices, skipping past desktops and laptops. Sadly, the devices are hardly suitable for productive work, leaving the consumer with all but a device suitable for choosing what to consume. 
 
 ### 10" interfaces
-This is one of the original goals of the project and much of  my own work is focused on button interfaces such as gamepads and remote controls. I believe that gamepads have evolved by market preassure to a state where they can utilize the full bandwidth of the human hand. (See dasher chapter for more on the bandwidth of a human hand in terms of bits per  second). _Imagine sitting comfortable in your coach, coding away with a gamepad_. With new software and the increase of remote work this might be closer than you think!
+This is one of the original goals of the project, and much of my own work is focused on button interfaces, such as gamepads and remote controls. I believe that gamepads have evolved by market preassure to a state where they can utilize the full bandwidth of the human hand. (See Dasher chapter for more on the bandwidth of a human hand in terms of bits per second). _Imagine sitting comfortable in your couch, coding away with a gamepad_. With new software and the increase of remote work, this might be closer than you think!
 
 ### Disabilities, the human aspect
-Furthermore everyone is not able to use keyboards. To present them with an option to work on equal terms as the rest of us could open up a new world to them. If we at the same time can gain access to more communication bandwidth is it not worth it?
+Furthermore everyone is not able to use keyboards. To present them with an option to work on equal terms as the rest of us could open up a new world to them. If we at the same time can gain access to more communication bandwidth - is it not worth it?
 
 ### Side effects in UI
-Perhaps doing investigation of the most overlooked part of computer system, can  lead us to  new  insights into User interfaces. By thinking out of the Box and question the very fundamentals.
+Perhaps doing investigation of the most overlooked part of computer system, can lead us to new insights into User interfaces, by thinking out of the Box and questioning their very fundamentals.
 
 ## Perspectives
-With the aim of providing an as complete as possible overview of the subject, the area will be studied out of several angles. Starting with going through a list of input methods that seems suitable. 
+With the aim of providing an as complete as possible overview of the subject, the area will be studied out of several angles. Starting with going through a list of input methods that seem suitable. 
 
-In the first part Software algorithm the _how_ will be discussed. In the second part on hardware, the _with what_ will be investigated. The third part will focus on what is to be done, i.e. the _why_. As such a matrix of all the parts of the universe we are trying to map out can  be combined and methodologically examined. The fourth part is the meta part, that discusses the finer theoretical points  behind the various methods. Whereas the fifth part deals with the technique of implementing and putting the code into use.  
+In the first part, Software algorithm the _how_ will be discussed. In the second part on hardware, the _with what_ will be investigated. The third part will focus on what is to be done, i.e. the _why_. As such a matrix of all the parts of the universe we are trying to map out can be combined and methodologically examined. The fourth part is the meta part, that discusses the finer theoretical points behind the various methods. The fifth part deals with the technique of implementing and putting the code into use.  
 
 ### Terminology / frequent concepts
 
