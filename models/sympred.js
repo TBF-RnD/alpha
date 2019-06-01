@@ -17,6 +17,16 @@ SymPred.prototype.setCurr=function(ncurr){
 	this.current=ncurr
 }
 
+SymPred.prototype.getScores=function(string,sym){
+	var res={}
+	if(typeof(this.lib)!="undefined"){
+		res=this.lib.predict(head+s)
+		console.log("using lib")
+	}else{
+		console.log("Need  library for rating")
+	}
+}
+
 SymPred.prototype.insert=function(s,p0,p1,d){
 	console.log("insert "+s)
 	var head=d.substr(0,p0)
@@ -26,6 +36,8 @@ SymPred.prototype.insert=function(s,p0,p1,d){
 	tail=typeof(tail)=="undefined"?"":tail
 
 	this.current=head+s+tail
+
+	var est=this.lib.getPredEstimates(head,s)
 
 	var res={}
 	if(typeof(this.lib)!="undefined"){

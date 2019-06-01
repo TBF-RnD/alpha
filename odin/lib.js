@@ -18,6 +18,30 @@ Library.prototype.addDict=function(name,dict,weight){
 	this.dicts[name]={d:dict,w:w}
 }
 
+// Get the dictionaries estimates values for sym appearing after string
+Library.prototype.getPredEstimates=function(string,sym){
+	console.log("P("+sym+"|"+string+")")
+	var estimates=[]
+	for(var k in this.dicts){
+		var  dict=this.dicts[k]
+		d0=dict
+		var sub=dict.d.predictUnsorted(string)
+		s0=sub
+		var f=sub.m[sym]
+		
+		// failed to suggest  -> 0  
+		if(typeof(f)=="undefined"){
+			estimates[k]=0
+			continue
+		}
+
+//		console.log(f+"/"+sub.sum_f)
+		var v=f/sub.sum_f
+		estimates[k]=v
+	}
+	console.log(estimates)
+}
+
 // Composite prediction merged from dictionaries adjusted by weight
 // mirrors  predict in dict implement abstraction!!
 Library.prototype.predict=function(string_in){
