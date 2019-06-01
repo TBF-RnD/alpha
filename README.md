@@ -1,23 +1,23 @@
-_This is work in progress and only outlines the scope of what I am trying to achieve_
+_This is work in progress and only outlines the scope of what I am trying to achieve._
 
 # Alpha - the Study of Esoteric Input Methods
 The alpha project is an attempt to create a framework for research and experimentation on Esoteric input methods. 
 
 As to make the results and technologies available to as many as possible, the code is developed using HTML5+javascript. 
 
-This leads to platform independence and and ease of demonstration. The motive of the project is not so much to create the end all be all solution for text input, but rather to inspire programmers and computer enthusiasts alike to think outside of the box. 
+This leads to platform independence and ease of demonstration. The motive of the project is not so much to create the end all be all solution for text input, but rather to inspire programmers and computer enthusiasts alike to think outside of the box. 
 
 As such the need for a quick way to demonstrate new technologies for an audience with an ever shortening attention span. 
 
 ## Motivation
 So why try to reinvent the wheel? Aren't keyboards good enough already, especially for people who have spent years and years learning to type efficiently? Well there are some paradigm shifts that are already happening and some that are on the horizon. 
 
-((The motivation part will be expanded and turned into a chapter / post of it's own)
+(The motivation part will be expanded and turned into a chapter / post of it's own)
 
 ###  VR / AR
-Few people would question the inevitabilty of VR becomming common place  in the near future. However how do control the system. Simply using virtual versions of physical keyboards doesn't seem as a good fit. Why not leverage the paradigm shift to make a new attempt based on state of the art information theory. From the dasher project there are a lot of resources concerning how to create a mathematically and information theoretically sound method for this. 
+Few people would question the inevitabilty of VR becomming commonplace  in the near future. However how do control the system. Simply using virtual versions of physical keyboards doesn't seem as a good fit. Why not leverage the paradigm shift to make a new attempt based on state of the art information theory? From the dasher project there are a lot of resources concerning how to create a mathematically and information theoretically sound method for this. 
 
-Let's face it, carrying a keyboard with you in VR/AR would break immersion. Using a single cursor to type  on a virtual keyboard would mean immense frustration and hinder actual work from being performed. Voice seems an attractive choice on the surface  but  look closer and  you'll find huge obstacles  whhen it comes  to  error correction and also it's quite unsuitable for  work that is not closely related to language. Such as computer programming. _Let us try to avoid having VR becomming a consumption only medium_.
+Let's face it, carrying a keyboard with you in VR/AR would break immersion. Using a single cursor to type on a virtual keyboard would mean immense frustration and hinder actual work from being performed. Voice seems an attractive choice on the surface  but  look closer and  you'll find huge obstacles  whhen it comes  to  error correction and also it's quite unsuitable for  work that is not closely related to language. Such as computer programming. _Let us try to avoid having VR becomming a consumption only medium_.
 
 ### Let's make tablets productive
 Speaking of consumption only devices, the advent of obiqitous smartphones is an immense step forward in terms of IT-availabilty. In third words a huge amount of people have entered the IT-arena via such devices, skipping past desktops and laptops. Sadly the devices are hardly suitable for productive work, leaving the consumer with a device suitable for choosing what to consume. 
