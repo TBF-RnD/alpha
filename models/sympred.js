@@ -50,7 +50,6 @@ SymPred.prototype.adjustWeights=function(){
 }
 
 SymPred.prototype.insert=function(s,p0,p1,d){
-	console.log("insert "+s)
 	var head=d.substr(0,p0)
 	var tail=d.substr(p1)
 
@@ -58,6 +57,8 @@ SymPred.prototype.insert=function(s,p0,p1,d){
 	tail=typeof(tail)=="undefined"?"":tail
 
 	this.current=head+s+tail
+
+	console.log(head+"/"+s+"/"+tail)
 
 	var est=this.lib.getPredEstimates(head,s)
 
@@ -90,6 +91,9 @@ SymPred.prototype.insert=function(s,p0,p1,d){
 		i++
 	}
 
+
+	console.log("Current=")
+	console.log(this.current)
 	this.onupdate(this.current,suggestions)
 }
 
