@@ -1,6 +1,11 @@
 // Console for mobile development
 mobileConsole.init()
 
+					
+
+//  Not extremely good practice but it works
+var dictbtnstring_head='<div class="btn-group-toggle" data-toggle="buttons"><label  class="btn btn-outline-secondary active btn-group-toggle"><input type="checkbox">'
+var  dictbtnstring_tail='</label>'
 
 function renderDicts(dictinfo){
 	var cgroup=$("#dicts")
@@ -10,6 +15,16 @@ function renderDicts(dictinfo){
 		console.log(name+" "+w)
 		var row=$("<div  />")
 		cgroup.append(row)
+
+		var btn=$(dictbtnstring_head+name+dictbtnstring_tail)
+		row.append(btn)
+
+		/*
+		var btnlbl=$("<label />",{class:"btn-group-toggle"}).html(name)
+		var btn=$("<input  />",{class:"btn btn-outline-secondary"})
+		btnlbl.append(btn)
+		row.append(btnlbl)
+
 		var cbox=$("<input  />",{type:"checkbox"})
 		row.append(cbox)
 		console.log(cbox)
@@ -24,6 +39,7 @@ function renderDicts(dictinfo){
 		row.append(weight)
 		row.append(wbar)
 
+		*/
 		cgroup.append(row)
 	}
 }
