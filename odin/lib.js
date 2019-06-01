@@ -7,6 +7,13 @@ function Library(){
 	this.n_dicts=0
 }
 
+Library.prototype.setDictWeight=function(name,weight){
+	if(typeof(this.dicts[name])=="undefined"){
+		console.err("No such dict: "+name)
+		return
+	}
+	this.dicts[name].w=weight
+}
 
 Library.prototype.addDict=function(name,dict,weight){
 	var w=1
@@ -16,6 +23,31 @@ Library.prototype.addDict=function(name,dict,weight){
 	if(typeof(weight)!="undefined") w=weight
 
 	this.dicts[name]={d:dict,w:w}
+}
+
+// Get the dictionaries estimates values for sym appearing after string
+Library.prototype.getPredEstimates=function(string,sym){
+//	console.log("P("+sym+"|"+string+")")
+	var estimates=[]
+	for(var k in this.dicts){
+		var  dict=this.dicts[k]
+		d0=dict
+		var sub=dict.d.predictUnsorted(string)
+		s0=sub
+		var f=sub.m[sym]
+		
+		// failed to suggest  -> 0  
+		if(typeof(f)=="undefined"){
+			estimates[k]=0
+			continue
+		}
+
+//		console.log(f+"/"+sub.sum_f)
+		var v=f/sub.sum_f
+		estimates[k]=v
+	}
+
+	return  estimates
 }
 
 // Composite prediction merged from dictionaries adjusted by weight

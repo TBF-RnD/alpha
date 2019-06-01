@@ -64,6 +64,7 @@ Dict.prototype.predict=function(string_in){
 		for(var sym in matches){
 			var f=matches[sym]
 
+			// As we multiply here f really ought to be called weighted f or v  (forvalue)
 			if(typeof(res[sym])=="undefined") res[sym]=f*mult
 			else res[sym]+=f*mult
 
@@ -99,6 +100,48 @@ Dict.prototype.predict=function(string_in){
 	}
 
 	return {m:sorted,sum_f:tot_f_tot}
+}
+
+// fixme mostly duplicate from   predict 
+Dict.prototype.predictUnsorted=function(string_in){
+	var string=string_in
+//  TODO revisit?
+//	var string=this.sortString(string_in)
+//	console.log("Predicting: "+string_in)
+	var mult=1
+	var res={}
+	var tot_f_tot=0
+
+	var  degree=this.degree
+
+	for(var i=0;i<=degree;i++){
+		var needle=__last_n_sym(string,i)
+//		console.log(i+":needle is: "+needle)
+		var subset=this.d[i]
+
+		var tot_f=0
+		if(typeof(subset[needle])=="undefined"){
+//			console.log("miss at "+i)
+			continue
+		}
+		var matches=subset[needle]
+		
+		for(var sym in matches){
+			var f=matches[sym]
+
+			// As we multiply here f really ought to be called weighted f or v  (forvalue)
+			if(typeof(res[sym])=="undefined") res[sym]=f*mult
+			else res[sym]+=f*mult
+
+			tot_f+=f
+		}
+		tot_f_tot+=tot_f*mult
+
+		// A n+1 degree match is valued expk times a n degree match
+		mult*=this.expk
+	}
+
+	return {m:res,sum_f:tot_f_tot}
 }
 
 // loads a JSON object containing statistics

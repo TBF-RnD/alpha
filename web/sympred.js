@@ -8,6 +8,20 @@ var dictbtnstring_head='<div class="btn-group-toggle" data-toggle="buttons"><lab
 var  dictbtnstring_tail='</label>'
 var prog_string='<div class="progress"> <div class="progress-bar" style="width:75%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div> </div>'
 
+function updateDicts(dictinfo){
+	var cgroup=$("#dicts")
+
+	for(var name in dictinfo){
+		var w=dictinfo[name].w
+	
+		var pbar=cgroup.find("."+name).find(".progress-bar")
+		var label=cgroup.find("."+name).find("label.winfo")
+
+		pbar.css("width",(w*100)+"%")
+		label.html("weight:"+w.toString().substr(0,4))
+	}
+}
+
 function renderDicts(dictinfo){
 	var cgroup=$("#dicts")
 	cgroup.html("")
@@ -17,10 +31,10 @@ function renderDicts(dictinfo){
 		var row=$("<div  />")
 		cgroup.append(row)
 
-		var igroup=$("<div/>",{class:"input-group"})
+		var igroup=$("<div/>",{class:"input-group "+name})
 
 		var btn=$(dictbtnstring_head+name+dictbtnstring_tail)
-		var label=$("<label />").html("weight:"+w)
+		var label=$("<label />",{class:"winfo"}).html("weight:"+w)
 		prog=$(prog_string)
 		prog.find(".progress-bar").css('width',(w*100)+"%")
 
@@ -93,7 +107,6 @@ function initSymPred(){
 	libo.loadData(library)
 
 	var dictinfo=libo.getDictInfo()
-	console.log(dictinfo)
 	renderDicts(dictinfo)
 
 	// Find all DOM elements with sympred attribute and set up  event bindings to the model
@@ -105,9 +118,16 @@ function initSymPred(){
 		spred.setLibrary(libo)
 
 		spred.onupdate(function(cnt,list){ 
-			el.val(cnt)
 			setSuggestions(list)
 			updateSuggest(el)
+
+			// show weigths in controlbar
+			// won't work for multiple elements
+			var dictinfo=libo.getDictInfo()
+			updateDicts(dictinfo)
+
+			console.log("onupdate;"+cnt)
+			el.val(cnt)
 		})
 
 		el.change(function(){
@@ -142,10 +162,12 @@ function initSymPred(){
 		el.blur(function(e){ updateSuggest($(this)) })
 		el.keydown(function(e){ 
 		//	updateSuggest($(this)) 
+//e.preventDefault()
 		})
 		
 		el.keyup(function(e){
 //			var el=$(this)
+//			e.preventDefault()
 		})
 	})
 }
