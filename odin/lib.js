@@ -60,6 +60,16 @@ Library.prototype.predict=function(string_in){
 	return {m:sorted}
 }
 
+Library.prototype.getDictInfo=function(){
+	var res=[]
+	console.log("Get  dict info")
+	for(var name in this.dicts){
+		console.log("n:"+name)
+		res[name]={w:this.dicts[name].w}
+	}
+	return res
+}
+
 // TODO
 // - perhaps to much is passed along in  json object?
 Library.prototype.loadData=function(lobj){
