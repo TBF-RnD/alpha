@@ -72,21 +72,10 @@ function initSymPred(){
 	$("[sympred]").each(function(){
 		var  el=$(this)
 		updateSuggest(el)
-//		var  dict=el.attr("dict")
-//		console.log("dict: "+dict)
 
 		var spred=new SymPred(el.val())
 		spred.setLibrary(libo)
 
-//		spred.setLibrary(lib)
-
-		/*
-		jQuery.get(dict,function(data){
-			console.log("Got data")
-		}).fail(function(e){
-			console.log("fail")
-		})*/
-		
 		spred.onupdate(function(cnt,list){ 
 			el.val(cnt)
 			setSuggestions(list)
@@ -102,11 +91,11 @@ function initSymPred(){
 			spred.setCurr(el.val())
 		}) */
 
+		//  handles backspace, ctr-c,ctrl-v etc
+		//  todo get predictions from new cursor pos
 		$(document).on("input",function(){
-			console.log("Document  input")
-
 			var pos=el.selection('getPos')
-			console.log("Now at")
+
 			updateSuggest(el)
 		})
 
@@ -115,8 +104,6 @@ function initSymPred(){
 			var pos=el.selection('getPos')
 			var s=String.fromCharCode(ev.which)
 			var d=el.val()
-			
-			console.log("key")
 
 			spred.insert(s,pos.start,pos.end,d)
 
