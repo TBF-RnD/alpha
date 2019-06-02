@@ -1,6 +1,8 @@
 # Chorded keyboards
 
-Chorded keyboards is one of the most discussed alternative approach to keyboards. This is not very surprising, as the concept has some very interesting advantages. Several hardware implementations have been made and proficient users see really good input speeds. This is not too surprising, since - if we take a look at the math - we'll find some interesting /You have to end this sentence, Richard!!/  
+Chorded keyboards is one of the most discussed alternative approach to keyboards. This is not very surprising, as the concept has some very interesting advantages. Several hardware implementations have been made and proficient users see really good input speeds. This is not too surprising, since - if we take a look at the math - we'll find some interesting properties that allows for high input speeds.
+
+In fact in court session stenography using chorded keyboards frequently reaches input speeds above human speech. These methods have shortcuts for letters, words and even phrases. Still the steep learning curve have stopped mainstream adoption. So text  input over 200 wpm  is very much a possibility and in some cases such as in courts even a requirement.
 
 ## Left hand for keys, right hand for mouse
 Whereas one thousand symbols seem to be way too many, we can get away with using less fingers. Obivously remembering that many combinations seems to be an insurmountable task, but more on memorisation later.
@@ -43,6 +45,7 @@ Whereas for some nieche areas the chorded keyboard is used with great success fo
 - Steep learning curve
 - Bad User memorization failure recovery characteristics 
 - Not compatible with touch
+- Not universal, i.e. applicable for e.g. different languages
 
 ## Proposed improvements
 Leaving out tablets and smartphones which in their current form seem to be utterly incompatible with chorded input, what can be done to improve the methods viability? Well, first of all we can mitigate both the learning curve and the error recovery rate by providing on screen assitance at all times. All of the sudden the power law of symbol frequency distribution works in our favour. The top 20-40% of the keystrokes would quickly be memorized and accessed via neurologically low latency muscle memory. For misses in this "wetware" system, the user can refer to an onscreen reference, constantly represented on the HUD. So if the user forgets the given chord for an unlikely key such as z, the user only has to use his eyes to scan the screen to find it. Furthermore, the software might predict the most likely incomming chords and might with good accuracy present the most likely incomming symbols with very high accuracy.   
