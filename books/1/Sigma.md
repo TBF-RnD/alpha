@@ -71,3 +71,16 @@ By using a highlighting system based on the PPM-model symbols where not moved ac
 
 ## Conclusion
 Whereas the most interesting prospect for the systems above might be the integration with more advanced prediction system and integration with operating system facilities on a frequency based tree level  some very interesting conclusions can be drawn. More so a dual system  where one finger handles symbol  selection  and the other word prediction might be of interest.  
+
+##  Online resources
+[Sigma site](http://sigma.eruditenow.com)
+[Theory](http://sigma.eruditenow.com/theory)
+[github](https://github.com/richard-jansson/sigma)
+
+
+## Videos
+[Videos](https://www.bitchute.com/channel/eruditenow/)
+[Keyboard vs. Tree-method](https://www.bitchute.com/video/aKl7jUrtcOt8/)
+[Introduction video:](https://www.bitchute.com/video/FklGhgQGbuDk/)
+[Gamepad  support](https://www.bitchute.com/video/jqM0f6r06Kwx/)
+[Linear](http://depts.washington.edu/ewrite/)
