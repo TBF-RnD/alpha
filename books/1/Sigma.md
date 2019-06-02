@@ -74,13 +74,19 @@ Whereas the most interesting prospect for the systems above might be the integra
 
 ##  Online resources
 [Sigma site](http://sigma.eruditenow.com)
+
 [Theory](http://sigma.eruditenow.com/theory)
+
 [github](https://github.com/richard-jansson/sigma)
 
 
 ## Videos
 [Videos](https://www.bitchute.com/channel/eruditenow/)
+
 [Keyboard vs. Tree-method](https://www.bitchute.com/video/aKl7jUrtcOt8/)
+
 [Introduction video:](https://www.bitchute.com/video/FklGhgQGbuDk/)
+
 [Gamepad  support](https://www.bitchute.com/video/jqM0f6r06Kwx/)
+
 [Linear](http://depts.washington.edu/ewrite/)
