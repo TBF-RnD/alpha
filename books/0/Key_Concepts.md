@@ -30,3 +30,6 @@ When it comes to QWERTY on touch we often see predictions on top of the screen i
 
 ## Universal design  
 Universal Design originates within architecture but can be applied elsewhere. Broadly speaking it defines disability as a spectrum and introduces a concept of what can be described as situational or momentary disability. A user put under certain circumstances can be less capable of performing a specific task, we define this as him being situationally impaired. This means that designing an User Interface with the less able in mind translates universally and improves it's usage across the spectrum. 
+
+## Asymetric bimanual tasks
+Given the task of painting an egg, one hand is performing the task  of holding the egg whereas the other is doing the fine mechanics of paiinting it. Very many of the tasks that we are performing in fact are asymetric. Piano playing and keyboard typing are examples of the contrary. To use a image editor by letting the left hand selecct tools with the keyboard while the other is moving and applying the tool would be an asymmetric  task. Bill Buxton describes this at length in his work "Two-Handed Input in Human-Computer Interaction." Surely the concept of our right or left handedness ought to give cues on how to create effective UI. 
