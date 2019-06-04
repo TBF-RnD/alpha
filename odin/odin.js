@@ -1,6 +1,8 @@
 //  External
 var fs=require('fs')
 var path=require('path')
+var http=require('http')
+var ws_server=require('websocket').server
 
 // Internal 
 var dict=require('./dict')
@@ -10,11 +12,43 @@ var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
 var degree=3
+var port=22357
+
+//  State
+var serving=false
 
 // Debug helpers
 function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
+
+function serve(port){
+	console.log("Attempting to start server @ port "+port)
+	var server=http.createServer(function(req,res){
+		console.log("Got http request")
+		
+		res.writeHead(404)
+		res.write("404: Not implemented")
+		res.end()
+	}).listen(port,function(){
+		console.log("listening to port "+port)
+	})
+
+	ws=new ws_server({httpServer:server})
+	
+	ws.on('request',function(req){
+		console.log("Got websocket  request")
+		
+		con=req.accept()
+		con.on('message',function(msg){
+			console.log('msg')
+			console.log(msg)
+		})
+		con.on('close',function(){
+			console.log("Connection closed")
+		})
+	})
+}
 
 // compiles dictionaries in srcs into library
 function compile(dest,srcs){
@@ -180,7 +214,7 @@ var n=4
 var m=1
 
 // Get switches --
-while(argv[0].substr(0,2)=="--"){
+while(typeof(argv[0])!="undefined" && argv[0].substr(0,2)=="--"){
 	var s=argv.shift().substr(2)
 	console.log("S:"+s)
 	switch(s){
@@ -221,6 +255,10 @@ options.m=m
 console.log("Alive")
 
 switch(cmd){
+	case "serve":
+		serving=true
+		serve(port)
+		break;
 	case "single":
 		if(argc<2){
 			console.error("To few arguments")
@@ -263,4 +301,5 @@ switch(cmd){
 		break;
 }
 
-process.exit(0)
+//  Exit 0 on success
+if(!serving) process.exit(0)
