@@ -23,7 +23,7 @@ function connect(con){
 	con.on('close',close)
 	con.on('message',message)
 
-	con.sendUTF(JSON.stringify({t:"predict",q:"Telecom"}))
+	con.sendUTF(JSON.stringify({t:"predict",q:"Telecom",n:12}))
 }
 function connectFailed(){
 	console.error("Failed to connect")

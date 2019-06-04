@@ -51,10 +51,11 @@ function serve(db,port){
 			var jo=JSON.parse(msg.utf8Data)
 				
 			//  FIXME handle jo.t
+			//  n : max numbers should not be mandatory
 
 			var  query=jo.q
 			
-			var resp=libo.predict(query)
+			var resp=libo.predict(query,jo.n)
 			console.log(resp)
 			con.sendUTF(JSON.stringify(resp))	
 		})
