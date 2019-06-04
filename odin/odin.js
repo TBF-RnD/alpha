@@ -22,7 +22,11 @@ function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
 
-function serve(port){
+function serve(db,port){
+	console.log("Loading library:  "+db)
+	var libo=loadLib(db) 
+
+
 	console.log("Attempting to start server @ port "+port)
 	var server=http.createServer(function(req,res){
 		console.log("Got http request")
@@ -43,6 +47,16 @@ function serve(port){
 		con.on('message',function(msg){
 			console.log('msg')
 			console.log(msg)
+
+			var jo=JSON.parse(msg.utf8Data)
+				
+			//  FIXME handle jo.t
+
+			var  query=jo.q
+			
+			var resp=libo.predict(query)
+			console.log(resp)
+			con.sendUTF(JSON.stringify(resp))	
 		})
 		con.on('close',function(){
 			console.log("Connection closed")
@@ -69,7 +83,9 @@ function compile(dest,srcs){
 	console.log("exporting")
 	var t0=getMS()
 	var ext=path.extname(dest)
-	if(ext==".js"){
+	if(ext==".json"){
+		outdata=jsonfmt.format_dict(lobj)
+	}else if(ext==".js"){
 		outdata="library="+jsonfmt.format_dict(lobj)
 	}else{
 		console.error("Unsupported extension: "+ext)
@@ -90,6 +106,31 @@ function compile(dest,srcs){
 	logMem()
 }
 
+function loadLib(db){
+	var ext=path.extname(db)
+	if(ext!=".json"){
+		console.error("db must be in json format")
+		process.exit(1)
+	}
+	var t0=getMS()
+	try{
+		var data=fs.readFileSync(db,'utf8')
+	}catch(e){
+		console.error("Failed to read "+db)
+		process.exit(1)
+	}
+	logTime("Read  " + data.length + " bytes",t0)
+
+	// TODO try catch
+	var  t0=getMS()
+	var d=JSON.parse(data)
+	logTime("Parsed JSON",t0)
+	
+	var libo=new lib.lib()
+	libo.loadData(d)
+	
+	return libo
+}
 function load(db){
 	var ext=path.extname(db)
 	if(ext!=".json"){
@@ -257,7 +298,11 @@ console.log("Alive")
 switch(cmd){
 	case "serve":
 		serving=true
-		serve(port)
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		serve(argv[0],port)
 		break;
 	case "single":
 		if(argc<2){

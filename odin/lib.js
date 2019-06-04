@@ -108,7 +108,7 @@ Library.prototype.loadData=function(lobj){
 	this.n_dicts=lobj.n_dicts
 	for(var name in lobj.dicts){
 		var ndict
-		if(Dict) ndict=new Dict()
+		if(typeof(Dict)!="undefined") ndict=new Dict()
 		else ndict=new edict.dict()
 
 		ndict.loadProfile(lobj.dicts[name].d.d)
