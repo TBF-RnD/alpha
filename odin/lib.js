@@ -52,7 +52,7 @@ Library.prototype.getPredEstimates=function(string,sym){
 
 // Composite prediction merged from dictionaries adjusted by weight
 // mirrors  predict in dict implement abstraction!!
-Library.prototype.predict=function(string_in){
+Library.prototype.predict=function(string_in,max_n){
 	var comp={}
 //	console.log("libpred:  "+string_in)
 //	console.log("Got "+this.n_dicts+" dictionaries")
@@ -81,6 +81,17 @@ Library.prototype.predict=function(string_in){
 	var  sorted=[]
 	for(var k in comp){ sorted.push({s:k,v:comp[k]}) }
 	sorted.sort(function(a,b){ return b.v-a.v })
+
+	if(typeof(max_n)!="undefined"){
+		var tmp=[]
+		var i=0
+		for(var k in sorted){
+			i++
+			if(i>max_n) break
+			tmp.push(sorted[k])
+		}
+		sorted=tmp
+	}
 	
 	/*
 	console.log("NTOP sorted")
@@ -108,7 +119,7 @@ Library.prototype.loadData=function(lobj){
 	this.n_dicts=lobj.n_dicts
 	for(var name in lobj.dicts){
 		var ndict
-		if(Dict) ndict=new Dict()
+		if(typeof(Dict)!="undefined") ndict=new Dict()
 		else ndict=new edict.dict()
 
 		ndict.loadProfile(lobj.dicts[name].d.d)

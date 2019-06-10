@@ -1,6 +1,8 @@
 //  External
 var fs=require('fs')
 var path=require('path')
+var http=require('http')
+var ws_server=require('websocket').server
 
 // Internal 
 var dict=require('./dict')
@@ -10,11 +12,58 @@ var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
 var degree=3
+var port=22357
+
+//  State
+var serving=false
 
 // Debug helpers
 function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
+
+function serve(db,port){
+	console.log("Loading library:  "+db)
+	var libo=loadLib(db) 
+
+
+	console.log("Attempting to start server @ port "+port)
+	var server=http.createServer(function(req,res){
+		console.log("Got http request")
+		
+		res.writeHead(404)
+		res.write("404: Not implemented")
+		res.end()
+	}).listen(port,function(){
+		console.log("listening to port "+port)
+	})
+
+	ws=new ws_server({httpServer:server})
+	
+	ws.on('request',function(req){
+		console.log("Got websocket  request")
+		
+		con=req.accept()
+		con.on('message',function(msg){
+			console.log('msg')
+			console.log(msg)
+
+			var jo=JSON.parse(msg.utf8Data)
+				
+			//  FIXME handle jo.t
+			//  n : max numbers should not be mandatory
+
+			var  query=jo.q
+			
+			var resp=libo.predict(query,jo.n)
+			console.log(resp)
+			con.sendUTF(JSON.stringify(resp))	
+		})
+		con.on('close',function(){
+			console.log("Connection closed")
+		})
+	})
+}
 
 // compiles dictionaries in srcs into library
 function compile(dest,srcs){
@@ -35,7 +84,9 @@ function compile(dest,srcs){
 	console.log("exporting")
 	var t0=getMS()
 	var ext=path.extname(dest)
-	if(ext==".js"){
+	if(ext==".json"){
+		outdata=jsonfmt.format_dict(lobj)
+	}else if(ext==".js"){
 		outdata="library="+jsonfmt.format_dict(lobj)
 	}else{
 		console.error("Unsupported extension: "+ext)
@@ -56,6 +107,31 @@ function compile(dest,srcs){
 	logMem()
 }
 
+function loadLib(db){
+	var ext=path.extname(db)
+	if(ext!=".json"){
+		console.error("db must be in json format")
+		process.exit(1)
+	}
+	var t0=getMS()
+	try{
+		var data=fs.readFileSync(db,'utf8')
+	}catch(e){
+		console.error("Failed to read "+db)
+		process.exit(1)
+	}
+	logTime("Read  " + data.length + " bytes",t0)
+
+	// TODO try catch
+	var  t0=getMS()
+	var d=JSON.parse(data)
+	logTime("Parsed JSON",t0)
+	
+	var libo=new lib.lib()
+	libo.loadData(d)
+	
+	return libo
+}
 function load(db){
 	var ext=path.extname(db)
 	if(ext!=".json"){
@@ -180,7 +256,7 @@ var n=4
 var m=1
 
 // Get switches --
-while(argv[0].substr(0,2)=="--"){
+while(typeof(argv[0])!="undefined" && argv[0].substr(0,2)=="--"){
 	var s=argv.shift().substr(2)
 	console.log("S:"+s)
 	switch(s){
@@ -221,6 +297,14 @@ options.m=m
 console.log("Alive")
 
 switch(cmd){
+	case "serve":
+		serving=true
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		serve(argv[0],port)
+		break;
 	case "single":
 		if(argc<2){
 			console.error("To few arguments")
@@ -263,4 +347,5 @@ switch(cmd){
 		break;
 }
 
-process.exit(0)
+//  Exit 0 on success
+if(!serving) process.exit(0)

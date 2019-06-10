@@ -14,3 +14,7 @@ set hotkeys to suggestions (sympred)
 binary optimized  format  for   storage
 split  nto server client model to avoid client loading megagbytes of text
 add  metadata type to json
+npm installs
+	websocket
+session management?
+command line interface is insane expect change
