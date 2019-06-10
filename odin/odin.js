@@ -2,7 +2,20 @@
 var fs=require('fs')
 var path=require('path')
 var http=require('http')
+var url=require('url')
 var ws_server=require('websocket').server
+
+// Constants
+var mime_types={
+	"html":"text/html",
+	"css":"text/css",
+	"js":"text/javscript"}
+var def_mime="text/text"
+
+// TODO probably breaks on windows
+var web_path="../web"
+var ext_path="../ext"
+var mod_path="../models"
 
 // Internal 
 var dict=require('./dict')
@@ -16,11 +29,57 @@ var port=22357
 
 //  State
 var serving=false
+var model=false
 
 // Debug helpers
 function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
+
+function not_implemented(req,res){
+	res.writeHead(500)
+	res.write("500: Not implemented")
+	res.end()	
+}
+
+function not_found(req,res){
+	res.writeHead(404)
+	res.write("404: Not found")
+	res.end()	
+}
+
+function  httpReq(req,res){
+	console.log("Got http request")
+		
+	if(!model) not_implemented(req,res)
+
+	var pathname=url.parse(req.url).pathname
+
+	//  TODO
+	//  	- use path.join
+	//  	- sanitize request
+	if(pathname=="/") fpath=web_path+"/"+model+".html"
+	else if(pathname.substr(0,4)=="/ext") 
+		fpath=ext_path+"/"+pathname.substr(4)
+	else if(pathname.substr(0,7)=="/models")
+		fpath=mod_path+"/"+pathname.substr(7)
+	else fpath=web_path+"/"+pathname
+
+	var ext=path.extname(fpath)
+	var  cmime=def_mime
+	if(typeof(mime_types[ext])!="undefined") 
+		cmime=mime_types[ext]
+	
+	fs.readFile(fpath,function(err,data){
+		if(err){
+			not_found(req,res)
+			return
+		}
+		res.writeHead(200,cmime)
+		res.write(data)
+		res.end()
+	})
+}
 
 function serve(db,port){
 	console.log("Loading library:  "+db)
@@ -28,13 +87,8 @@ function serve(db,port){
 
 
 	console.log("Attempting to start server @ port "+port)
-	var server=http.createServer(function(req,res){
-		console.log("Got http request")
-		
-		res.writeHead(404)
-		res.write("404: Not implemented")
-		res.end()
-	}).listen(port,function(){
+	var server=http.createServer(httpReq
+	).listen(port,function(){
 		console.log("listening to port "+port)
 	})
 
@@ -297,6 +351,15 @@ options.m=m
 console.log("Alive")
 
 switch(cmd){
+	case "doug":
+		serving=true
+		model="doug"
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		serve(argv[0],port)
+		break;
 	case "serve":
 		serving=true
 		if(argc<1){
