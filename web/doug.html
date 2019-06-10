@@ -16,6 +16,7 @@
 
 		<!--  Internal  -->
 		<script src="doug.js" type="text/javascript"></script>
+		<script src="models/doug.js" type="text/javascript"></script>
 <!--
 		<script src="sympred.js" type="text/javascript"></script>
 	TODO   implement  later
@@ -31,6 +32,15 @@
 	</head>
 	<body>
 		<div id="suggest" class="suggest"></div>
-		<textarea id="edit" doug cols="80" rows="25">Try it </textarea> 
+		<!-- 
+	  	Default bindings
+	  	1 - space - 32
+		2 - D - 65
+		3 - W - 87
+		4 - A - 65 
+		5 - Shift - 16
+		So basically based on WASD
+	  	-->
+		<textarea id="edit" doug bindings="[32,68,87,65,16]" cols="80" rows="25">Try it </textarea> 
 	</body>
 </html>
