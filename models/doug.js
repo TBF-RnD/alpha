@@ -1,5 +1,5 @@
 var defaults={
-	delay: 1000
+	delay: 120
 }
 
 function Doug(options){
@@ -24,10 +24,13 @@ function Doug(options){
 }
 
 Doug.prototype.trigger=function(n){
-	console.log("Trigger")
-	console.log(this.active_signals)
-//	this.active_signals=[]
 	this.state=0
+	var sum=0
+	for(var k in this.active_signals){
+		sum+=Math.pow(2,parseInt(k))
+	}
+	if(sum==0) return
+	console.log(sum)
 }
 
 Doug.prototype.unsignal=function(n){
