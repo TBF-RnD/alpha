@@ -6,6 +6,9 @@ function initDoug(){
 		var binds=$(this).attr("bindings")
 		var bindo=JSON.parse(binds)
 
+		var dougo=new Doug()
+		el.__doug=dougo
+
 		// get signal finger number from keycode
 		// returns -1 if keycode is not bound
 		function mapKC(which){
@@ -22,7 +25,7 @@ function initDoug(){
 
 			if(signal==-1)  return
 
-			console.log(signal)
+			dougo.signal(signal)
 
 			ev.preventDefault()
 		})
@@ -31,6 +34,8 @@ function initDoug(){
 			var signal=mapKC(kc)
 			
 			if(signal==-1)  return
+
+			dougo.unsignal(signal)
 			
 			ev.preventDefault()
 		})
