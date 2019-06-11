@@ -75,7 +75,7 @@ function __bittoarray(a){
 		a=a>>1
 	}
 //	console.log(ret)
-	return ret
+	return ret.reverse()
 }
 
 Doug.prototype.getmap=function(bindings){
@@ -91,7 +91,7 @@ Doug.prototype.getmap=function(bindings){
 		var y0=Math.floor(i/rows)
 		var ba=__bittoarray(i+1)
 
-		map[x0][y0]={s:s,ba:ba,bs:ba.join('')}
+		map[y0][x0]={s:s,ba:ba,bs:ba.join('')}
 	}
 	return map
 }

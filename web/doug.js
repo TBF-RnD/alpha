@@ -1,4 +1,45 @@
 function renderMap(){
+	
+}
+
+// an element with tag doug-map with for linked to  id
+// will be set up as a keymap for the bindings
+function setupmap(dougo,el){
+	var map=$("[doug-map][for='edit']")
+	if(map.length<1) return
+
+	console.log("setup")
+	t0=map
+	var kmap=dougo.getmap()
+	var rows=kmap.length
+	var cols=kmap[0].length
+	var cw=Math.floor(100/cols)+"%"
+
+	for(var y0=0;y0<kmap.length;y0++){
+		var krow=kmap[y0]
+		var row=$("<div  />",{class:"row"})
+		for(var x0=0;x0<krow.length;x0++){
+			var col=$("<div />",
+				{class:"col",
+				style:"width:"+cw
+				})
+
+			var str=$("<span />",{ class:"str" })
+			var hyph=$("<span />",{ class:"str" })
+			var bmap=$("<span />",{ class:"bmap" })
+
+			str.html(kmap[y0][x0].s)
+			hyph.html("&#45")
+			bmap.html(kmap[y0][x0].bs)
+
+			col.append(str)
+			col.append(hyph)
+			col.append(bmap)
+
+			row.append(col)
+		}
+		map.append(row)
+	}
 }
 
 //  TODO
@@ -11,6 +52,9 @@ function initDoug(){
 
 		var dougo=new Doug(el.val())
 		el.__doug=dougo
+
+		// setup map
+		setupmap(dougo,el)
 
 		console.log("Get map")
 		var  map=dougo.getmap()
@@ -74,5 +118,6 @@ function initDoug(){
 
 mobileConsole.init()
 $(document).ready(function(){
+	mobileConsole.toggle()
 	initDoug()	
 })
