@@ -1,6 +1,21 @@
 //  External
 var fs=require('fs')
 var path=require('path')
+var http=require('http')
+var url=require('url')
+var ws_server=require('websocket').server
+
+// Constants
+var mime_types={
+	"html":"text/html",
+	"css":"text/css",
+	"js":"text/javscript"}
+var def_mime="text/text"
+
+// TODO probably breaks on windows
+var web_path="../web"
+var ext_path="../ext"
+var mod_path="../models"
 
 // Internal 
 var dict=require('./dict')
@@ -10,11 +25,99 @@ var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
 var degree=3
+var port=22357
+
+//  State
+var serving=false
+var model=false
 
 // Debug helpers
 function getMS(){ return Date.now() }
 function logTime(str,ms){ console.log(str+" in "+(getMS()-ms))+"ms" } 
 function logMem(){ console.log(process.memoryUsage()) }
+
+function not_implemented(req,res){
+	res.writeHead(500)
+	res.write("500: Not implemented")
+	res.end()	
+}
+
+function not_found(req,res){
+	res.writeHead(404)
+	res.write("404: Not found")
+	res.end()	
+}
+
+function  httpReq(req,res){
+	console.log("Got http request")
+		
+	if(!model) not_implemented(req,res)
+
+	var pathname=url.parse(req.url).pathname
+
+	//  TODO
+	//  	- use path.join
+	//  	- sanitize request
+	if(pathname=="/") fpath=web_path+"/"+model+".html"
+	else if(pathname.substr(0,4)=="/ext") 
+		fpath=ext_path+"/"+pathname.substr(4)
+	else if(pathname.substr(0,7)=="/models")
+		fpath=mod_path+"/"+pathname.substr(7)
+	else fpath=web_path+"/"+pathname
+
+	var ext=path.extname(fpath)
+	var  cmime=def_mime
+	if(typeof(mime_types[ext])!="undefined") 
+		cmime=mime_types[ext]
+	
+	fs.readFile(fpath,function(err,data){
+		if(err){
+			not_found(req,res)
+			return
+		}
+		res.writeHead(200,cmime)
+		res.write(data)
+		res.end()
+	})
+}
+
+function serve(db,port){
+	console.log("Loading library:  "+db)
+	var libo=loadLib(db) 
+
+
+	console.log("Attempting to start server @ port "+port)
+	var server=http.createServer(httpReq
+	).listen(port,function(){
+		console.log("listening to port "+port)
+	})
+
+	ws=new ws_server({httpServer:server})
+	
+	ws.on('request',function(req){
+		console.log("Got websocket  request")
+		
+		con=req.accept()
+		con.on('message',function(msg){
+			console.log('msg')
+			console.log(msg)
+
+			var jo=JSON.parse(msg.utf8Data)
+				
+			//  FIXME handle jo.t
+			//  n : max numbers should not be mandatory
+
+			var  query=jo.q
+			
+			var resp=libo.predict(query,jo.n)
+			console.log(resp)
+			con.sendUTF(JSON.stringify(resp))	
+		})
+		con.on('close',function(){
+			console.log("Connection closed")
+		})
+	})
+}
 
 // compiles dictionaries in srcs into library
 function compile(dest,srcs){
@@ -35,7 +138,9 @@ function compile(dest,srcs){
 	console.log("exporting")
 	var t0=getMS()
 	var ext=path.extname(dest)
-	if(ext==".js"){
+	if(ext==".json"){
+		outdata=jsonfmt.format_dict(lobj)
+	}else if(ext==".js"){
 		outdata="library="+jsonfmt.format_dict(lobj)
 	}else{
 		console.error("Unsupported extension: "+ext)
@@ -56,6 +161,31 @@ function compile(dest,srcs){
 	logMem()
 }
 
+function loadLib(db){
+	var ext=path.extname(db)
+	if(ext!=".json"){
+		console.error("db must be in json format")
+		process.exit(1)
+	}
+	var t0=getMS()
+	try{
+		var data=fs.readFileSync(db,'utf8')
+	}catch(e){
+		console.error("Failed to read "+db)
+		process.exit(1)
+	}
+	logTime("Read  " + data.length + " bytes",t0)
+
+	// TODO try catch
+	var  t0=getMS()
+	var d=JSON.parse(data)
+	logTime("Parsed JSON",t0)
+	
+	var libo=new lib.lib()
+	libo.loadData(d)
+	
+	return libo
+}
 function load(db){
 	var ext=path.extname(db)
 	if(ext!=".json"){
@@ -180,7 +310,7 @@ var n=4
 var m=1
 
 // Get switches --
-while(argv[0].substr(0,2)=="--"){
+while(typeof(argv[0])!="undefined" && argv[0].substr(0,2)=="--"){
 	var s=argv.shift().substr(2)
 	console.log("S:"+s)
 	switch(s){
@@ -221,6 +351,23 @@ options.m=m
 console.log("Alive")
 
 switch(cmd){
+	case "doug":
+		serving=true
+		model="doug"
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		serve(argv[0],port)
+		break;
+	case "serve":
+		serving=true
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		serve(argv[0],port)
+		break;
 	case "single":
 		if(argc<2){
 			console.error("To few arguments")
@@ -263,4 +410,5 @@ switch(cmd){
 		break;
 }
 
-process.exit(0)
+//  Exit 0 on success
+if(!serving) process.exit(0)

@@ -1,3 +1,5 @@
+// TODO 
+// - make to work with  multiple sympred elements
 // Console for mobile development
 mobileConsole.init()
 

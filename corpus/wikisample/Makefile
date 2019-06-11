@@ -2,7 +2,7 @@ SINGLE=bash ./single.sh
 COMPILE=bash ./compile.sh
 JSONOUT=en.json gr.json sv.json
 
-all: lib
+all: lib libjson
 
 %.html: links
 	wget -i links
@@ -16,5 +16,7 @@ all: lib
 lib: $(JSONOUT)
 	$(COMPILE) lib.js $(JSONOUT)
 
+libjson: $(JSONOUT)
+	$(COMPILE) lib.json $(JSONOUT)
 clean:
 	rm -f *txt *json *html *js

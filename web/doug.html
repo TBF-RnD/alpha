@@ -1,0 +1,47 @@
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!--  External  -->
+		<script type="text/javascript" src="ext/hnl.mobileConsole.js"></script>
+		<script type="text/javascript" src="ext/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="ext/jquery.selection.js"></script>
+		<script type="text/javascript" src="ext/textarea-caret-position.js"></script>
+
+		<!-- Statistical data -->
+		<!--
+		<script type="text/javascript"> profiles=[] </script>
+		<script src="../corpus/wikisample/lib.js" type="text/javascript"></script>
+		-->
+
+		<!--  Internal  -->
+		<script src="doug.js" type="text/javascript"></script>
+		<script src="models/doug.js" type="text/javascript"></script>
+<!--
+		<script src="sympred.js" type="text/javascript"></script>
+	TODO   implement  later
+		<script src="../odin/lib.js" type="text/javascript"></script>
+		<script src="../odin/dict.js" type="text/javascript"></script>
+		<script src="../models/doug.js" type="text/javascript"></script>
+-->
+		
+		<!--  Styling  -->
+		<link rel="stylesheet" type="text/css" href="general.css"></link>
+		<link rel="stylesheet" type="text/css" href="doug.css"></link>
+		<link rel="stylesheet" type="text/css" href="models/doug.css"></link>
+	</head>
+	<body>
+		<div id="suggest" class="suggest"></div>
+		<!-- 
+	  	Default bindings
+	  	1 - space - 32
+		2 - F - 70
+		3 - D - 68
+		4 - S - 83 
+		5 - A - 65
+		So basically based on WASD
+		<textarea id="edit" doug bindings="[32,68,87,65,16]" cols="80" rows="25">Try it </textarea> 
+	  	-->
+		<textarea id="edit" doug bindings="[32,70,68,83,65]" cols="80" rows="25">Try it </textarea> 
+	</body>
+</html>
