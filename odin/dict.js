@@ -38,7 +38,7 @@ Dict.prototype.sortString=function(s){
 // TODO implement cache of string -> results
 // TODO make unsorted variant for use from library as to  not
 // 	cycles on sorting data twice
-Dict.prototype.predict=function(string_in){
+Dict.prototype.predict=function(string_in,max_n){
 	var string=string_in
 //  TODO revisit?
 //	var string=this.sortString(string_in)
@@ -84,6 +84,16 @@ Dict.prototype.predict=function(string_in){
 	for(var k in res){ sorted.push({s:k,f:res[k]}) }
 	sorted.sort(function(a,b){ return b.f-a.f  })
 
+	if(typeof(max_n)!="undefined"){
+		var tmp=[]
+		var i=0
+		for(var k in sorted){
+			i++
+			if(i>max_n) break
+			tmp.push(sorted[k])
+		}
+		sorted=tmp
+	}
 	/*
 	for(var k in sorted){
 		console.log(sorted[k].s+" "+sorted[k].f)
@@ -269,7 +279,6 @@ Dict.prototype.enterText=function(name,data){
 	this.addText(name,data)
 	this.procText(name)
 }
-
 
 if(typeof(exports)=="object"){
 	exports.dict=Dict

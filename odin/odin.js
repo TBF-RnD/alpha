@@ -84,11 +84,9 @@ function  httpReq(req,res){
 	})
 }
 
-function serve(db,port){
-	console.log("Loading library:  "+db)
-	var libo=loadLib(db) 
-
-
+// starts http server 
+// dobj is either library or dictionary object
+function serve(dbobj,port){
 	console.log("Attempting to start server @ port "+port)
 	var server=http.createServer(httpReq
 	).listen(port,function(){
@@ -112,7 +110,7 @@ function serve(db,port){
 
 			var  query=jo.q
 			
-			var resp=libo.predict(query,jo.n)
+			var resp=dbobj.predict(query,jo.n)
 			console.log(resp)
 			con.sendUTF(JSON.stringify(resp))	
 		})
@@ -121,6 +119,21 @@ function serve(db,port){
 		})
 	})
 }
+
+function servedict(db,port){
+	console.log("Loading dict:  "+db)
+	var dicto=loadDict(db)
+
+	serve(dicto,port)
+}
+
+function servelib(db,port){
+	console.log("Loading library:  "+db)
+	var libo=loadLib(db)
+
+	serve(libo,port)
+}
+
 
 // compiles dictionaries in srcs into library
 function compile(dest,srcs){
@@ -164,27 +177,42 @@ function compile(dest,srcs){
 	logMem()
 }
 
-function loadLib(db){
-	var ext=path.extname(db)
+function loadJSON(file){
+	var ext=path.extname(file)
 	if(ext!=".json"){
 		console.error("db must be in json format")
 		process.exit(1)
 	}
 	var t0=getMS()
 	try{
-		var data=fs.readFileSync(db,'utf8')
+		var data=fs.readFileSync(file,'utf8')
 	}catch(e){
-		console.error("Failed to read "+db)
+		console.error("Failed to read "+file)
 		process.exit(1)
 	}
 	logTime("Read  " + data.length + " bytes",t0)
-
+	
 	// TODO try catch
 	var  t0=getMS()
 	var d=JSON.parse(data)
 	logTime("Parsed JSON",t0)
-	
+
+	return d
+}
+
+function loadDict(dictpath){
+	var d=loadJSON(dictpath)
+	var dicto=new dict.dict()
+
+	dicto.loadProfile(d)
+
+	return dicto
+}
+
+function loadLib(libpath){
+	var d=loadJSON(libpath)
 	var libo=new lib.lib()
+
 	libo.loadData(d)
 	
 	return libo
@@ -361,15 +389,25 @@ switch(cmd){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		serve(argv[0],port)
+		servedict(argv[0],port)
 		break;
+	case "servedict":
+		serving=true
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		servedict(argv[0],port)
+		break;
+	case "servelib":
+	// TODO maybe remove for clarity
 	case "serve":
 		serving=true
 		if(argc<1){
 			console.error("To few arguments")
 			process.exit(1)
 		}
-		serve(argv[0],port)
+		servelib(argv[0],port)
 		break;
 	case "single":
 		if(argc<2){

@@ -18,3 +18,4 @@ npm installs
 	websocket
 session management?
 command line interface is insane expect change
+make it possible for serve and other commands to distinguish between dict and lib json files
