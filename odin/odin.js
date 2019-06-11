@@ -373,6 +373,29 @@ while(typeof(argv[0])!="undefined" && argv[0].substr(0,2)=="--"){
 	}
 }
 
+//console.log(process.env)
+
+// Hack to make able to run without cli arguments
+if(
+	typeof(process.env.ODIN_CMD)!="undefined" &&
+	typeof(process.env.ODIN_PATH)!="undefined"){
+
+	var cmd=process.env.ODIN_CMD
+	var pathname=process.env.ODIN_PATH
+
+	switch(cmd){
+		case "doug":
+			serving=true
+			model="doug"
+			servedict(pathname,port)
+			break;
+		default:
+			console.error("Error")
+			process.exit(1)
+			break;
+	}
+
+}else{
 var cmd=argv.shift()
 var argc=argv.length
 
@@ -450,6 +473,7 @@ switch(cmd){
 		process.exit(1)
 		break;
 }
+}
+// Exit 0 on success
 
-//  Exit 0 on success
 if(!serving) process.exit(0)
