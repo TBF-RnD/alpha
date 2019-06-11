@@ -1,0 +1,14 @@
+{
+  "name": "odin",
+  "version": "0.0.1",
+  "description": "Analyze text files to generate PPM like data usable for text prediction on a symbol level. Exports the data to json file for use for javascript based input methods. Can also output markdown  tables for visualisations here and in the chapters.",
+  "main": "odin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.28"
+  }
+}
