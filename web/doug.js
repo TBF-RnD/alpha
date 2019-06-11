@@ -6,7 +6,7 @@ function initDoug(){
 		var binds=$(this).attr("bindings")
 		var bindo=JSON.parse(binds)
 
-		var dougo=new Doug()
+		var dougo=new Doug(el.val())
 		el.__doug=dougo
 
 		// get signal finger number from keycode
@@ -18,6 +18,29 @@ function initDoug(){
 			}
 			return -1
 		}
+
+		// callback that runs upon new symbol 
+		// from doug model insert in selection 
+		// if any. Afterwards update
+		dougo.onupdate(function(s){
+			var pos=el.selection('getPos')
+			
+			// dupl from mod  sympred
+			p0=pos.start
+			p1=pos.end
+			d=el.val()
+
+			var head=d.substr(0,p0)
+			var tail=d.substr(p1)
+
+			current=head+s+tail
+
+			//  update internal state of model
+			dougo.setcontent(current)
+
+			// update HTML
+			el.val(current)
+		})
 
 		el.keydown(function(ev){ 
 			var kc=ev.which

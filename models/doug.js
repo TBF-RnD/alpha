@@ -2,7 +2,10 @@ var defaults={
 	delay: 120
 }
 
-function Doug(options){
+function Doug(current,options){
+	if(typeof(current)=="undefined") current=""
+	this.current=current
+
 	if(typeof(options)=="undefined") options={}
 	// Set options to this if defined in defaults
 	for(var k in defaults){
@@ -30,7 +33,12 @@ Doug.prototype.trigger=function(n){
 		sum+=Math.pow(2,parseInt(k))
 	}
 	if(sum==0) return
-	console.log(sum)
+
+	var s=String.fromCharCode(96+sum)
+	
+	console.log(sum+":"+s)
+
+	this.onupdate(s)
 }
 
 Doug.prototype.unsignal=function(n){
@@ -50,4 +58,11 @@ Doug.prototype.signal=function(n){
 	}
 	
 	this.active_signals[n]=1
+}
+Doug.prototype.onupdate=function(cback){
+	this.onupdate=cback
+}
+
+Doug.prototype.setcontent=function(content){
+	this.current=content
 }
