@@ -1,3 +1,6 @@
+function renderMap(){
+}
+
 //  TODO
 //  - overlaps with sympred.js
 function initDoug(){
@@ -8,6 +11,10 @@ function initDoug(){
 
 		var dougo=new Doug(el.val())
 		el.__doug=dougo
+
+		console.log("Get map")
+		var  map=dougo.getmap()
+		console.log(map)
 
 		// get signal finger number from keycode
 		// returns -1 if keycode is not bound

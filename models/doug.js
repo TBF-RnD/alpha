@@ -66,3 +66,32 @@ Doug.prototype.onupdate=function(cback){
 Doug.prototype.setcontent=function(content){
 	this.current=content
 }
+
+function __bittoarray(a){
+//	console.log(a+" becomes")
+	var ret=[]
+	for(var i=0;i<5;i++){
+		ret.push(a&1)
+		a=a>>1
+	}
+//	console.log(ret)
+	return ret
+}
+
+Doug.prototype.getmap=function(bindings){
+	var i0=97
+	var rows=6
+	var cols=5
+	var map=[]
+	for(var i=0;i<rows;i++) map.push([])
+	for(var i=0;i<26;i++){
+		var s=String.fromCharCode(i0+i)
+//		console.log(s)
+		var x0=i%rows
+		var y0=Math.floor(i/rows)
+		var ba=__bittoarray(i+1)
+
+		map[x0][y0]={s:s,ba:ba,bs:ba.join('')}
+	}
+	return map
+}

@@ -16,6 +16,7 @@ var def_mime="text/text"
 var web_path="../web"
 var ext_path="../ext"
 var mod_path="../models"
+var odin_path="."
 
 // Internal 
 var dict=require('./dict')
@@ -63,6 +64,8 @@ function  httpReq(req,res){
 		fpath=ext_path+"/"+pathname.substr(4)
 	else if(pathname.substr(0,7)=="/models")
 		fpath=mod_path+"/"+pathname.substr(7)
+	else if(pathname.substr(0,5)=="/odin")
+		fpath=odin_path+"/"+pathname.substr(5)
 	else fpath=web_path+"/"+pathname
 
 	var ext=path.extname(fpath)
