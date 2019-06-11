@@ -1,7 +1,3 @@
-function renderMap(){
-	
-}
-
 // an element with tag doug-map with for linked to  id
 // will be set up as a keymap for the bindings
 function setupmap(dougo,el){
