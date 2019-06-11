@@ -1,0 +1,19 @@
+#editwrap {
+	height: 45%;
+	width: 100%;
+}
+
+#map {
+	height: 45%;
+	width: 100%;
+	border: 1px  solid  black;
+}
+#map .row {
+	float:left;
+	width: 100%;
+}
+#map .row .col{
+	float:left;
+	text-align: center;
+	border:  1px solid grey;
+}
