@@ -6,6 +6,16 @@
  *  
  */
 
+var argc=process.argv.length
+var argv=process.argv
+
+if(argc<3){
+	console.error("To few arguments")
+	process.exit(1)
+}
+var querys=argv[2]
+
+
 var ws_cli=require("websocket").client
 
 var ws=new ws_cli()
@@ -15,7 +25,10 @@ function close(){
 }
 function message(msg){
 	console.log("Received message:")
-	console.log(msg)
+	var data=msg.utf8Data
+	var o=JSON.parse(data)
+	console.log(o)
+	process.exit(0)
 }
 function connect(con){
 	console.log("Got connection")
@@ -23,7 +36,7 @@ function connect(con){
 	con.on('close',close)
 	con.on('message',message)
 
-	con.sendUTF(JSON.stringify({t:"predict",q:"Telecom",n:12}))
+	con.sendUTF(JSON.stringify({t:"predict",q:querys,n:12}))
 }
 function connectFailed(){
 	console.error("Failed to connect")
@@ -32,4 +45,5 @@ function connectFailed(){
 ws.on('connect',connect)
 ws.on('connectFailed',connectFailed)
 
-ws.connect("http://localhost:22357")
+ws.connect("ws://localhost:22357")
+
