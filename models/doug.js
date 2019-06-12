@@ -2,6 +2,29 @@ var defaults={
 	delay: 120
 }
 
+// Generate key tables
+Doug.prototype.genMaps=function(){
+	this.maps=[]
+	this.cmap=0
+
+	var az=[]
+	var AZ=[]
+	var pt=[]
+	for(var i=97;i<128;i++) az.push(String.fromCharCode(i))
+	for(var i=65;i<96;i++) AZ.push(String.fromCharCode(i))
+	for(var i=32;i<64;i++) pt.push(String.fromCharCode(i))
+
+	this.maps.push(az)
+	this.maps.push(AZ)
+	this.maps.push(pt)
+
+	t99=this.maps
+}
+
+Doug.prototype.nextmap=function(){
+	this.cmap=(++this.cmap)%this.maps.length
+}
+
 function Doug(current,options){
 	if(typeof(current)=="undefined") current=""
 	this.current=current
@@ -24,6 +47,8 @@ function Doug(current,options){
 		console.log(selfref.active_signals)
 	},500)
 	*/
+
+	this.genMaps()
 }
 
 Doug.prototype.trigger=function(n){
@@ -34,10 +59,8 @@ Doug.prototype.trigger=function(n){
 	}
 	if(sum==0) return
 
-	var s=String.fromCharCode(96+sum)
+	var s=this.maps[this.cmap][sum-1]
 	
-//	console.log(sum+":"+s)
-
 	this.onupdate(s)
 }
 
@@ -132,12 +155,14 @@ Doug.prototype.getmap=function(back_string,pred_res){
 	else res=pred_res
 
 	var i0=97
+	var i0=32
 	var rows=6
 	var cols=5
 	var map=[]
 	for(var i=0;i<rows;i++) map.push([])
-	for(var i=0;i<26;i++){
-		var s=String.fromCharCode(i0+i)
+	for(var i=0;i<31;i++){
+//		var s=String.fromCharCode(i0+i)
+		var s=this.maps[this.cmap][i]
 		var x0=i%rows
 		var y0=Math.floor(i/rows)
 		var ba=__bittoarray(i+1)

@@ -2,6 +2,7 @@
 // will be set up as a keymap for the bindings
 function setupmap(dougo,el){
 	var map=$("[doug-map][for='edit']")
+	map.html("")
 	if(map.length<1) return
 
 	console.log("setup")
@@ -50,6 +51,7 @@ function initDoug(){
 	$("[doug]").each(function(){
 		var el=$(this)
 		var binds=$(this).attr("bindings")
+		var setchange=$(this).attr("bind_setchange")
 		var dict_url=$(this).attr("dict")
 		var bindo=JSON.parse(binds)
 
@@ -111,8 +113,14 @@ function initDoug(){
 
 		el.keydown(function(ev){ 
 			var kc=ev.which
+			// Switch set
+			if(kc==setchange){
+				dougo.nextmap()
+				setupmap(dougo,el)
+				ev.preventDefault()
+				return
+			}
 			var signal=mapKC(kc)
-
 			if(signal==-1)  return
 
 			dougo.signal(signal)
@@ -134,6 +142,6 @@ function initDoug(){
 
 mobileConsole.init()
 $(document).ready(function(){
-//	mobileConsole.toggle()
+	mobileConsole.toggle()
 	initDoug()	
 })
