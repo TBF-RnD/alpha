@@ -5,7 +5,6 @@ function setupmap(dougo,el){
 	if(map.length<1) return
 
 	console.log("setup")
-	t0=map
 	var kmap=dougo.getmap(el.val())
 	var rows=kmap.length
 	var cols=kmap[0].length
@@ -65,8 +64,6 @@ function initDoug(){
 			var map=dougo.getmap(resp.q,resp)
 			console.log("async")
 			console.log(map)
-			t0=resp
-			t1=map
 		})
 
 		// set focus

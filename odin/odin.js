@@ -111,7 +111,8 @@ function serve(dbobj,port){
 			var  query=jo.q
 			
 			var resp=dbobj.predict(query,jo.n)
-			console.log(resp)
+			resp.q=query
+//			console.log(resp)
 			con.sendUTF(JSON.stringify(resp))	
 		})
 		con.on('close',function(){

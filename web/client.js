@@ -17,7 +17,7 @@ Client.prototype.onMessage=function(ev){
 
 	console.log(msg)
 
-	this.cache[msg.q]=msg.m
+	this.cache[msg.q]=msg
 
 	if(msg.q==this.cquery) this.onupdate(msg)
 }
@@ -60,13 +60,17 @@ Client.prototype.asyncQuery=function(string_in,max_n){
 }
 
 Client.prototype.predict=function(string_in,max_n){
+	t0=this.cache
+	t1=string_in
+	console.log("querying cache for  "+string_in)
 	if(typeof(this.cache[string_in])=="undefined"){
+		console.log("MISS!!")
 		// Start a query in background
 		this.asyncQuery(string_in,max_n)
 		// We're only interested in returning latest query
 		// other queries still get cached
 		this.cquery=string_in
 		// return what we have in cache for now
-	}
+	}else  console.log("HIT")
 	return this.cache[string_in]
 }
