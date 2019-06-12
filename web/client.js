@@ -9,13 +9,15 @@
  */
 
 Client.prototype.onMessage=function(ev){
+	/*
 	console.log("Got message")
 	console.log(ev.data)
+*/
 
 	// TODO try catch
 	var msg=JSON.parse(ev.data)
 
-	console.log(msg)
+//	console.log(msg)
 
 	this.cache[msg.q]=msg
 
@@ -34,7 +36,7 @@ function Client(url){
 		console.log("Connected to "+url)
 	}
 	this.ws.onmessage=function(ev){ 
-		console.log("got msg")
+//		console.log("got msg")
 		selfref.onMessage(ev) 
 	}
 }
@@ -60,9 +62,7 @@ Client.prototype.asyncQuery=function(string_in,max_n){
 }
 
 Client.prototype.predict=function(string_in,max_n){
-	t0=this.cache
-	t1=string_in
-	console.log("querying cache for  "+string_in)
+//	console.log("querying cache for  "+string_in)
 	if(typeof(this.cache[string_in])=="undefined"){
 		console.log("MISS!!")
 		// Start a query in background

@@ -36,7 +36,7 @@ Doug.prototype.trigger=function(n){
 
 	var s=String.fromCharCode(96+sum)
 	
-	console.log(sum+":"+s)
+//	console.log(sum+":"+s)
 
 	this.onupdate(s)
 }
@@ -79,7 +79,7 @@ function __bittoarray(a){
 }
 
 Doug.prototype.onAsyncUpdate=function(resp){
-	console.log("gotAsyncUpdate")	
+//	console.log("gotAsyncUpdate")	
 	if(typeof(this.async_cback)=="function")
 		this.async_cback(resp)
 }
@@ -125,7 +125,7 @@ function __get_score_value(pred_res,sym){
 // ask for sorted response, do ask only for
 // symbols within set though if possible.
 Doug.prototype.getmap=function(back_string,pred_res){
-	console.log("Querying server for "+back_string)
+//	console.log("Querying server for "+back_string)
 	var res=false
 	if(typeof(pred_res)=="undefined")
 		res=this.dict.predict(back_string)

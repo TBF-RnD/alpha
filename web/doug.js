@@ -63,7 +63,6 @@ function initDoug(){
 		dougo.setOnAsync(function(resp){
 			var map=dougo.getmap(resp.q,resp)
 			console.log("async")
-			console.log(map)
 		})
 
 		// set focus
@@ -72,9 +71,7 @@ function initDoug(){
 		// setup map
 		setupmap(dougo,el)
 
-		console.log("Get map")
 		var  map=dougo.getmap(el.val())
-		console.log(map)
 
 		// get signal finger number from keycode
 		// returns -1 if keycode is not bound
@@ -104,7 +101,6 @@ function initDoug(){
 			// update the map
 			var map=dougo.getmap(head+s)
 			console.log("Direct")
-			console.log(map)
 
 			//  update internal state of model
 			dougo.setcontent(current)
