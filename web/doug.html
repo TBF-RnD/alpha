@@ -15,8 +15,9 @@
 		-->
 
 		<!--  Internal  -->
-		<script src="doug.js" type="text/javascript"></script>
 		<script src="odin/dict.js" type="text/javascript"></script>
+		<script src="doug.js" type="text/javascript"></script>
+		<script src="client.js" type="text/javascript"></script>
 		<script src="models/doug.js" type="text/javascript"></script>
 <!--
 		<script src="sympred.js" type="text/javascript"></script>
@@ -39,11 +40,9 @@
 		3 - D - 68
 		4 - S - 83 
 		5 - A - 65
-		So basically based on WASD
-		<textarea id="edit" doug bindings="[32,68,87,65,16]" cols="80" rows="25">Try it </textarea> 
 	  	-->
 		<div id="editwrap">
-		<textarea id="edit" doug bindings="[32,70,68,83,65]" cols="80" rows="10">Try it</textarea> 
+		<textarea id="edit" dict="ws://localhost:22357" doug bindings="[32,70,68,83,65]" cols="80" rows="10">Engl</textarea> 
 		</div>
 		<!-- will show keymap!  -->
 		<div id="map" doug-map for="edit"> </div>

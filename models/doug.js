@@ -78,7 +78,59 @@ function __bittoarray(a){
 	return ret.reverse()
 }
 
-Doug.prototype.getmap=function(bindings){
+Doug.prototype.onAsyncUpdate=function(resp){
+	console.log("gotAsyncUpdate")	
+	if(typeof(this.async_cback)=="function")
+		this.async_cback(resp)
+}
+
+Doug.prototype.setOnAsync=function(f){
+	this.async_cback=f
+}
+
+Doug.prototype.setDict=function(dicto){
+	this.dict=dicto
+	// In case of async
+	var selfref=this
+	if(typeof(dicto.setonupdate)=="function"){
+		dicto.setonupdate(function(resp){
+			selfref.onAsyncUpdate(resp)
+		})
+	}
+}
+
+// Gives symbol a value [1,42] based on probability
+// TODO
+// inefficient see todo note above getmap
+function __get_score_value(pred_res,sym){
+	if(typeof(pred_res)=="undefined"){
+		return 1
+	}
+	var v
+	for(var k in pred_res.m){
+		var c=pred_res.m[k]
+		if(c.s!=sym) continue
+
+		if (c.f<Math.E) v=1
+		else v=Math.log(c.f)
+
+		if(v>42) return 42
+
+		return  v
+	}
+	return 1
+}
+
+// TODO when querying for predictions do not 
+// ask for sorted response, do ask only for
+// symbols within set though if possible.
+Doug.prototype.getmap=function(back_string,pred_res){
+	console.log("Querying server for "+back_string)
+	var res=false
+	if(typeof(pred_res)=="undefined")
+		res=this.dict.predict(back_string)
+	else res=pred_res
+
 	var i0=97
 	var rows=6
 	var cols=5
@@ -86,12 +138,12 @@ Doug.prototype.getmap=function(bindings){
 	for(var i=0;i<rows;i++) map.push([])
 	for(var i=0;i<26;i++){
 		var s=String.fromCharCode(i0+i)
-//		console.log(s)
 		var x0=i%rows
 		var y0=Math.floor(i/rows)
 		var ba=__bittoarray(i+1)
 
 		map[y0][x0]={s:s,ba:ba,bs:ba.join('')}
+		map[y0][x0].v=__get_score_value(res,s)
 	}
 	return map
 }

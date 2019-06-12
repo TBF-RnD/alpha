@@ -6,7 +6,7 @@ function setupmap(dougo,el){
 
 	console.log("setup")
 	t0=map
-	var kmap=dougo.getmap()
+	var kmap=dougo.getmap(el.val())
 	var rows=kmap.length
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
@@ -38,22 +38,45 @@ function setupmap(dougo,el){
 	}
 }
 
+// TODO might be useful elsewhere
+function __focus(el){
+	el.focus()
+	var p=el.val().length
+	el.selection('setPos',{start:p,end:p})
+}
+
 //  TODO
 //  - overlaps with sympred.js
 function initDoug(){
 	$("[doug]").each(function(){
 		var el=$(this)
 		var binds=$(this).attr("bindings")
+		var dict_url=$(this).attr("dict")
 		var bindo=JSON.parse(binds)
 
 		var dougo=new Doug(el.val())
 		el.__doug=dougo
 
+		// Connect to dictionary server
+		var cli=new Client(dict_url)
+		dougo.setDict(cli)
+		// on async response from server update map
+		dougo.setOnAsync(function(resp){
+			var map=dougo.getmap(resp.q,resp)
+			console.log("async")
+			console.log(map)
+			t0=resp
+			t1=map
+		})
+
+		// set focus
+		__focus(el)
+
 		// setup map
 		setupmap(dougo,el)
 
 		console.log("Get map")
-		var  map=dougo.getmap()
+		var  map=dougo.getmap(el.val())
 		console.log(map)
 
 		// get signal finger number from keycode
@@ -81,6 +104,10 @@ function initDoug(){
 			var tail=d.substr(p1)
 
 			current=head+s+tail
+			// update the map
+			var map=dougo.getmap(head+s)
+			console.log("Direct")
+			console.log(map)
 
 			//  update internal state of model
 			dougo.setcontent(current)
@@ -114,6 +141,6 @@ function initDoug(){
 
 mobileConsole.init()
 $(document).ready(function(){
-	mobileConsole.toggle()
+//	mobileConsole.toggle()
 	initDoug()	
 })
