@@ -1,5 +1,6 @@
 var defaults={
-	delay: 120
+	delay: 120,
+	zmap: false
 }
 
 // Generate key tables
@@ -122,6 +123,11 @@ Doug.prototype.setDict=function(dicto){
 	}
 }
 
+// FIXME not dynamic
+Doug.prototype.getMapDim=function(){
+//	if(this.zmap) return {w:
+}
+
 // Gives symbol a value [1,42] based on probability
 // TODO
 // inefficient see todo note above getmap
@@ -144,6 +150,22 @@ function __get_score_value(pred_res,sym){
 	return 1
 }
 
+// Recursive Z-map useful since the distances between
+// alphabetically close symbols become close measured
+// as a 2d  distance as well. 
+function zmap_ind2p(i){
+	var p={x:0,y:0}
+	var n=0
+	while(i!=0){
+		p.x=p.x|((i&1))<<n
+		i=i>>1
+		p.y=p.y|((i&1))<<n
+		i=i>>1
+		n=!n?1:n<<1
+	}
+	return p
+}
+
 // TODO when querying for predictions do not 
 // ask for sorted response, do ask only for
 // symbols within set though if possible.
@@ -154,17 +176,29 @@ Doug.prototype.getmap=function(back_string,pred_res){
 		res=this.dict.predict(back_string)
 	else res=pred_res
 
-	var i0=97
-	var i0=32
+	var x0=0
+	var y0=0
 	var rows=6
 	var cols=5
 	var map=[]
+
+	// FIXME not dynamic, assumes set of ~31 
+	if(this.zmap) rows=8
+	
 	for(var i=0;i<rows;i++) map.push([])
 	for(var i=0;i<31;i++){
 //		var s=String.fromCharCode(i0+i)
 		var s=this.maps[this.cmap][i]
-		var x0=i%rows
-		var y0=Math.floor(i/rows)
+		if(this.zmap){
+			var p=zmap_ind2p(i)
+			x0=p.x
+			y0=p.y
+			console.log(i)
+			console.log(p)
+		}else{
+			x0=i%rows
+			y0=Math.floor(i/rows)
+		}
 		var ba=__bittoarray(i+1)
 
 		map[y0][x0]={s:s,ba:ba,bs:ba.join('')}

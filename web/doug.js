@@ -11,6 +11,8 @@ function setupmap(dougo,el){
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
 
+	t89=kmap
+
 	for(var y0=0;y0<kmap.length;y0++){
 		var krow=kmap[y0]
 		var row=$("<div  />",{class:"row"})
@@ -47,15 +49,18 @@ function __focus(el){
 
 //  TODO
 //  - overlaps with sympred.js
+//  - add delay as element attribute option passable to doug model
 function initDoug(){
 	$("[doug]").each(function(){
 		var el=$(this)
 		var binds=$(this).attr("bindings")
 		var setchange=$(this).attr("bind_setchange")
 		var dict_url=$(this).attr("dict")
+		var dict_url=$(this).attr("dict")
+		var zmap=$(this).is("[z-map]")
 		var bindo=JSON.parse(binds)
 
-		var dougo=new Doug(el.val())
+		var dougo=new Doug(el.val(),{zmap:zmap})
 		el.__doug=dougo
 
 		// Connect to dictionary server
