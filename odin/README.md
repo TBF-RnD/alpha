@@ -100,3 +100,6 @@ mkswap  swap
 swapon swap
 ```
 Adds an insane amount of swap to your OS. Change count in   the dd command to something that suits your purposes.   
+
+##  Requirements
+npm install websocket
