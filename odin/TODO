@@ -18,3 +18,4 @@ npm installs
 	websocket
 session management?
 command line interface is insane expect change
+graph based - preserve data on  links  - give weigts according to distance
