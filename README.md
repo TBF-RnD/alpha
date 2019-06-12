@@ -42,7 +42,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 - Dasher
 - VirHkey
 - morse  code
-	- [https://thehelpfulhacker.net/projects/morse-code-glove/](Morse code glove)
+	- [Morse code glove](https://thehelpfulhacker.net/projects/morse-code-glove/) - Zach Peters
 - Chorded
 	- Plover! 
 - MessageEase
@@ -81,8 +81,7 @@ In the first part Software algorithm the _how_ will be discussed. In the second 
 	 - opengazer
 	 - with dasher -> P.O. Kristensson
 	 - akavel
-- VR finger tracking / glove
-	[https://thehelpfulhacker.net/projects/morse-code-glove/](Peter Zach, the helpfull hcker)
+- [VR finger tracking / glove](https://thehelpfulhacker.net/projects/morse-code-glove/) - Zach Peters
 - audio note
 - make use of rhytm /  timing
 - custom hardware
@@ -192,4 +191,4 @@ adam\_d\_ruppe
 [https://thehelpfulhacker.net/](The helpful hacker)
 
 # Discussion
-[https://lobste.rs/s/jkeeh8/case_for_new_input_method](lobste.rs 22 May 2019)
+[lobste.rs 22 May 2019](https://lobste.rs/s/jkeeh8/case_for_new_input_method)
