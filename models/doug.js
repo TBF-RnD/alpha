@@ -11,15 +11,16 @@ Doug.prototype.genMaps=function(){
 	var az=[]
 	var AZ=[]
 	var pt=[]
-	for(var i=97;i<128;i++) az.push(String.fromCharCode(i))
-	for(var i=65;i<96;i++) AZ.push(String.fromCharCode(i))
+	for(var i=97;i<127;i++) az.push(String.fromCharCode(i))
+	for(var i=65;i<95;i++) AZ.push(String.fromCharCode(i))
 	for(var i=32;i<64;i++) pt.push(String.fromCharCode(i))
+
+	az.push(" ")
+	AZ.push(" ")
 
 	this.maps.push(az)
 	this.maps.push(AZ)
 	this.maps.push(pt)
-
-	t99=this.maps
 }
 
 Doug.prototype.nextmap=function(){
