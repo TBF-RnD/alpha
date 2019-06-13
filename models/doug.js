@@ -193,8 +193,6 @@ Doug.prototype.getmap=function(back_string,pred_res){
 			var p=zmap_ind2p(i)
 			x0=p.x
 			y0=p.y
-			console.log(i)
-			console.log(p)
 		}else{
 			x0=i%rows
 			y0=Math.floor(i/rows)
