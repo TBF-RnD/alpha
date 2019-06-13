@@ -1,3 +1,13 @@
+// TODO make sizes configurable also change doug.css
+// returns range [12,42]
+function __v_to_fontsize(v){
+	var v0=v
+	if(v0>30) v0=30
+	if(v0<0) v0=0
+	console.log(v+"=>"+v0)
+	return v0+12
+}
+
 // an element with tag doug-map with for linked to  id
 // will be set up as a keymap for the bindings
 function setupmap(dougo,el){
@@ -17,22 +27,29 @@ function setupmap(dougo,el){
 		var krow=kmap[y0]
 		var row=$("<div  />",{class:"row"})
 		for(var x0=0;x0<krow.length;x0++){
+			var fs=__v_to_fontsize(kmap[y0][x0].v)
 			var col=$("<div />",
 				{class:"col",
-				style:"width:"+cw
+				style:"width:"+cw+";font-size:"+fs+"px"
 				})
 
 			var str=$("<span />",{ class:"str" })
-			var hyph=$("<span />",{ class:"str" })
+//			var hyph=$("<span />",{ class:"str" })
+			var hyph=$("<br />",{ class:"str" })
 			var bmap=$("<span />",{ class:"bmap" })
+			var v=$("<span />",{ class:"v" })
 
 			str.html(kmap[y0][x0].s)
 			hyph.html("&#45")
 			bmap.html(kmap[y0][x0].bs)
+//			v.html("&#45"+kmap[y0][x0].v.toString().substr(0,3))
+//			v.html(fs)
 
 			col.append(str)
 			col.append(hyph)
 			col.append(bmap)
+//			col.append(v)
+
 
 			row.append(col)
 		}
@@ -70,6 +87,7 @@ function initDoug(){
 		dougo.setOnAsync(function(resp){
 			var map=dougo.getmap(resp.q,resp)
 			console.log("async")
+			setupmap(dougo,el)
 		})
 
 		// set focus
