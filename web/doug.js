@@ -1,11 +1,13 @@
 // TODO make sizes configurable also change doug.css
 // returns range [12,42]
-function __v_to_fontsize(v){
+function __v_to_fontsize(v,s,e){
+	var sp=typeof(s)=="undefined"?12:s
+	var ep=typeof(e)=="undefined"?42:e
+	var r=e-sp
 	var v0=v
-	if(v0>30) v0=30
+	if(v0>r) v0=r
 	if(v0<0) v0=0
-	console.log(v+"=>"+v0)
-	return v0+12
+	return v0+sp
 }
 
 // an element with tag doug-map with for linked to  id
@@ -21,16 +23,15 @@ function setupmap(dougo,el){
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
 
-	t89=kmap
-
 	for(var y0=0;y0<kmap.length;y0++){
 		var krow=kmap[y0]
 		var row=$("<div  />",{class:"row"})
 		for(var x0=0;x0<krow.length;x0++){
-			var fs=__v_to_fontsize(kmap[y0][x0].v)
+			var fs0=__v_to_fontsize(kmap[y0][x0].v)
+			var fs1=__v_to_fontsize(kmap[y0][x0].v,6,27)
 			var col=$("<div />",
 				{class:"col",
-				style:"width:"+cw+";font-size:"+fs+"px"
+				style:"width:"+cw
 				})
 
 			var str=$("<span />",{ class:"str" })
@@ -38,6 +39,9 @@ function setupmap(dougo,el){
 			var hyph=$("<br />",{ class:"str" })
 			var bmap=$("<span />",{ class:"bmap" })
 			var v=$("<span />",{ class:"v" })
+
+			str.css("font-size",fs0+"px")
+			bmap.css("font-size",fs1+"px")
 
 			str.html(kmap[y0][x0].s)
 			hyph.html("&#45")

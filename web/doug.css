@@ -15,10 +15,13 @@
 	text-align: center;
 	border:  1px solid grey;
 	background-color: #aaa;
-	height:84px;
+	height:69px;
+}
+`#map .row .col span{
 	line-height:42px;
 	font-size: 12px;
 }
-
-#map .row .col span{
+`#map .row .col span{
+	line-height:27px;
+	font-size: 8px;
 }
