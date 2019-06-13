@@ -1,5 +1,5 @@
 var defaults={
-	delay: 120,
+	delay: 80,
 	zmap: false
 }
 
