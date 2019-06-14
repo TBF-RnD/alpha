@@ -23,6 +23,7 @@ function setupmap(dougo,el){
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
 	var ch=el.height()/rows
+	var cw=(Math.floor(el.width()/cols)-2)+"px"
 	var ch0=2*ch/3
 	var ch1=ch/3
 
