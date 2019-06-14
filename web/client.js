@@ -34,6 +34,8 @@ function Client(url){
 	this.ws.onopen=function(){
 		selfref.state="connected"
 		console.log("Connected to "+url)
+
+		selfref.onconnect()
 	}
 	this.ws.onmessage=function(ev){ 
 //		console.log("got msg")
@@ -43,6 +45,10 @@ function Client(url){
 // Callback to run when receiving async reply on latest query
 Client.prototype.setonupdate=function(cback){
 	this.onupdate=cback
+}
+
+Client.prototype.setonconnect=function(cback){
+	this.onconnect=cback
 }
 
 // Initiate asynchronous query to server

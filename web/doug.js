@@ -87,6 +87,12 @@ function initDoug(){
 		// Connect to dictionary server
 		var cli=new Client(dict_url)
 		dougo.setDict(cli)
+		// as soon as we're connected query for symbol probability scores
+		cli.setonconnect(function(){
+			var map=dougo.getmap(el.val())
+			console.log("async")
+			setupmap(dougo,el)
+		})
 		// on async response from server update map
 		dougo.setOnAsync(function(resp){
 			var map=dougo.getmap(resp.q,resp)
