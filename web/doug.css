@@ -17,6 +17,7 @@ body{
 #map .row {
 	float:left;
 	width: 100%;
+	width: calc(100vw);
 }
 #map .row .col{
 	float:left;
@@ -32,4 +33,23 @@ body{
 	display:div;
 	margin: 0;
 	padding:0;
+}
+
+#menu a:visited {
+	color:#fff;
+}
+#menu a, #menu span{
+	color:#fff;
+	line-height:27px;
+	font-size:24px;
+	text-decoration:none;
+}
+#menu{
+	background-color: #002F6C;
+	width: 100%;
+	width: calc(100vw);
+	text-transform: uppercase;
+	text-align: right;
+	letter-spacing: 3px;
+	padding-right: 7px;
 }
