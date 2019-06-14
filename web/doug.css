@@ -53,3 +53,16 @@ body{
 	letter-spacing: 3px;
 	padding-right: 7px;
 }
+
+input.bind {
+	float: right;
+	clear: both;
+}
+
+.key{
+	padding: 4px 16px;
+	font-size: 18px;
+}
+.key.odd{
+	background-color: #406FAC;
+}

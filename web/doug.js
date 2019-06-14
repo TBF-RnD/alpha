@@ -1,3 +1,5 @@
+var awaiting_key=false
+
 // TODO make sizes configurable also change doug.css
 // returns range [12,42]
 function __v_to_fontsize(v,s,e){
@@ -90,6 +92,7 @@ function initDoug(){
 		var dict_url=$(this).attr("dict")
 		var dict_url=$(this).attr("dict")
 		var zmap=$(this).is("[z-map]")
+		// FIX
 		var bindo=JSON.parse(binds)
 
 		var dougo=new Doug(el.val(),{zmap:zmap})
@@ -207,8 +210,82 @@ function initDoug(){
 	})
 }
 
+function bindDialog(){
+	var el=$("<div />")
+
+	el.html("Press key")
+
+	el.dialog()
+}
+
+function initCFG(){
+	$("[key]").each(function(){
+		var el=$(this)
+		var n=el.attr("key")
+		var tgt=el.attr("for")
+		var te=$("#"+tgt)
+		var binds=te.attr("bindings")
+		// FIXME error handling
+		var bindo=JSON.parse(binds)
+		
+		var label=$("<label />",{
+			"for":"bindkey_"+n
+		})
+		label.html("Key: #"+n)
+
+		var btn=$("<input />",{
+			type:"button",
+			value:"bind",
+			name:"bindkey_"+n,
+			"class":"bind"
+		})
+
+		btn.click(function(){
+			bindDialog()
+		})
+
+		el.append(label)
+		el.append(btn)
+	})
+}
+
+function showCFG(ev){
+	var cfg=$("#cfg")
+
+	console.log("CFG")
+
+	var ww=$(window).width()/2
+	var wh=$(window).height()/2
+
+	var width=ww<320?320:ww
+	var height=wh<240?240:wh
+
+	cfg.dialog({
+		modal:true,
+		width: width,
+		height: height,
+		buttons:{
+			Cancel:function(){
+				cfg.dialog("close")
+			},
+			Apply:function(){
+				cfg.dialog("close")
+			}
+		}
+	})
+	ev.preventDefault()
+}
+
+
 mobileConsole.init()
 $(document).ready(function(){
-	mobileConsole.toggle()
+//	mobileConsole.toggle()
 	initDoug()	
+
+	initCFG()
+
+	// bind menu
+	$(".conf").click(showCFG)
+
+	showCFG()
 })

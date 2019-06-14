@@ -5,6 +5,7 @@
 		<!--  External  -->
 		<script type="text/javascript" src="ext/hnl.mobileConsole.js"></script>
 		<script type="text/javascript" src="ext/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="ext/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="ext/jquery.selection.js"></script>
 		<script type="text/javascript" src="ext/textarea-caret-position.js"></script>
 
@@ -27,6 +28,7 @@
 -->
 		
 		<!--  Styling  -->
+		<link rel="stylesheet" type="text/css" href="ext/jquery-ui-themes-1.12.1/themes/base/jquery-ui.min.css"></link>
 		<link rel="stylesheet" type="text/css" href="general.css"></link>
 		<link rel="stylesheet" type="text/css" href="doug.css"></link>
 		<link rel="stylesheet" type="text/css" href="models/doug.css"></link>
@@ -52,8 +54,28 @@
 	  	-->
 		<div id="editwrap">
 		<textarea id="edit" z-map dict="ws://localhost:22357" doug bind_setchange="9" bindings="[32,70,68,83,65]" cols="80" rows="5">Engl</textarea> 
-		</div>
+		</div>/
 		<!-- will show keymap!  -->
 		<div id="map" doug-map for="edit"> </div>
+		<div style="display:none">
+			<div id="cfg">
+				<h3>Configure Settings</h3>
+				<hr/>
+				<label for="zmap">Recursive Z-order:</label>
+				<input type="checkbox" name="zmap" checked="checked" />
+				<hr/>
+				<div singlekey name="setchange"></div>
+				<hr/>
+				<div for="edit" key="1" class="key odd"></div>
+				<div for="edit" key="2" class="key even"></div>
+				<div for="edit" key="3" class="key odd"></div>
+				<div for="edit" key="4" class="key even"></div>
+				<div for="edit" key="5" class="key odd"></div>
+				<hr/>
+				
+
+
+			</div>
+		</div>
 	</body>
 </html>
