@@ -3,7 +3,7 @@
 function __v_to_fontsize(v,s,e){
 	var sp=typeof(s)=="undefined"?12:s
 	var ep=typeof(e)=="undefined"?42:e
-	var r=e-sp
+	var r=ep-sp
 	var v0=v
 	if(v0>r) v0=r
 	if(v0<0) v0=0
@@ -22,16 +22,22 @@ function setupmap(dougo,el){
 	var rows=kmap.length
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
+	var ch=el.height()/rows
+	var ch0=2*ch/3
+	var ch1=ch/3
+
+	console.log("rows:"+rows)
 
 	for(var y0=0;y0<kmap.length;y0++){
 		var krow=kmap[y0]
-		var row=$("<div  />",{class:"row"})
+		var row=$("<div  />",{class:"row"
+			})
 		for(var x0=0;x0<krow.length;x0++){
-			var fs0=__v_to_fontsize(kmap[y0][x0].v)
-			var fs1=__v_to_fontsize(kmap[y0][x0].v,6,27)
+			var fs0=__v_to_fontsize(kmap[y0][x0].v,ch0/3,ch0)
+			var fs1=__v_to_fontsize(kmap[y0][x0].v,ch1/3,ch1)
 			var col=$("<div />",
 				{class:"col",
-				style:"width:"+cw
+					style:"width:"+cw+";height:"+ch+"px"
 				})
 
 			var str=$("<span />",{ class:"str" })
@@ -41,10 +47,14 @@ function setupmap(dougo,el){
 			var v=$("<span />",{ class:"v" })
 
 			str.css("font-size",fs0+"px")
+			str.css("line-height",ch0+"px")
+			str.css("height",ch0+"px")
 			bmap.css("font-size",fs1+"px")
+			bmap.css("line-height",ch1+"px")
+			bmap.css("height",ch1+"px")
 
 			str.html(kmap[y0][x0].s)
-			hyph.html("&#45")
+//			hyph.html("&#45")
 			bmap.html(kmap[y0][x0].bs)
 //			v.html("&#45"+kmap[y0][x0].v.toString().substr(0,3))
 //			v.html(fs)
@@ -87,6 +97,10 @@ function initDoug(){
 		// Connect to dictionary server
 		var cli=new Client(dict_url)
 		dougo.setDict(cli)
+
+		$(window).resize(function(){
+
+		})
 		// as soon as we're connected query for symbol probability scores
 		cli.setonconnect(function(){
 			var map=dougo.getmap(el.val())
@@ -142,6 +156,25 @@ function initDoug(){
 
 			// update HTML
 			el.val(current)
+		})
+
+		$(window).resize(function(){
+			console.log("Resize")
+
+			var pos=el.selection('getPos')
+			
+			// dupl from mod  sympred
+			p0=pos.start
+			p1=pos.end
+			d=el.val()
+
+			var head=d.substr(0,p0)
+			var tail=d.substr(p1)
+
+			// update the map
+			var map=dougo.getmap(head)
+
+			setupmap(dougo,el)
 		})
 
 		el.keydown(function(ev){ 

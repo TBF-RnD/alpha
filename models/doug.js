@@ -184,7 +184,7 @@ Doug.prototype.getmap=function(back_string,pred_res){
 	var map=[]
 
 	// FIXME not dynamic, assumes set of ~31 
-	if(this.zmap) rows=8
+	if(this.zmap) rows=4
 	
 	for(var i=0;i<rows;i++) map.push([])
 	for(var i=0;i<31;i++){
