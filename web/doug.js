@@ -90,14 +90,16 @@ function __focus(el){
 //  - add delay as element attribute option passable to doug model
 function initDoug(){
 	$("[doug]").each(function(){
+		console.log("init")
 		var el=$(this)
 		var binds=$(this).attr("bindings")
 		var setchange=$(this).attr("bind_setchange")
 		var dict_url=$(this).attr("dict")
-		var dict_url=$(this).attr("dict")
+//		var dict_url=$(this).attr("dict")
 		var zmap=$(this).is("[z-map]")
 		// FIX
 		var bindo=JSON.parse(binds)
+		console.log(bindo)
 
 		var dougo=new Doug(el.val(),{zmap:zmap})
 		el.__doug=dougo
@@ -106,9 +108,6 @@ function initDoug(){
 		var cli=new Client(dict_url)
 		dougo.setDict(cli)
 
-		$(window).resize(function(){
-
-		})
 		// as soon as we're connected query for symbol probability scores
 		cli.setonconnect(function(){
 			var map=dougo.getmap(el.val())
@@ -133,6 +132,9 @@ function initDoug(){
 		// get signal finger number from keycode
 		// returns -1 if keycode is not bound
 		function mapKC(which){
+			// make more efficient
+			var binds=el.attr("bindings")
+			var bindo=JSON.parse(binds)
 			for(k in bindo){
 				if(bindo[k]==which)
 					return k
@@ -217,7 +219,7 @@ function initDoug(){
 function bindKC(keyn,kc){
 	var binds=bind_tgt.attr("bindings")
 	var bindo=JSON.parse(binds)
-	bindo[keyn]=kc
+	bindo[keyn-1]=kc
 	bind_tgt.attr("bindings",JSON.stringify(bindo))
 
 	bind_dialog.dialog("close")

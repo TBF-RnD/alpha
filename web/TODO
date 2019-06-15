@@ -5,3 +5,4 @@ example glue code can't handle multiple textareas
 permutaion / combination - based analysis
 	-> Maybe useful for probably english
 option for prediction on  how  many results...,  pass all the way down to dict,  might speed up a little bit
+separate UI config code
