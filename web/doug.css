@@ -24,22 +24,22 @@ body{
 	text-align: center;
 	overflow: hidden;
 	background-color: #002F6C;
+	color: #fecc00;
 	padding:0;
 }
 #map .row .col span{
-	color: #fff;
 	font-weight: bold;
-	font-family: serif;
+	font-family: sans-serif;
 	display:div;
 	margin: 0;
 	padding:0;
 }
 
 #menu a:visited {
-	color:#fff;
+	color:#fecc00;
 }
 #menu a, #menu span{
-	color:#fff;
+	color:#fecc00;
 	line-height:27px;
 	font-size:24px;
 	text-decoration:none;

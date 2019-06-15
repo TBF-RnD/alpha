@@ -26,7 +26,6 @@ function __v_to_color(v){
 	if(v0>r) v0=r
 //	if(v0<0) v0=0
 	c.y+=v0
-	console.log(c)
 //	console.log( c.toRGB(true))
 	return c.toRGB(true)
 }
@@ -45,8 +44,8 @@ function setupmap(dougo,el){
 	var cw=Math.floor(100/cols)+"%"
 	var ch=el.height()/rows
 	var cw=(Math.floor(el.width()/cols)-2)+"px"
-	var ch0=2*ch/3
-	var ch1=ch/3
+	var ch0=3*ch/5
+	var ch1=ch/5
 
 	console.log("rows:"+rows)
 
@@ -79,7 +78,14 @@ function setupmap(dougo,el){
 
 			str.html(kmap[y0][x0].s)
 //			hyph.html("&#45")
+			var chords=""
+			for(var k in kmap[y0][x0].ba){
+				chords+=kmap[y0][x0].ba[k]=="1"?
+					"■":
+					"□"
+			}
 			bmap.html(kmap[y0][x0].bs)
+			bmap.html(chords)
 //			v.html("&#45"+kmap[y0][x0].v.toString().substr(0,3))
 //			v.html(fs)
 
