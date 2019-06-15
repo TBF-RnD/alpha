@@ -20,7 +20,6 @@ function __v_to_fontsize(v,s,e){
 function __v_to_color(v){
 	// #fecc00
 	var c=new Color(254,204,0)
-	console.log(v)
 	var r=1.0-c.y
 	var v0=v/40
 	if(v0>r) v0=r
@@ -28,6 +27,12 @@ function __v_to_color(v){
 	c.y+=v0
 //	console.log( c.toRGB(true))
 	return c.toRGB(true)
+}
+function __v_to_fontweight(v){
+	if(v<1) v=1
+	if(v>9) v=9
+	v=Math.floor(v)
+	return v*100
 }
 // Toggle fullscreen, takes DOM element as argument
 function toggleFullscreen(el){
@@ -62,10 +67,11 @@ function setupmap(dougo,el){
 			var fs0=__v_to_fontsize(kmap[y0][x0].v,ch0/5,ch0)
 			var fs1=__v_to_fontsize(kmap[y0][x0].v,ch1/5,ch1)
 			var c=__v_to_color(kmap[y0][x0].v)
+			var fw=__v_to_fontweight(kmap[y0][x0].v)
 			var col=$("<div />",
 				{class:"col",
 					style:"width:"+cw+";height:"+ch+"px;"
-					+"color:"+c
+					+"color:"+c+";"
 				})
 
 			var str=$("<span />",{ class:"str" })
@@ -199,7 +205,7 @@ function initDoug(){
 			el.val(current)
 		})
 
-		$(window).resize(function(){
+		function updatemap(){
 			console.log("Resize")
 
 			var pos=el.selection('getPos')
@@ -216,8 +222,12 @@ function initDoug(){
 			var map=dougo.getmap(head)
 
 			setupmap(dougo,el)
-		})
+		}
 
+		$(window).resize(updatemap)
+		$(window).on("input",function(){
+			updatemap()
+		})
 		el.keydown(function(ev){ 
 			// FIXME slow
 			var setchange=el.attr("bind_setchange")
@@ -277,10 +287,6 @@ function bindKCp(keyn,kc){
 	bind_tgt.attr("bind_"+keyn,kc)
 
 	bind_dialog.dialog("close")
-	console.log("jfjdj")
-	console.log(bind_tgt)
-	console.log(keyn)
-	console.log(kc)
 
 	awaiting_key=false
 	awaiting_single=false
@@ -403,7 +409,6 @@ function initBind(){
 	$(document).keydown(function(ev){
 		if(!awaiting_key) return
 		var kc=ev.which
-		console.log(kc)
 
 		if(awaiting_single) bindKCp(awaiting_single,kc)
 		else bindKC(bind_keyn,kc)
