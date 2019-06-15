@@ -177,7 +177,7 @@ Doug.prototype.getmap=function(back_string,pred_res){
 //	console.log("Querying server for "+back_string)
 	var res=false
 	if(typeof(pred_res)=="undefined")
-		res=this.dict.predict(back_string)
+		res=this.dict.predict(back_string.substr(-7))
 	else res=pred_res
 
 	var x0=0
