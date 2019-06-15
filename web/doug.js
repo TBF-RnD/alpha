@@ -1,4 +1,8 @@
+// TODO not good form
 var awaiting_key=false
+var bind_dialog=false
+var bind_keyn=-1
+var bind_tgt=false
 
 // TODO make sizes configurable also change doug.css
 // returns range [12,42]
@@ -210,12 +214,30 @@ function initDoug(){
 	})
 }
 
-function bindDialog(){
-	var el=$("<div />")
+function bindKC(keyn,kc){
+	var binds=bind_tgt.attr("bindings")
+	var bindo=JSON.parse(binds)
+	bindo[keyn]=kc
+	bind_tgt.attr("bindings",JSON.stringify(bindo))
+
+	bind_dialog.dialog("close")
+
+	awaiting_key=false
+}
+
+// FIXME onclose
+function bindDialog(kn){
+	var el=$("<div />",{id:"bind_dialog"})
+	awaiting_key=true
 
 	el.html("Press key")
 
 	el.dialog()
+
+	el.focus()
+
+	bind_dialog=el
+	bind_keyn=kn
 }
 
 function initCFG(){
@@ -241,7 +263,8 @@ function initCFG(){
 		})
 
 		btn.click(function(){
-			bindDialog()
+			bind_tgt=te
+			bindDialog(n)
 		})
 
 		el.append(label)
@@ -261,7 +284,7 @@ function showCFG(ev){
 	var height=wh<240?240:wh
 
 	cfg.dialog({
-		modal:true,
+		modal:false,
 		width: width,
 		height: height,
 		buttons:{
@@ -273,9 +296,20 @@ function showCFG(ev){
 			}
 		}
 	})
-	ev.preventDefault()
+//	ev.preventDefault()
 }
 
+function initBind(){
+	$(document).keydown(function(ev){
+		if(!awaiting_key) return
+		var kc=ev.which
+		console.log(kc)
+	
+		bindKC(bind_keyn,kc)
+		
+		if(ev) ev.preventDefault()
+	})
+}
 
 mobileConsole.init()
 $(document).ready(function(){
@@ -283,6 +317,8 @@ $(document).ready(function(){
 	initDoug()	
 
 	initCFG()
+
+	initBind()
 
 	// bind menu
 	$(".conf").click(showCFG)
