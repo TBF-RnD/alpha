@@ -1,5 +1,6 @@
 // TODO not good form
 var awaiting_key=false
+var awaiting_single=false
 var bind_dialog=false
 var bind_keyn=-1
 var bind_tgt=false
@@ -216,6 +217,17 @@ function initDoug(){
 	})
 }
 
+function bindKCp(keyn,kc){
+	var tgt=$("[name="+keyn+"]")
+	tgt.attr("keycode",kc)
+
+	bind_dialog.dialog("close")
+
+	setchange=kc
+
+	awaiting_key=false
+	awaiting_single=false
+}
 function bindKC(keyn,kc){
 	var binds=bind_tgt.attr("bindings")
 	var bindo=JSON.parse(binds)
@@ -243,6 +255,35 @@ function bindDialog(kn){
 }
 
 function initCFG(){
+	$("[singlekey]").each(function(){
+		var el=$(this)
+		var n=el.attr("key")
+		var tgt=el.attr("for")
+		var te=$("#"+tgt)
+		var binding=el.attr("keycode")
+		var name=el.attr("name")
+
+		var label=$("<label />",{
+			"for":"bindkey_"+name
+		})
+		label.html(name)
+		
+		var btn=$("<input />",{
+			type:"button",
+			value:"bind",
+			name:"bindkey_"+name,
+			"class":"bind"
+		})
+
+		btn.click(function(){
+			bind_tgt=te
+			awaiting_single=name
+			bindDialog(n)
+		})
+
+		el.append(label)
+		el.append(btn)
+	})
 	$("[key]").each(function(){
 		var el=$(this)
 		var n=el.attr("key")
@@ -306,8 +347,9 @@ function initBind(){
 		if(!awaiting_key) return
 		var kc=ev.which
 		console.log(kc)
-	
-		bindKC(bind_keyn,kc)
+
+		if(awaiting_single) bindKCp(awaiting_single,kc)
+		else bindKC(bind_keyn,kc)
 		
 		if(ev) ev.preventDefault()
 	})
