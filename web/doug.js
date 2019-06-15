@@ -29,6 +29,11 @@ function __v_to_color(v){
 //	console.log( c.toRGB(true))
 	return c.toRGB(true)
 }
+// Toggle fullscreen, takes DOM element as argument
+function toggleFullscreen(el){
+		  if(document.fullscreen) document.exitFullscreen()
+		  else el.requestFullscreen()
+}
 
 // an element with tag doug-map with for linked to  id
 // will be set up as a keymap for the bindings
@@ -418,6 +423,9 @@ $(document).ready(function(){
 
 	// bind menu
 	$(".conf").click(showCFG)
+	$(".fs").click(function(){
+		toggleFullscreen($("#fswrap")[0])
+	})
 
 //	showCFG()
 })
