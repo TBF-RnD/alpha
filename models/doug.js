@@ -26,6 +26,9 @@ Doug.prototype.genMaps=function(){
 Doug.prototype.nextmap=function(){
 	this.cmap=(++this.cmap)%this.maps.length
 }
+Doug.prototype.setmap=function(n){
+	this.cmap=n
+}
 
 function Doug(current,options){
 	if(typeof(current)=="undefined") current=""

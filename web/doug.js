@@ -95,6 +95,9 @@ function initDoug(){
 		var el=$(this)
 		var binds=$(this).attr("bindings")
 		var setchange=$(this).attr("bind_setchange")
+		var uselower=$(this).attr("bind_uselower")
+		var useupper=$(this).attr("bind_useupper")
+		var usespec=$(this).attr("bind_usespec")
 		var dict_url=$(this).attr("dict")
 //		var dict_url=$(this).attr("dict")
 		var zmap=$(this).is("[z-map]")
@@ -189,7 +192,31 @@ function initDoug(){
 		})
 
 		el.keydown(function(ev){ 
+			// FIXME slow
+			var setchange=el.attr("bind_setchange")
+			var uselower=el.attr("bind_uselower")
+			var useupper=el.attr("bind_useupper")
+			var usespec=el.attr("bind_usespec")
 			var kc=ev.which
+			// FIXME uggly
+			if(kc==useupper){
+				dougo.setmap(1)
+				setupmap(dougo,el)
+				ev.preventDefault()
+				return
+			}
+			if(kc==uselower){
+				dougo.setmap(0)
+				setupmap(dougo,el)
+				ev.preventDefault()
+				return
+			}
+			if(kc==usespec){
+				dougo.setmap(2)
+				setupmap(dougo,el)
+				ev.preventDefault()
+				return
+			}
 			// Switch set
 			if(kc==setchange){
 				dougo.nextmap()
@@ -220,10 +247,13 @@ function initDoug(){
 function bindKCp(keyn,kc){
 	var tgt=$("[name="+keyn+"]")
 	tgt.attr("keycode",kc)
+	bind_tgt.attr("bind_"+keyn,kc)
 
 	bind_dialog.dialog("close")
-
-	setchange=kc
+	console.log("jfjdj")
+	console.log(bind_tgt)
+	console.log(keyn)
+	console.log(kc)
 
 	awaiting_key=false
 	awaiting_single=false

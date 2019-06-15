@@ -53,7 +53,12 @@
 		5 - A - 65
 	  	-->
 		<div id="editwrap">
-		<textarea id="edit" z-map dict="ws://localhost:22357" doug bind_setchange="9" bindings="[32,70,68,83,65]" cols="80" rows="5">Engl</textarea> 
+		<textarea id="edit" z-map dict="ws://localhost:22357" doug 
+			bind_setchange="9" 
+			bind_uselower="72" 
+			bind_useupper="74" 
+			bind_usespec="75" 
+			bindings="[32,70,68,83,65]" cols="80" rows="5">Engl</textarea> 
 		</div>/
 		<!-- will show keymap!  -->
 		<div id="map" doug-map for="edit"> </div>
@@ -64,7 +69,11 @@
 				<label for="zmap">Recursive Z-order:</label>
 				<input type="checkbox" name="zmap" checked="checked" />
 				<hr/>
-				<div keycode="9" singlekey name="setchange"></div>
+				<div keycode="9" singlekey class="key odd" for="edit" name="setchange"></div>
+				<div keycode="72" singlekey class="key even" for="edit" name="uselower"></div>
+				<div keycode="74" singlekey class="key odd" for="edit" name="useupper"></div>
+				<div keycode="75" singlekey class="key even" for="edit" name="usespec"></div>
+
 				<hr/>
 				<div for="edit" key="1" class="key odd"></div>
 				<div for="edit" key="2" class="key even"></div>
