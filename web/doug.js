@@ -11,10 +11,24 @@ function __v_to_fontsize(v,s,e){
 	var sp=typeof(s)=="undefined"?12:s
 	var ep=typeof(e)=="undefined"?42:e
 	var r=ep-sp
-	var v0=v
+	var v0=v*3
 	if(v0>r) v0=r
 	if(v0<0) v0=0
 	return v0+sp
+}
+
+function __v_to_color(v){
+	// #fecc00
+	var c=new Color(254,204,0)
+	console.log(v)
+	var r=1.0-c.y
+	var v0=v/40
+	if(v0>r) v0=r
+//	if(v0<0) v0=0
+	c.y+=v0
+	console.log(c)
+//	console.log( c.toRGB(true))
+	return c.toRGB(true)
 }
 
 // an element with tag doug-map with for linked to  id
@@ -41,11 +55,13 @@ function setupmap(dougo,el){
 		var row=$("<div  />",{class:"row"
 			})
 		for(var x0=0;x0<krow.length;x0++){
-			var fs0=__v_to_fontsize(kmap[y0][x0].v,ch0/3,ch0)
-			var fs1=__v_to_fontsize(kmap[y0][x0].v,ch1/3,ch1)
+			var fs0=__v_to_fontsize(kmap[y0][x0].v,ch0/5,ch0)
+			var fs1=__v_to_fontsize(kmap[y0][x0].v,ch1/5,ch1)
+			var c=__v_to_color(kmap[y0][x0].v)
 			var col=$("<div />",
 				{class:"col",
-					style:"width:"+cw+";height:"+ch+"px"
+					style:"width:"+cw+";height:"+ch+"px;"
+					+"color:"+c
 				})
 
 			var str=$("<span />",{ class:"str" })
@@ -397,5 +413,5 @@ $(document).ready(function(){
 	// bind menu
 	$(".conf").click(showCFG)
 
-	showCFG()
+//	showCFG()
 })
