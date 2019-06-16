@@ -86,8 +86,11 @@ function setupmap(dougo,el){
 			bmap.css("font-size",fs1+"px")
 			bmap.css("line-height",ch1+"px")
 			bmap.css("height",ch1+"px")
+			
 
-			str.html(kmap[y0][x0].s)
+			var s0=kmap[y0][x0].s
+			if(s0==" ") s0="&nbsp;"
+			str.html(s0)
 //			hyph.html("&#45")
 			var chords=""
 			for(var k in kmap[y0][x0].ba){
@@ -239,18 +242,21 @@ function initDoug(){
 			if(kc==useupper){
 				dougo.setmap(1)
 				setupmap(dougo,el)
+				updatemap()
 				ev.preventDefault()
 				return
 			}
 			if(kc==uselower){
 				dougo.setmap(0)
 				setupmap(dougo,el)
+				updatemap()
 				ev.preventDefault()
 				return
 			}
 			if(kc==usespec){
 				dougo.setmap(2)
 				setupmap(dougo,el)
+				updatemap()
 				ev.preventDefault()
 				return
 			}
@@ -258,6 +264,7 @@ function initDoug(){
 			if(kc==setchange){
 				dougo.nextmap()
 				setupmap(dougo,el)
+				updatemap()
 				ev.preventDefault()
 				return
 			}
@@ -417,7 +424,7 @@ function initBind(){
 	})
 }
 
-mobileConsole.init()
+//mobileConsole.init()
 $(document).ready(function(){
 //	mobileConsole.toggle()
 	initDoug()	

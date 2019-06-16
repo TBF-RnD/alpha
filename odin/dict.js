@@ -178,7 +178,7 @@ Dict.prototype.addSymbol=function(symbol){
 //  TODO
 // - Add as option!!
 Dict.prototype.autoAdjustExpk=function(){
-	this.expk=this.getAlphabet().length
+	this.expk=this.getAlphabet().length*2
 }
 
 // Return alphabet as array
