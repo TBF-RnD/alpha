@@ -19,3 +19,5 @@ npm installs
 session management?
 command line interface is insane expect change
 graph based - preserve data on  links  - give weigts according to distance
+make it possible for serve and other commands to distinguish between dict and lib json files
+really cleanup switches

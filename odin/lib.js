@@ -59,7 +59,7 @@ Library.prototype.predict=function(string_in,max_n){
 	for(var k in this.dicts){
 		var  dict=this.dicts[k]
 //		console.log("Looking at:  " +k)
-		var sub=dict.d.predict(string_in)
+		var sub=dict.d.predict(string_in,max_n)
 		console.log("weight:  "+dict.w)
 		for(var  k in sub.m){
 //			console.log(k+"/"+sub[k])
