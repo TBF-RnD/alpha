@@ -107,7 +107,6 @@ function __bittoarray(a){
 }
 
 Doug.prototype.onAsyncUpdate=function(resp){
-//	console.log("gotAsyncUpdate")	
 	if(typeof(this.async_cback)=="function")
 		this.async_cback(resp)
 }

@@ -1,0 +1,82 @@
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<!--  External  -->
+		<script type="text/javascript" src="ext/hnl.mobileConsole.js"></script>
+		<script type="text/javascript" src="ext/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="ext/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="ext/jquery.selection.js"></script>
+		<script type="text/javascript" src="ext/textarea-caret-position.js"></script>
+
+		<!-- Statistical data -->
+		<!--
+		<script type="text/javascript"> profiles=[] </script>
+		<script src="../corpus/wikisample/lib.js" type="text/javascript"></script>
+		-->
+
+		<!--  Internal  -->
+		<script src="odin/dict.js" type="text/javascript"></script>
+		<script src="morse.js" type="text/javascript"></script>
+		<script src="client.js" type="text/javascript"></script>
+		<script src="color.js" type="text/javascript"></script>
+		<script src="models/morse.js" type="text/javascript"></script>
+<!--
+		<script src="sympred.js" type="text/javascript"></script>
+	TODO   implement  later
+		<script src="../odin/lib.js" type="text/javascript"></script>
+		<script src="../models/doug.js" type="text/javascript"></script>
+-->
+		
+		<!--  Styling  -->
+		<link rel="stylesheet" type="text/css" href="ext/jquery-ui-themes-1.12.1/themes/base/jquery-ui.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="general.css"></link>
+		<link rel="stylesheet" type="text/css" href="morse.css"></link>
+		<link rel="stylesheet" type="text/css" href="models/morse.css"></link>
+	</head>
+	<body>
+		<div id="fswrap">
+		<div id="menu">
+			<a href="#" class="fs">Fullscreen</a>
+			<span>&middot;</span>
+			<a href="#" class="conf">Configure</a>
+			<span>&middot;</span>
+			<a href="http://tbf-rnd.life" target="_blank" class="about">About</a>
+
+		</div>
+		<div id="suggest" class="suggest"></div>
+		<div id="editwrap">
+			<textarea id="edit" dict="ws://localhost:22357"  morse
+				bind-keycode="72">
+Hello morse
+</textarea> 
+		</div>
+		<!-- will show keymap!  -->
+		<div id="map" morse-map for="edit"> </div>
+		<div style="display:none">
+			<div id="cfg">
+				<h3>Configure Settings</h3>
+				<hr/>
+				<label for="zmap">Recursive Z-order:</label>
+				<input type="checkbox" name="zmap" checked="checked" />
+				<hr/>
+				<div keycode="9" singlekey class="key odd" for="edit" name="setchange"></div>
+				<div keycode="72" singlekey class="key even" for="edit" name="uselower"></div>
+				<div keycode="74" singlekey class="key odd" for="edit" name="useupper"></div>
+				<div keycode="75" singlekey class="key even" for="edit" name="usespec"></div>
+
+				<hr/>
+				<div for="edit" key="1" class="key odd"></div>
+				<div for="edit" key="2" class="key even"></div>
+				<div for="edit" key="3" class="key odd"></div>
+				<div for="edit" key="4" class="key even"></div>
+				<div for="edit" key="5" class="key odd"></div>
+				<hr/>
+				
+
+
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
