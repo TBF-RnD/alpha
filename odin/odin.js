@@ -385,6 +385,11 @@ if(
 	var pathname=process.env.ODIN_PATH
 
 	switch(cmd){
+		case "morse":
+			serving=true
+			model="morse"
+			servedict(pathname,port)
+			break;
 		case "doug":
 			serving=true
 			model="doug"
@@ -406,6 +411,15 @@ options.m=m
 console.log("Alive")
 
 switch(cmd){
+	case "morse":
+		serving=true
+		model="morse"
+		if(argc<1){
+			console.error("To few arguments")
+			process.exit(1)
+		}
+		servedict(argv[0],port)
+		break;
 	case "doug":
 		serving=true
 		model="doug"
