@@ -5,15 +5,15 @@ Analyze text files to generate PPM like data usable for text prediction on a sym
 ## Usage
 Use the engine to generate a json formated output on a single  file.
 ```
-node single odin.js <INPUT> <OUTPUT>.json
+node odin.js single <INPUT> <OUTPUT>.json
 ```
 Can also be used to generate a markdown table representation:
 ```
-node single odin.js <INPUT> <OUTPUT>.json
+node odin.js single <INPUT> <OUTPUT>.json
 ```
 When you have json files containing dictionaries these can be combined into a library. 
 ```
-node compile odin.js <OUT> <input 0>.json  <input 1>.json ... <input 2>.json
+node odin.js compile <OUT> <input 0>.json  <input 1>.json ... <input 2>.json
 ```
 While compiling they are simply packed together and the data is not merged. As such the filesize of the library will be approximately the sum of the input files. 
 
@@ -28,7 +28,7 @@ We get the following results. The data is hardly useful for anything  except for
 
 ## Switches 
 ```
-node --combination single in.txt out.json
+node odin.js --combination single in.txt out.json
 ```
 So with a combination the order of the previous string doesn't  matter whereas by default i.e. using a permutation the order does matter.  Turned out to be a really badidea, you are probably much better off using permutations. 
 
@@ -100,6 +100,17 @@ mkswap  swap
 swapon swap
 ```
 Adds an insane amount of swap to your OS. Change count in   the dd command to something that suits your purposes.   
+
+### Run as a server hosting files
+To run oeim as a http server that hosts js files for a model and also provides the model with predictioms over websocket:
+```
+node odin.js doug ../corpus/wikisample/en.json
+```
+For five fingered chord example, will tuen up at http://localhost:22357
+```
+node odin.js doug ../corpus/wikisample/en.json
+```
+For morse demo same host and port as previous example.
 
 ##  Requirements
 npm install websocket
