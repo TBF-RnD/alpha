@@ -106,9 +106,9 @@ To run oeim as a http server that hosts js files for a model and also provides t
 ```
 node odin.js doug ../corpus/wikisample/en.json
 ```
-For five fingered chord example, will tuen up at http://localhost:22357
+For five fingered chord example, will turn up at http://localhost:22357
 ```
-node odin.js doug ../corpus/wikisample/en.json
+node odin.js morse ../corpus/wikisample/en.json
 ```
 For morse demo same host and port as previous example.
 
