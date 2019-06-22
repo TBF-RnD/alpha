@@ -17,9 +17,11 @@
 
 		<!--  Internal  -->
 		<script src="odin/dict.js" type="text/javascript"></script>
-		<script src="morse.js" type="text/javascript"></script>
+		<script src="conf.js" type="text/javascript"></script>
+		<script src="helpers.js" type="text/javascript"></script>
 		<script src="client.js" type="text/javascript"></script>
 		<script src="color.js" type="text/javascript"></script>
+		<script src="morse.js" type="text/javascript"></script>
 		<script src="models/morse.js" type="text/javascript"></script>
 <!--
 		<script src="sympred.js" type="text/javascript"></script>
@@ -53,6 +55,14 @@ Hello morse
 		</div>
 		<!-- will show keymap!  -->
 		<div id="map" morse-map for="edit"> </div>
+		<div id="ctrls">
+			<div id="ctrl-dual">
+				<div morse-inp value="." di for="edit" class="di morsebtn">&bull;</div>
+				<div morse-inp value="-" dah for="edit" class="dah morsebtn">-</div>
+			</div>
+			<div id="ctrl-timing">
+			</div>
+		</div>
 		<div style="display:none">
 			<div id="cfg">
 				<h3>Configure Settings</h3>
@@ -72,9 +82,6 @@ Hello morse
 				<div for="edit" key="4" class="key even"></div>
 				<div for="edit" key="5" class="key odd"></div>
 				<hr/>
-				
-
-
 			</div>
 		</div>
 		</div>

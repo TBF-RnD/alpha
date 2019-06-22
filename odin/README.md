@@ -102,7 +102,7 @@ swapon swap
 Adds an insane amount of swap to your OS. Change count in   the dd command to something that suits your purposes.   
 
 ### Run as a server hosting files
-To run oeim as a http server that hosts js files for a model and also provides the model with predictioms over websocket:
+To run odin as a http server that hosts js files for a model and also provides the model with predictioms over websocket:
 ```
 node odin.js doug ../corpus/wikisample/en.json
 ```
