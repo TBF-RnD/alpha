@@ -43,6 +43,7 @@ function toggleFullscreen(el){
 // an element with tag doug-map with for linked to  id
 // will be set up as a keymap for the bindings
 function setupmap(dougo,el){
+	// FIXME!
 	var map=$("[doug-map][for='edit']")
 	map.html("")
 	if(map.length<1) return
@@ -116,6 +117,7 @@ function setupmap(dougo,el){
 }
 
 // TODO might be useful elsewhere
+// 	- movw to helpers
 function __focus(el){
 	el.focus()
 	var p=el.val().length
@@ -385,6 +387,7 @@ function initCFG(){
 	})
 }
 
+// move ro conf.js
 function showCFG(ev){
 	var cfg=$("#cfg")
 
@@ -424,9 +427,9 @@ function initBind(){
 	})
 }
 
-//mobileConsole.init()
+mobileConsole.init()
 $(document).ready(function(){
-//	mobileConsole.toggle()
+	mobileConsole.toggle()
 	initDoug()	
 
 	initCFG()
