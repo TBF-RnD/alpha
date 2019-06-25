@@ -26,7 +26,7 @@ var mdfmt=require('./fmt_md')
 
 //  TODO add as switches
 var degree=3
-var port=22357
+var port=22375
 
 //  State
 var serving=false
