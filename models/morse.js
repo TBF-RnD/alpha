@@ -1,3 +1,12 @@
+var defaults={
+	delay: 250,
+	zmap: false,
+	tshort: 1,
+	tlong: 3,
+	tint: 1,
+	tgrpsep: 7,
+	dual_timeout: 250,
+}
 // FIXME add abbrivations and so forth...
 // 	- not global
 // 	- allow for several
@@ -23,6 +32,30 @@ var table=[{c:".-",s:"A"}, {c:"-...",s:"B"}, {c:"-.-.",s:"C"},
 {c:"----",s:"Ch"}, {c:"..-..",s:"&eacute;"}, {c:"--.--",s:"&ntilde;"},
 {c:"---.",s:"&ouml;"}, {c:"..--",s:"&uuml;"}]
 
+Morse.prototype.feedDual=function(s){
+	this.cword+=s
+
+	t64=this
+	if(this.state=="group") clearTimeout(this.dual_to)
+	this.state="group"
+	var selfref=this
+	this.dual_to=setTimeout(function(){
+		console.log("G-time is up")
+		// rename to group?
+		var inp=selfref.cword
+		var sym=false
+		
+		if(typeof(selfref.table[inp])!="undefined") 
+			sym=selfref.table[inp]
+		selfref.cword=""
+		selfref.state="waiting"
+		
+		if(typeof(selfref.onword)!="function") return
+
+		selfref.onword(sym)
+	},this.dual_timeout)
+}
+
 // FIXME dead
 Morse.prototype.tableSort=function(){
 	var ret=[]
@@ -33,10 +66,6 @@ Morse.prototype.tableSort=function(){
 	return ret
 }
 
-var defaults={
-	delay: 250,
-	zmap: false
-}
 // Recursive Z-map useful since the distances between
 // alphabetically close symbols become close measured
 // as a 2d  distance as well. 
@@ -76,6 +105,15 @@ Morse.prototype.setDict=function(dicto){
 	}
 }
 
+Morse.prototype.mapTable=function(table){
+	var ret=[]
+	for(var i=0;i<table.length;i++){
+		var c=table[i]
+		ret[c.c]=c.s
+	}
+	return ret
+}
+
 // FIXME overlaps with doug model, create parent object
 function Morse(current,options){
 	if(typeof(current)=="undefined") current=""
@@ -89,9 +127,12 @@ function Morse(current,options){
 		else this[k]=defaults[k]
 	}
 	// Morse specific
-	this.table=table
+	this.table=this.mapTable(table)
 	this.tableSorted=table
+
+	this.cword=''
 }
+
 // FIXME copied from doug
 Morse.prototype.getmap=function(back_string,pred_res){
 //	console.log("Querying server for "+back_string)

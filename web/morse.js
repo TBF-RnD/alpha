@@ -29,22 +29,27 @@ function __v_to_fontweight(v){
 }
 // Toggle fullscreen, takes DOM element as argument
 function toggleFullscreen(el){
-		  if(document.fullscreen) document.exitFullscreen()
-		  else el.requestFullscreen()
+	if(document.fullscreen) document.exitFullscreen()
+	else el.requestFullscreen()
 }
-function setupInpBtns(el){
+function setupInpBtns(el,morseo){
 	var id=el.attr("id")
 	var inps=$("[morse-inp][for='"+id+"'")
+	var mref=morseo
 
 	inps.click(function(ev){
 		var s=$(this).attr("value")
 		console.log(s)
+
+		t72=mref
+		mref.feedDual(s)
 		
 		ev.preventDefault()
 	})
 	inps.on('touchend',function(ev){
 		var s=$(this).attr("value")
 		console.log(s)
+		mref.feedDual(s)
 		ev.preventDefault()
 	})
 }
@@ -142,6 +147,33 @@ function initMorse(){
 //			setupmap(morseo,el)
 		})
 
+		// use this for all callbacks
+		morseo.onword=function(sym){
+			if(!sym) console.error("beeep")
+			else console.log(sym)
+			// FIXME overlaps doug in web
+			var pos=el.selection('getPos')
+			
+			// dupl from mod  sympred
+			p0=pos.start
+			p1=pos.end
+			d=el.val()
+
+			var head=d.substr(0,p0)
+			var tail=d.substr(p1)
+
+			current=head+sym+tail
+			// update the map
+//			var map=dougo.getmap(head+s)
+			console.log("Direct")
+
+			//  update internal state of model
+//			dougo.setcontent(current)
+
+			// update HTML
+			el.val(current)
+		}
+
 		// set focus
 		// TODO reenable?
 //		__focus(el)
@@ -150,7 +182,7 @@ function initMorse(){
 //		setupmap(morseo,el)
 
 		// setup input buttons
-		setupInpBtns(el)
+		setupInpBtns(el,morseo)
 
 		var  map=morseo.getmap(el.val())
 		setupmap(morseo,el)
