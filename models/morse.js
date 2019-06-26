@@ -32,6 +32,26 @@ var table=[{c:".-",s:"A"}, {c:"-...",s:"B"}, {c:"-.-.",s:"C"},
 {c:"----",s:"Ch"}, {c:"..-..",s:"&eacute;"}, {c:"--.--",s:"&ntilde;"},
 {c:"---.",s:"&ouml;"}, {c:"..--",s:"&uuml;"}]
 
+// dupl. mod doug
+function __get_score_value(pred_res,sym){
+	if(typeof(pred_res)=="undefined"){
+		return 1
+	}
+	var v
+	for(var k in pred_res.m){
+		var c=pred_res.m[k]
+		if(c.s!=sym) continue
+
+		if (c.f<Math.E) v=1
+		else v=Math.log(c.f)
+
+		if(v>42) return 42
+
+		return  v
+	}
+	return 1
+}
+
 Morse.prototype.feedDual=function(s){
 	this.cword+=s
 
@@ -137,11 +157,9 @@ function Morse(current,options){
 Morse.prototype.getmap=function(back_string,pred_res){
 //	console.log("Querying server for "+back_string)
 	var res=false
-	/*
 	if(typeof(pred_res)=="undefined")
-		res=this.dict.predict(back_string.substr(-7))
+		res=this.dict.predict(back_string.toLowerCase().substr(-7))
 	else res=pred_res
-	*/
 
 	var x0=0
 	var y0=0
@@ -169,12 +187,8 @@ Morse.prototype.getmap=function(back_string,pred_res){
 			y0=Math.floor(i/rows)
 		}
 
-		console.log(this.zmap)
-		console.log(x0+","+y0)
-
 		map[y0][x0]={s:sym,c:code}
-// FIXME reenable
-//		map[y0][x0].v=__get_score_value(res,s)
+		map[y0][x0].v=__get_score_value(res,sym)
 	}
 	return map
 }

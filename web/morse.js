@@ -58,13 +58,13 @@ function setupInpBtns(el,morseo){
 // FIXME
 // - over;laps doug
 // - multiple maps
-function setupmap(dougo,el){
+function setupmap(morseo,el){
 	var id=el.attr("id")
 	var map=$("[morse-map][for='"+id+"']")
 	if(map.length<1) return
 	map.html("")
 
-	var kmap=dougo.getmap(el.val())
+	var kmap=morseo.getmap(el.val())
 	var rows=kmap.length
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
@@ -74,6 +74,8 @@ function setupmap(dougo,el){
 	var ch1=ch/5
 
 	console.log("rows:"+rows)
+
+	t32=kmap
 
 	for(var y0=0;y0<kmap.length;y0++){
 		var krow=kmap[y0]
@@ -136,15 +138,13 @@ function initMorse(){
 
 		// as soon as we're connected query for symbol probability scores
 		cli.setonconnect(function(){
-//			var map=morseo.getmap(el.val())
 			console.log("async")
-//			setupmap(morseo,el)
+			setupmap(morseo,el)
 		})
 		// on async response from server update map
 		morseo.setOnAsync(function(resp){
-//			var map=morseo.getmap(resp.q,resp)
 			console.log("async")
-//			setupmap(morseo,el)
+			setupmap(morseo,el)
 		})
 
 		// use this for all callbacks
@@ -172,6 +172,7 @@ function initMorse(){
 
 			// update HTML
 			el.val(current)
+			setupmap(morseo,el)
 		}
 
 		// set focus
