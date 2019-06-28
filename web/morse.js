@@ -32,6 +32,35 @@ function toggleFullscreen(el){
 	if(document.fullscreen) document.exitFullscreen()
 	else el.requestFullscreen()
 }
+function setupKeyBinds(el,morseo){
+	var mref=morseo
+	el.keydown(function(ev){
+		var kc=ev.which
+		// FIXMEinefficient to grab at every keypress...
+		
+		// For dual mode
+		var di=el.attr("bind-di")
+		var da=el.attr("bind-da")
+		// For single key mode 
+		var de=el.attr("bind-keycode")
+
+		if(kc==di){
+			console.log("di")
+			mref.feedDual(".")
+			setupmap(morseo,el)
+
+
+			ev.preventDefault()
+		}
+		if(kc==da){
+			console.log("dah")
+			mref.feedDual("-")
+			setupmap(morseo,el)
+
+			ev.preventDefault()
+		}
+	})
+}
 function setupInpBtns(el,morseo){
 	var id=el.attr("id")
 	var inps=$("[morse-inp][for='"+id+"'")
@@ -73,6 +102,7 @@ function setupmap(morseo,el){
 	var ch0=3*ch/5
 	var ch1=ch/5
 
+	console.log("el height: "+el.height())
 	console.log("rows:"+rows)
 
 	t32=kmap
@@ -177,13 +207,15 @@ function initMorse(){
 
 		// set focus
 		// TODO reenable?
-//		__focus(el)
+		//  	- add option, should not be enabled on touch!
+		__focus(el)
 
 		// setup map
 //		setupmap(morseo,el)
 
 		// setup input buttons
 		setupInpBtns(el,morseo)
+		setupKeyBinds(el,morseo)
 
 		var  map=morseo.getmap(el.val())
 		setupmap(morseo,el)
@@ -192,7 +224,7 @@ function initMorse(){
 
 }
 
-mobileConsole.init()
+//mobileConsole.init()
 $(document).ready(function(){
 //	mobileConsole.toggle()
 

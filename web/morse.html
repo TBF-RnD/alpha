@@ -48,7 +48,13 @@
 		</div>
 		<div id="suggest" class="suggest"></div>
 		<div id="editwrap">
-			<textarea id="edit" z-map dict="ws://localhost:22375"  morse
+			<!-- 
+	   			di and da for dual key mode 
+				keycode for single key mode, not implemented yet
+			-->
+			<textarea id="edit" z-map dict="ws://34.238.155.36:22375"  morse
+				bind-di="190"
+   				bind-da="189"
 				bind-keycode="72">
 Hello morse
 </textarea> 
@@ -56,10 +62,12 @@ Hello morse
 		<!-- will show keymap!  -->
 		<div id="map" morse-map for="edit"> </div>
 		<div id="ctrls">
+			<!--
 			<div id="ctrl-dual">
 				<div morse-inp value="." di for="edit" class="di morsebtn">&bull;</div>
 				<div morse-inp value="-" dah for="edit" class="dah morsebtn">-</div>
 			</div>
+			-->
 			<div id="ctrl-timing">
 			</div>
 		</div>
