@@ -53,8 +53,8 @@ function setupmap(dougo,el){
 	var rows=kmap.length
 	var cols=kmap[0].length
 	var cw=Math.floor(100/cols)+"%"
-	var ch=el.height()/rows
-	var cw=(Math.floor(el.width()/cols)-2)+"px"
+	var ch=map.height()/rows
+	var cw=(Math.floor(map.width()/cols)-2)+"px"
 	var ch0=3*ch/5
 	var ch1=ch/5
 
