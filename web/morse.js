@@ -1,3 +1,61 @@
+// todo move to editor class
+function backspace(morseo,el){
+	// FIXME overlaps doug in web
+	var pos=el.selection('getPos')
+	
+	// dupl from mod  sympred
+	p0=pos.start
+	p1=pos.end
+	d=el.val()
+
+	console.log(pos)
+	// for tablet??
+	if(p0==p1 && p0==0) p0=p1=el.length
+
+	if(p0==p1) p0=p0-1
+	var head=d.substr(0,p0)
+	var tail=d.substr(p1)
+	var current=""
+
+	current=head+tail
+	// update the map
+	var map=morseo.getmap(head)
+	console.log("Direct")
+
+	//  update internal state of model
+//	morseo.setcontent(current)
+
+	// update HTML
+	el.val(current)
+	setupmap(morseo,el)
+}
+function insert(morseo,el,sym){
+	if(!sym) return
+	else console.log(sym)
+	// FIXME overlaps doug in web
+	var pos=el.selection('getPos')
+	
+	// dupl from mod  sympred
+	p0=pos.start
+	p1=pos.end
+	d=el.val()
+
+	var head=d.substr(0,p0)
+	var tail=d.substr(p1)
+
+	current=head+sym+tail
+	// update the map
+	var map=morseo.getmap(head+sym)
+	console.log("Direct")
+
+	//  update internal state of model
+//	morseo.setcontent(current)
+
+	// update HTML
+	el.val(current)
+	setupmap(morseo,el)
+}
+
 // TODO make sizes configurable also change doug.css
 // returns range [12,42]
 function __v_to_fontsize(v,s,e){
@@ -75,7 +133,18 @@ function setupInpBtns(el,morseo){
 		
 		ev.preventDefault()
 	})
+	// handle touch input
 	inps.on('touchend',function(ev){
+		if($(this).is("[delete]")){
+			backspace(mref,el)
+			return
+		}
+		if($(this).is("[space]")){
+			insert(mref,el," ")
+			return
+		}
+		
+		// s is either . or -, set in doug.html
 		var s=$(this).attr("value")
 		console.log(s)
 		mref.feedDual(s)
@@ -179,7 +248,7 @@ function initMorse(){
 
 		// use this for all callbacks
 		morseo.onword=function(sym){
-			if(!sym) console.error("beeep")
+			if(!sym) return
 			else console.log(sym)
 			// FIXME overlaps doug in web
 			var pos=el.selection('getPos')

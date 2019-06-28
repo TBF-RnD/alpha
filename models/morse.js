@@ -1,11 +1,11 @@
 var defaults={
-	delay: 250,
+	delay: 750,
 	zmap: false,
 	tshort: 1,
 	tlong: 3,
 	tint: 1,
 	tgrpsep: 7,
-	dual_timeout: 250,
+	dual_timeout: 750,
 }
 // FIXME add abbrivations and so forth...
 // 	- not global
@@ -19,7 +19,7 @@ var table=[{c:".-",s:"A"}, {c:"-...",s:"B"}, {c:"-.-.",s:"C"},
 {c:".--.",s:"P"}, {c:"--.-",s:"Q"}, {c:".-.",s:"R"},
 {c:"...",s:"S"}, {c:"-",s:"T"}, {c:"..-",s:"U"},
 {c:"...-",s:"V"}, {c:".--",s:"W"}, {c:"-..-",s:"X"},
-{c:"-.--",s:"Y"}, {c:"-..",s:"Z"}, {c:"-----",s:"0"},
+{c:"-.--",s:"Y"}, {c:"--..",s:"Z"}, {c:"-----",s:"0"},
 {c:".----",s:"1"}, {c:"..---",s:"2"}, {c:"...--",s:"3"},
 {c:"....-",s:"4"}, {c:".....",s:"5"}, {c:"-....",s:"6"},
 {c:"--...",s:"7"}, {c:"---..",s:"8"}, {c:"----.",s:"9"},
@@ -56,7 +56,8 @@ Morse.prototype.feedDual=function(s){
 	this.cword+=s
 
 	t64=this
-	if(this.state=="group") clearTimeout(this.dual_to)
+//	if(this.state=="group") clearTimeout(this.dual_to)
+	if(this.state=="group") return
 	this.state="group"
 	var selfref=this
 	this.dual_to=setTimeout(function(){
